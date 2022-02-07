@@ -12,12 +12,12 @@ export default function ButtonAddSpirograph(props) {
         onClick={(event) =>
           props.addSpirograph({
             id: idUUID,
-            spirographName: idUUID,
+            spirographName: 'Poster:  ' + idUUID,
             xW1: 220,
             yW1: 220,
             r: 120,
-            w1Teeth: 104,
-            w2Teeth: 60,
+            w1Teeth: 220,
+            w2Teeth: 160,
             penPosition: 0.5,
             showOuterWheel: 'true',
             showInnerWheel: 'true',

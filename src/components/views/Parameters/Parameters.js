@@ -19,13 +19,13 @@ class Parameters extends Component {
   //   this.props.setR(parameterId, r);
   // }
 
-  // _onChangeW1Teeth(w1Teeth, parameterId) {
-  //   this.props.setW1Teeth(parameterId, w1Teeth);
-  // }
+  _onChangeW1Teeth(w1Teeth, parameterId) {
+    this.props.setW1Teeth(parameterId, w1Teeth);
+  }
 
-  // _onChangeW2Teeth(w2Teeth, parameterId) {
-  //   this.props.setW2Teeth(parameterId, w2Teeth);
-  // }
+  _onChangeW2Teeth(w2Teeth, parameterId) {
+    this.props.setW2Teeth(parameterId, w2Teeth);
+  }
 
   // _onChangePenPosition(penPosition, parameterId) {
   //   this.props.setPenPosition(parameterId, penPosition);
@@ -107,9 +107,9 @@ class Parameters extends Component {
                       this._onChangeR(e.target.value, parameter.id)
                     }
                   />
-                </p>
+                </p> */}
                 <p className={styles.parameterLabel}>
-                  Outer wheel teeth:{' '}
+                  Width:{' '}
                   <input
                     type='number'
                     value={parameter.w1Teeth}
@@ -119,7 +119,7 @@ class Parameters extends Component {
                   />
                 </p>
                 <p className={styles.parameterLabel}>
-                  Inner wheel teeth:{' '}
+                  Height:{' '}
                   <input
                     type='number'
                     value={parameter.w2Teeth}
@@ -128,7 +128,7 @@ class Parameters extends Component {
                     }
                   />
                 </p>
-                <p className={styles.parameterLabel}> */}
+                {/* <p className={styles.parameterLabel}> */}
                 {/* Pen position from center (0) to border (1) of inner wheel:{' '} */}
                 {/* Pen position:
                   <input
@@ -211,8 +211,8 @@ Parameters.propTypes = {
   setXW1: PropTypes.func,
   setYW1: PropTypes.func,
   // setR: PropTypes.func,
-  // setW1Teeth: PropTypes.func,
-  // setW2Teeth: PropTypes.func,
+  setW1Teeth: PropTypes.func,
+  setW2Teeth: PropTypes.func,
   // setPenPosition: PropTypes.func,
   // setShowOuterWheel: PropTypes.any,
   // setShowInnerWheel: PropTypes.any,

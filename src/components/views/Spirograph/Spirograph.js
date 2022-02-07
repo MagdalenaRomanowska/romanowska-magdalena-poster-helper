@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { vec2, mat3 } from 'gl-matrix';
-import { hex2rgb, rgb2hex } from '../../../utils/colors.js';
 import styles from './Spirograph.module.scss';
 
 export default function Spirograph(props) {
@@ -18,14 +17,13 @@ export default function Spirograph(props) {
     if (context === null) {
       return;
     } else {
-      //context.fillStyle = 'lightgrey';
       context.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       const img = document.getElementById('scream');
       context.drawImage(img,0,0);
     }
     props.parameters.forEach((parameter) => { 
       const sCP = calcSCP(parameter.xW1, parameter.yW1, parameter.r, parameter.w1Teeth, parameter.w2Teeth, parameter.penPosition);
-      drawSpirograph(
+      drawPoster(
         parameter.color,
         parameter.xW1,
         parameter.yW1,
@@ -41,60 +39,11 @@ export default function Spirograph(props) {
     });
   }
 
-  function drawSpirograph(color, xW1, yW1, r, w1Teeth, w2Teeth, penPosition, showOuterWheel, showInnerWheel, showPen, sCP) {
-    // let colorComponents = hex2rgb(color);
-    // context.strokeStyle = rgb2hex(
-    //   Math.floor(colorComponents[0]),
-    //   Math.floor(colorComponents[1]),
-    //   Math.floor(colorComponents[2])
-    // );
-
-    // context.beginPath();
-    // for (let t = 0; t < 2 * Math.PI; t += sCP.increase) {
-    //   const alpha = w2Teeth * t;
-    //   const beta = (w1Teeth - w2Teeth) * t;
-    //   const vec = calcPenPosition(alpha, beta, sCP);
-    //   context.lineTo(vec[0] + xW1, vec[1] + yW1);
-    // }
-    // context.stroke();
-
-    // context.beginPath();
-    // context.strokeStyle = 'rgba(0, 0, 0, 0)';
-    // if (showPen) {
-    //   context.strokeStyle = 'rgba(0, 0, 0, 1)';
-    // }
-    // const initialP = calcPenPosition(0, 0, sCP);
-    // context.ellipse(
-    //   initialP[0] + xW1,
-    //   initialP[1] + yW1,
-    //   2,
-    //   2,
-    //   Math.PI / 4,
-    //   0,
-    //   2 * Math.PI
-    // );
-    // context.stroke();
-
-    // context.beginPath();
-    // context.strokeStyle = 'rgba(0, 0, 0, 0)';
-    // if (showOuterWheel) {
-    //   context.strokeStyle = 'rgba(0, 0, 0, 1)';
-    // }
-    // context.ellipse(
-    //   sCP.O_w1c[0] + xW1,
-    //   sCP.O_w1c[1] + yW1,
-    //   r,
-    //   r,
-    //   Math.PI / 4,
-    //   0,
-    //   2 * Math.PI
-    // );
-    // context.stroke();
-
+  function drawPoster(color, xW1, yW1, r, w1Teeth, w2Teeth, penPosition, showOuterWheel, showInnerWheel, showPen, sCP) {
     context.beginPath();    
     const img = new Image();
     img.src = 'https://i.postimg.cc/cChyYPNt/fioletowe-jasniejsze.jpg';
-    context.drawImage(img,xW1,yW1);
+    context.drawImage(img,xW1,yW1, w1Teeth, w2Teeth);
     context.stroke();
   }
 
@@ -133,37 +82,12 @@ export default function Spirograph(props) {
     return sCP;
   }  
 
-  function calcPenPosition(alpha, beta, sCP) {
-    const vector = vec2.fromValues(sCP.w2c_p_length, 0);
-    mat3.identity(matrix);
-    mat3.translate(matrix, matrix, sCP.O_w1c);
-    mat3.scale(matrix, matrix, sCP.vecToScaleTheMatrixBy);
-    mat3.rotate(matrix, matrix, alpha);
-    mat3.translate(matrix, matrix, vec2.fromValues(sCP.w1c_w2c_length, 0));
-    mat3.rotate(matrix, matrix, -(beta + alpha));
-    vec2.transformMat3(vector, vector, matrix);
-    return vector;
+  function onMouseDown(event) {
+    console.log('mouse down ' + ' event.clientX: ' + event.clientX + ' event.clientY: ' + event.clientY);
   }
 
-  function calcInnerCircleCenter(alpha, sCP) {
-    const vector = vec2.fromValues(0, 0);
-    mat3.identity(matrix);
-    mat3.translate(matrix, matrix, sCP.O_w1c);
-    mat3.scale(matrix, matrix, sCP.vecToScaleTheMatrixBy);
-    mat3.rotate(matrix, matrix, alpha);
-    mat3.translate(matrix, matrix, vec2.fromValues(sCP.w1c_w2c_length, 0));
-    vec2.transformMat3(vector, vector, matrix);
-    return vector;
-  }
-
-  function onMouseMove(event) {
-    console.log('mouse move');
-    // if (pressed) {
-    //   setPosition({
-    //     xRed: positionRed.xRed + event.movementX / wallPhotoWidth,
-    //     yRed: positionRed.yRed + event.movementY / wallPhotoHeight,
-    //   });
-    // }
+  function onMouseUp(event) {
+    console.log('mouse up ' + ' event.clientX: ' + event.clientX + ' event.clientY: ' + event.clientY);
   }
 
   return (
@@ -176,12 +100,17 @@ export default function Spirograph(props) {
         src={'https://www.bergerpaints.com/blog/wp-content/uploads/2019/05/maintaining_interior_paint.png'}>
 
       </img>
-      <canvas
+      <canvas className={styles.canvas}
         ref={canvasRef}
         width={window.innerWidth / 2}
         height={Math.floor(window.innerHeight * 0.68)}
-        onMouseMove={onMouseMove}
-      ></canvas>
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+      >        
+      </canvas>
+      {/* <img className={styles.img2}
+        src={'https://i.postimg.cc/2yvsMt1r/tulipany76vh.jpg'}>
+      </img>  */}
     </div>
   );
 }
