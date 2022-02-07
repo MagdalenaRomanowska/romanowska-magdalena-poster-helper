@@ -1,0 +1,27 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  
+}
+
+.canva {
+  height: 70vh;
+  padding-top: 2vh;
+  background-color: white;
+  border: 1px solid black;
+  position: relative;
+}
+
+.listAndSpirograph {
+  display: inline-flex;
+} 
+
+.list {
+  width: 25vw;
+}
+
+.parameters {
+  position: absolute;
+ // left: 50%;
+  //transform: translate(-50%, 210%);
+}

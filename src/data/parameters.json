@@ -1,0 +1,17 @@
+[
+    {
+        "id": "01",
+        "spirographName": "spirograph01",
+        "xW1": 200,
+        "yW1": 200,
+        "r": 150,
+        "w1Teeth": 96,
+        "w2Teeth": 52,
+        "penPosition": 0.5,
+        "showOuterWheel": "true",
+        "showInnerWheel": "true",
+        "showPen": "true",
+        "color": "#ff0000",
+        "gamma": 0
+    }
+]

@@ -1,0 +1,57 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  display: inline-flex;
+}
+
+.selectBox {
+  min-width: 24vw;
+  width: fit-content;
+  height: 40px;
+  padding-left: 8px;
+  margin: 2vh 0 2vh 8px;
+  border-radius: 5px;
+}
+
+.selectBox2 {
+  width: 24vw;
+  height: 40px;
+  padding-left: 8px;
+  margin: 2vh 0 2vh 8px;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+.clickedSpirographName {
+  border: none;
+  resize: none;
+  min-width: 24vw;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 28px;
+}
+
+.clickedSpirographName:hover {
+  background-color: rgb(216, 216, 253);
+}
+
+.clickedSpirographName:active {
+  background-color: rgb(161, 161, 252);
+  border: none;
+}
+
+.parameters {
+  margin-left: 50vw;
+  min-width: 24vw;
+}

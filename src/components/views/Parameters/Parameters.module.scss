@@ -1,0 +1,35 @@
+@import "../../../styles/settings.scss";
+
+.App {
+  margin: 0;
+  text-align: center;
+}
+
+.tableLabel {
+  text-align: left;
+  padding-top: 12px;
+}
+
+.parameterLabel {
+  text-align: left;
+  word-wrap: break-word;
+}
+
+table {
+  width: 90%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+th {
+  text-align: left;
+}
+input {
+  width: 25%;
+  background-color: rgb(243, 243, 243);
+  float: right;
+  text-align: center;
+}
+
+h2 {
+  color: black;
+}
