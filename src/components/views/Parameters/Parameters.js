@@ -15,41 +15,41 @@ class Parameters extends Component {
     this.props.setYW1(parameterId, yW1);
   }
 
-  _onChangeR(r, parameterId) {
-    this.props.setR(parameterId, r);
-  }
+  // _onChangeR(r, parameterId) {
+  //   this.props.setR(parameterId, r);
+  // }
 
-  _onChangeW1Teeth(w1Teeth, parameterId) {
-    this.props.setW1Teeth(parameterId, w1Teeth);
-  }
+  // _onChangeW1Teeth(w1Teeth, parameterId) {
+  //   this.props.setW1Teeth(parameterId, w1Teeth);
+  // }
 
-  _onChangeW2Teeth(w2Teeth, parameterId) {
-    this.props.setW2Teeth(parameterId, w2Teeth);
-  }
+  // _onChangeW2Teeth(w2Teeth, parameterId) {
+  //   this.props.setW2Teeth(parameterId, w2Teeth);
+  // }
 
-  _onChangePenPosition(penPosition, parameterId) {
-    this.props.setPenPosition(parameterId, penPosition);
-  }
+  // _onChangePenPosition(penPosition, parameterId) {
+  //   this.props.setPenPosition(parameterId, penPosition);
+  // }
 
-  _onChangeShowOuterWheel(showOuterWheel, parameterId) {
-    this.props.setShowOuterWheel(parameterId, showOuterWheel);
-  }
+  // _onChangeShowOuterWheel(showOuterWheel, parameterId) {
+  //   this.props.setShowOuterWheel(parameterId, showOuterWheel);
+  // }
 
-  _onChangeShowInnerWheel(showInnerWheel, parameterId) {
-    this.props.setShowInnerWheel(parameterId, showInnerWheel);
-  }
+  // _onChangeShowInnerWheel(showInnerWheel, parameterId) {
+  //   this.props.setShowInnerWheel(parameterId, showInnerWheel);
+  // }
 
-  _onChangeShowPen(showPen, parameterId) {
-    this.props.setShowPen(parameterId, showPen);
-  }
+  // _onChangeShowPen(showPen, parameterId) {
+  //   this.props.setShowPen(parameterId, showPen);
+  // }
 
-  _onChangeColor(color, parameterId) {
-    this.props.setColor(parameterId, color);
-  }
+  // _onChangeColor(color, parameterId) {
+  //   this.props.setColor(parameterId, color);
+  // }
 
-  _onChangGamma(gamma, parameterId) {
-    this.props.setGamma(parameterId, gamma);
-  }
+  // _onChangGamma(gamma, parameterId) {
+  //   this.props.setGamma(parameterId, gamma);
+  // }
 
   render() {
     const { parameters, chosenSpirographID } = this.props;
@@ -65,13 +65,13 @@ class Parameters extends Component {
           <table key={parameter.spirographName}>
             <thead>
               <th scope='col' className={styles.tableLabel}>
-                Spirograph name: {parameter.spirographName}
+                Poster name: {parameter.spirographName}
               </th>
             </thead>
             <tbody>
               <td>
                 <p className={styles.parameterLabel}>
-                  Main wheel X position:
+                  X position:
                   <input
                     type='number'
                     min='0'
@@ -84,7 +84,7 @@ class Parameters extends Component {
                   />
                 </p>
                 <p className={styles.parameterLabel}>
-                  Main wheel Y position:{' '}
+                  Y position:{' '}
                   <input
                     type='number'
                     min='0'
@@ -96,7 +96,7 @@ class Parameters extends Component {
                     }
                   />
                 </p>
-                <p className={styles.parameterLabel}>
+                {/* <p className={styles.parameterLabel}>
                   Main wheel radius:{' '}
                   <input
                     type='number'
@@ -128,9 +128,9 @@ class Parameters extends Component {
                     }
                   />
                 </p>
-                <p className={styles.parameterLabel}>
-                  {/* Pen position from center (0) to border (1) of inner wheel:{' '} */}
-                  Pen position:
+                <p className={styles.parameterLabel}> */}
+                {/* Pen position from center (0) to border (1) of inner wheel:{' '} */}
+                {/* Pen position:
                   <input
                     type='number'
                     step='0.01'
@@ -175,7 +175,7 @@ class Parameters extends Component {
                       this._onChangeShowPen(e.target.checked, parameter.id)
                     }
                   />
-                </p>
+                </p> */}
                 {/* <p className={styles.parameterLabel}>
                       Gamma:{' '}
                       <input
@@ -188,7 +188,7 @@ class Parameters extends Component {
                         }
                       />
                     </p> */}
-                <p className={styles.parameterLabel}>
+                {/* <p className={styles.parameterLabel}>
                   Color:{' '}
                   <input
                     type='color'
@@ -197,7 +197,7 @@ class Parameters extends Component {
                       this._onChangeColor(e.target.value, parameter.id)
                     }
                   />
-                </p>
+                </p> */}
               </td>
             </tbody>
           </table>
@@ -210,15 +210,15 @@ class Parameters extends Component {
 Parameters.propTypes = {
   setXW1: PropTypes.func,
   setYW1: PropTypes.func,
-  setR: PropTypes.func,
-  setW1Teeth: PropTypes.func,
-  setW2Teeth: PropTypes.func,
-  setPenPosition: PropTypes.func,
-  setShowOuterWheel: PropTypes.any,
-  setShowInnerWheel: PropTypes.any,
-  setShowPen: PropTypes.any,
-  setColor: PropTypes.any,
-  setGamma: PropTypes.any,
+  // setR: PropTypes.func,
+  // setW1Teeth: PropTypes.func,
+  // setW2Teeth: PropTypes.func,
+  // setPenPosition: PropTypes.func,
+  // setShowOuterWheel: PropTypes.any,
+  // setShowInnerWheel: PropTypes.any,
+  // setShowPen: PropTypes.any,
+  // setColor: PropTypes.any,
+  // setGamma: PropTypes.any,
   parameters: PropTypes.any,
   chosenSpirographID: PropTypes.any,
 };

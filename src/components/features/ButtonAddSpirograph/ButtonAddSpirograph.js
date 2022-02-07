@@ -27,7 +27,7 @@ export default function ButtonAddSpirograph(props) {
           })
         }
       >
-        Add Spirograph
+        Add Poster
       </button>
     </div>
   );

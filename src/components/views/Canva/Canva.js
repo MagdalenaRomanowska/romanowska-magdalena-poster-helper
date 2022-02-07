@@ -17,15 +17,15 @@ const Canva = (props) => (
         <Spirograph
           xW1={props.parameters[0].xW1}
           yW1={props.parameters[0].yW1}
-          r={props.parameters[0].r}
-          w1Teeth={props.parameters[0].w1Teeth}
-          w2Teeth={props.parameters[0].w2Teeth}
-          penPosition={props.parameters[0].penPosition}
-          showOuterWheel={props.parameters[0].showOuterWheel}
-          showInnerWheel={props.parameters[0].showInnerWheel}
-          showPen={props.parameters[0].showPen}
-          color={props.parameters[0].color}
-          gamma={props.parameters[0].gamma}
+          // r={props.parameters[0].r}
+          // w1Teeth={props.parameters[0].w1Teeth}
+          // w2Teeth={props.parameters[0].w2Teeth}
+          // penPosition={props.parameters[0].penPosition}
+          // showOuterWheel={props.parameters[0].showOuterWheel}
+          // showInnerWheel={props.parameters[0].showInnerWheel}
+          // showPen={props.parameters[0].showPen}
+          // color={props.parameters[0].color}
+          // gamma={props.parameters[0].gamma}
         />
       </div>
     </div>

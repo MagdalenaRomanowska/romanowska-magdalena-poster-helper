@@ -1,9 +1,9 @@
 [
     {
         "id": "01",
-        "spirographName": "spirograph01",
-        "xW1": 200,
-        "yW1": 200,
+        "spirographName": "poster01",
+        "xW1": 110,
+        "yW1": 120,
         "r": 150,
         "w1Teeth": 96,
         "w2Teeth": 52,

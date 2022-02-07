@@ -18,10 +18,10 @@ export default function Spirograph(props) {
     if (context === null) {
       return;
     } else {
-      context.fillStyle = 'lightgrey';
-      // context.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      //context.fillStyle = 'lightgrey';
+      context.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       const img = document.getElementById('scream');
-      context.drawImage(img, 10, 10);
+      context.drawImage(img,0,0);
     }
     props.parameters.forEach((parameter) => { 
       const sCP = calcSCP(parameter.xW1, parameter.yW1, parameter.r, parameter.w1Teeth, parameter.w2Teeth, parameter.penPosition);
@@ -42,70 +42,59 @@ export default function Spirograph(props) {
   }
 
   function drawSpirograph(color, xW1, yW1, r, w1Teeth, w2Teeth, penPosition, showOuterWheel, showInnerWheel, showPen, sCP) {
-    let colorComponents = hex2rgb(color);
-    context.strokeStyle = rgb2hex(
-      Math.floor(colorComponents[0]),
-      Math.floor(colorComponents[1]),
-      Math.floor(colorComponents[2])
-    );
+    // let colorComponents = hex2rgb(color);
+    // context.strokeStyle = rgb2hex(
+    //   Math.floor(colorComponents[0]),
+    //   Math.floor(colorComponents[1]),
+    //   Math.floor(colorComponents[2])
+    // );
 
-    context.beginPath();
-    for (let t = 0; t < 2 * Math.PI; t += sCP.increase) {
-      const alpha = w2Teeth * t;
-      const beta = (w1Teeth - w2Teeth) * t;
-      const vec = calcPenPosition(alpha, beta, sCP);
-      context.lineTo(vec[0] + xW1, vec[1] + yW1);
-    }
-    context.stroke();
+    // context.beginPath();
+    // for (let t = 0; t < 2 * Math.PI; t += sCP.increase) {
+    //   const alpha = w2Teeth * t;
+    //   const beta = (w1Teeth - w2Teeth) * t;
+    //   const vec = calcPenPosition(alpha, beta, sCP);
+    //   context.lineTo(vec[0] + xW1, vec[1] + yW1);
+    // }
+    // context.stroke();
 
-    context.beginPath();
-    context.strokeStyle = 'rgba(0, 0, 0, 0)';
-    if (showPen) {
-      context.strokeStyle = 'rgba(0, 0, 0, 1)';
-    }
-    const initialP = calcPenPosition(0, 0, sCP);
-    context.ellipse(
-      initialP[0] + xW1,
-      initialP[1] + yW1,
-      2,
-      2,
-      Math.PI / 4,
-      0,
-      2 * Math.PI
-    );
-    context.stroke();
+    // context.beginPath();
+    // context.strokeStyle = 'rgba(0, 0, 0, 0)';
+    // if (showPen) {
+    //   context.strokeStyle = 'rgba(0, 0, 0, 1)';
+    // }
+    // const initialP = calcPenPosition(0, 0, sCP);
+    // context.ellipse(
+    //   initialP[0] + xW1,
+    //   initialP[1] + yW1,
+    //   2,
+    //   2,
+    //   Math.PI / 4,
+    //   0,
+    //   2 * Math.PI
+    // );
+    // context.stroke();
 
-    context.beginPath();
-    context.strokeStyle = 'rgba(0, 0, 0, 0)';
-    if (showOuterWheel) {
-      context.strokeStyle = 'rgba(0, 0, 0, 1)';
-    }
-    context.ellipse(
-      sCP.O_w1c[0] + xW1,
-      sCP.O_w1c[1] + yW1,
-      r,
-      r,
-      Math.PI / 4,
-      0,
-      2 * Math.PI
-    );
-    context.stroke();
+    // context.beginPath();
+    // context.strokeStyle = 'rgba(0, 0, 0, 0)';
+    // if (showOuterWheel) {
+    //   context.strokeStyle = 'rgba(0, 0, 0, 1)';
+    // }
+    // context.ellipse(
+    //   sCP.O_w1c[0] + xW1,
+    //   sCP.O_w1c[1] + yW1,
+    //   r,
+    //   r,
+    //   Math.PI / 4,
+    //   0,
+    //   2 * Math.PI
+    // );
+    // context.stroke();
 
-    context.beginPath();
-    context.strokeStyle = 'rgba(0, 0, 0, 0)';
-    if (showInnerWheel) {
-      context.strokeStyle = 'rgba(120, 120, 120, 1)';
-    }
-    const initialW1cPosition = calcInnerCircleCenter(0, sCP);
-    context.ellipse(
-      initialW1cPosition[0] + xW1,
-      initialW1cPosition[1] + yW1,
-      sCP.w2r,
-      sCP.w2r,
-      Math.PI / 4,
-      0,
-      2 * Math.PI
-    );
+    context.beginPath();    
+    const img = new Image();
+    img.src = 'https://i.postimg.cc/cChyYPNt/fioletowe-jasniejsze.jpg';
+    context.drawImage(img,xW1,yW1);
     context.stroke();
   }
 
