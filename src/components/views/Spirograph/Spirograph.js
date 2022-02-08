@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Markers from '../Markers/Markers.js';
 import { vec2, mat3 } from 'gl-matrix';
 import styles from './Spirograph.module.scss';
 
@@ -39,11 +40,11 @@ export default function Spirograph(props) {
     });
   }
 
-  function drawPoster(color, xW1, yW1, r, w1Teeth, w2Teeth, penPosition, showOuterWheel, showInnerWheel, showPen, sCP) {
+  function drawPoster(color, xW1, yW1, r, w1Teeth, w2Teeth, sCP) {
     context.beginPath();    
     const img = new Image();
     img.src = 'https://i.postimg.cc/cChyYPNt/fioletowe-jasniejsze.jpg';
-    context.drawImage(img,xW1,yW1, w1Teeth, w2Teeth);
+    context.drawImage(img, xW1, yW1, w1Teeth, w2Teeth);
     context.stroke();
   }
 
@@ -82,14 +83,6 @@ export default function Spirograph(props) {
     return sCP;
   }  
 
-  function onMouseDown(event) {
-    console.log('mouse down ' + ' event.clientX: ' + event.clientX + ' event.clientY: ' + event.clientY);
-  }
-
-  function onMouseUp(event) {
-    console.log('mouse up ' + ' event.clientX: ' + event.clientX + ' event.clientY: ' + event.clientY);
-  }
-
   return (
     <div className={styles.root}>      
       <img 
@@ -104,10 +97,9 @@ export default function Spirograph(props) {
         ref={canvasRef}
         width={window.innerWidth / 2}
         height={Math.floor(window.innerHeight * 0.68)}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
       >        
       </canvas>
+      <Markers />
       {/* <img className={styles.img2}
         src={'https://i.postimg.cc/2yvsMt1r/tulipany76vh.jpg'}>
       </img>  */}
