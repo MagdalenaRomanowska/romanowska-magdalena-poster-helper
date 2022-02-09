@@ -1,59 +1,20 @@
 @import "../../../styles/settings.scss";
 
-.positions {
-  font-size: 20px;
-  color: red;
-  margin-top: 280px;
-}
-
 .markers {
   display: inline-flex;
 }
 
-.markerGreen,
-.markerRed,
-.markerBlue {
+.markerGreen {
   border: solid 1.8px black;
   font-size: 9px;
   display: flex;
   justify-content: center;
+  background-color: rgb(78, 231, 78);
+  color: black;
+  position: relative;
   align-items: center;
   &:hover {
     cursor: grab;
     box-shadow: 1px 1px 24px green;
   }
-}
-
-.markerGreen {
-  background-color: green;
-  color: black;
-  position: relative;
-}
-
-.markerRed {
-  background-color: red;
-  color: yellow;
-  position: absolute;
-}
-
-.markerBlue {
-  background-color: blue;
-  color: yellow;
-  position: absolute;
-}
-
-.innerMarker {
-  display: inline-flex;
-}
-
-.whiteSpot {
-  width: 3px;
-  height: 3px;
-  margin: 9.6px 0 0 -4px;
-  background-color: yellow;
-}
-
-.textInsideMarker {
-  padding-top: 14px;
-  margin-left: -3px;
 }

@@ -9,10 +9,35 @@ export default function Spirograph(props) {
   const [context, setContext] = useState(null);
   const matrix = mat3.create();
 
+  const wallPhotoWidth = 200;
+  const wallPhotoHeight = 160;
+  const startGreenPositionX = 0;
+  const startGreenPositionY = 0;
+  const [pressedGreen, setPressedGreen] = useState(false);
+  const [positionGreen, setPositionGreen] = useState({
+    xGreen: startGreenPositionX,
+    yGreen: startGreenPositionY,
+  });
+
   useEffect(() => {
     setContext(canvasRef.current.getContext('2d'));
     updateCanvas();
   });
+
+  useEffect(() => {
+    if (canvasRef.current) {
+      canvasRef.current.style.transform = `translate(${
+        positionGreen.xGreen * wallPhotoWidth
+      }px, ${positionGreen.yGreen * wallPhotoHeight}px)`;
+    }
+  }, [positionGreen]);
+
+  useEffect(() => {
+    setPositionGreen({
+      xGreen: positionGreen.xGreen,
+      yGreen: positionGreen.yGreen,
+    });
+  }, [wallPhotoWidth, wallPhotoHeight]);
 
   function updateCanvas() {
     if (context === null) {
@@ -47,6 +72,15 @@ export default function Spirograph(props) {
     context.drawImage(img, xW1, yW1, w1Teeth, w2Teeth);
     context.stroke();
   }
+
+  const onMouseMoveGreen = (event) => {
+    if (pressedGreen) {
+      setPositionGreen({
+        xGreen: positionGreen.xGreen + event.movementX / wallPhotoWidth,
+        yGreen: positionGreen.yGreen + event.movementY / wallPhotoHeight,
+      });  
+    }
+  };
 
   function calcSCP(xW1, yW1, r, w1Teeth, w2Teeth, penPosition) {
     const O_w1c = vec2.fromValues(xW1, yW1);
@@ -93,16 +127,16 @@ export default function Spirograph(props) {
         src={'https://www.bergerpaints.com/blog/wp-content/uploads/2019/05/maintaining_interior_paint.png'}>
 
       </img>
-      <canvas className={styles.canvas}
+      <canvas
         ref={canvasRef}
         width={window.innerWidth / 2}
         height={Math.floor(window.innerHeight * 0.68)}
-      >        
-      </canvas>
-      <Markers />
-      {/* <img className={styles.img2}
-        src={'https://i.postimg.cc/2yvsMt1r/tulipany76vh.jpg'}>
-      </img>  */}
+        onMouseMove={onMouseMoveGreen}
+        onMouseDown={() => setPressedGreen(true)}
+        onMouseUp={() => setPressedGreen(false)}
+      >     
+      </canvas>   
+      <Markers />   
     </div>
   );
 }
