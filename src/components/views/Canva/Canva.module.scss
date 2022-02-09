@@ -1,7 +1,14 @@
 @import "../../../styles/settings.scss";
 
-.root {
-  
+.backgroundWall {
+  position: absolute;
+  z-index: 3;
+}
+
+.poster {
+  //top: -200px;
+  position: absolute;
+  z-index: 4;
 }
 
 .canva {

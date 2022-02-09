@@ -1,9 +1,9 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
-import styles from './ButtonAddSpirograph.module.scss';
+import styles from './ButtonAddPoster.module.scss';
 
-export default function ButtonAddSpirograph(props) {
+export default function ButtonAddPoster(props) {
   const idUUID = uuidv4();
   return (
     <div className={styles.root}>
@@ -33,6 +33,6 @@ export default function ButtonAddSpirograph(props) {
   );
 }
 
-ButtonAddSpirograph.propTypes = {
+ButtonAddPoster.propTypes = {
   addSpirograph: PropTypes.func,
 };

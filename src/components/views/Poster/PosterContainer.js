@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Spirograph from './Spirograph';
+import Poster from './Poster';
 import {getAllParameters, setXW1, setYW1, setR, setW1Teeth, setW2Teeth, setPenPosition, 
   setShowOuterWheel, setShowInnerWheel, setShowPen, setColor, setGamma } from '../../../redux/parametersRedux';
 
@@ -21,4 +21,4 @@ const mapDispatchToProps = dispatch => ({
   setGamma: (spirographId, gamma) => dispatch(setGamma(spirographId, gamma)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Spirograph);
+export default connect(mapStateToProps, mapDispatchToProps)(Poster);
