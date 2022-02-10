@@ -8,22 +8,15 @@ export default function ButtonAddPoster(props) {
   return (
     <div className={styles.root}>
       <button
-        className={styles.buttonAddSpirograph}
+        className={styles.buttonAddPoster}
         onClick={(event) =>
-          props.addSpirograph({
+          props.addPoster({
             id: idUUID,
-            spirographName: 'Poster:  ' + idUUID,
-            xW1: 220,
-            yW1: 220,
-            r: 120,
-            w1Teeth: 220,
-            w2Teeth: 160,
-            penPosition: 0.5,
-            showOuterWheel: 'true',
-            showInnerWheel: 'true',
-            showPen: 'true',
-            color: '#000000',
-            gamma: 0,
+            posterName: 'Poster:  ' + idUUID,
+            xPosition: 220,
+            yPosition: 220,
+            posterWidth: 220,
+            posterHeight: 160,
           })
         }
       >
@@ -34,5 +27,5 @@ export default function ButtonAddPoster(props) {
 }
 
 ButtonAddPoster.propTypes = {
-  addSpirograph: PropTypes.func,
+  addPoster: PropTypes.func,
 };

@@ -1,68 +1,68 @@
 import React from 'react';
 import Parameters from '../../views/Parameters/ParametersContainer';
 import PropTypes from 'prop-types';
-import styles from './ListOfSpirographs.module.scss';
+import styles from './ListOfPosters.module.scss';
 
-class ListOfSpirographs extends React.Component {
+class ListOfPosters extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.parameters !== prevProps.parameters) {
-      let chosenSpirographID = '';
+      let chosenPosterID = '';
 
       if (
         this.props.parameters !== undefined &&
         this.props.parameters.length !== 0
       ) {
-        chosenSpirographID = this.props.chosenSpirographId;
+        chosenPosterID = this.props.chosenPosterId;
       }
-      this.setState({ chosenSpirographID: chosenSpirographID });
+      this.setState({ chosenPosterID: chosenPosterID });
     }
   }
 
   constructor(props) {
     super(props);
-    this.state = { chosenSpirographID: ' ' };
+    this.state = { chosenPosterID: ' ' };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  _onChangeChosenSpirographID(chosenSpirographID) {
-    this.props.setChosenSpirographID(chosenSpirographID);
+  _onChangeChosenPosterID(chosenPosterID) {
+    this.props.setChosenPosterID(chosenPosterID);
   }
 
   handleClick(event) {
-    this._onChangeChosenSpirographID(event.target.getAttribute('data-key'));
+    this._onChangeChosenPosterID(event.target.getAttribute('data-key'));
   }
 
   render() {
-    const { parameters, chosenSpirographId } = this.props;
+    const { parameters, chosenPosterId } = this.props;
 
     return (
       <div className={styles.root}>
         <div>
           {parameters.map((parameter) => (
             <textarea
-              className={styles.clickedSpirographName}
+              className={styles.clickedPosterName}
               key={parameter.id}
               data-key={parameter.id}
               onClick={this.handleClick}
             >
-              {parameter.spirographName}
+              {parameter.posterName}
             </textarea>
           ))}
         </div>
         <div className={styles.parameters}>
           <p className={styles.title}>Parameters:</p>
-          <Parameters chosenSpirographID={chosenSpirographId} />
+          <Parameters chosenPosterID={chosenPosterId} />
         </div>
       </div>
     );
   }
 }
 
-ListOfSpirographs.propTypes = {
+ListOfPosters.propTypes = {
   parameters: PropTypes.any,
-  spirograph: PropTypes.any,
-  chosenSpirographId: PropTypes.any,
-  setChosenSpirographID: PropTypes.func,
+  poster: PropTypes.any,
+  chosenPosterId: PropTypes.any,
+  setChosenPosterID: PropTypes.func,
 };
 
-export default ListOfSpirographs;
+export default ListOfPosters;

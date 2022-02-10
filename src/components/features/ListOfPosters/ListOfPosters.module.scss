@@ -34,7 +34,7 @@
   font-weight: bold;
 }
 
-.clickedSpirographName {
+.clickedPosterName {
   border: none;
   resize: none;
   min-width: 24vw;
@@ -42,11 +42,11 @@
   padding-left: 28px;
 }
 
-.clickedSpirographName:hover {
+.clickedPosterName:hover {
   background-color: rgb(216, 216, 253);
 }
 
-.clickedSpirographName:active {
+.clickedPosterName:active {
   background-color: rgb(161, 161, 252);
   border: none;
 }

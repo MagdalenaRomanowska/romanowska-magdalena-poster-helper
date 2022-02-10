@@ -42,21 +42,21 @@ export default function Poster(props) {
     } else {
       props.parameters.forEach((parameter) => { 
         drawPoster(
-          parameter.xW1,
-          parameter.yW1,
-          parameter.w1Teeth,
-          parameter.w2Teeth
+          parameter.xPosition,
+          parameter.yPosition,
+          parameter.posterWidth,
+          parameter.posterHeight
         );
       });
     }
     
   }
 
-  function drawPoster(xW1, yW1, w1Teeth, w2Teeth) {
+  function drawPoster(xPosition, yPosition, posterWidth, posterHeight) {
     context.beginPath();    
     const img = new Image();
     img.src = 'https://i.postimg.cc/cChyYPNt/fioletowe-jasniejsze.jpg';
-    context.drawImage(img, xW1, yW1, w1Teeth, w2Teeth);
+    context.drawImage(img, xPosition, yPosition, posterWidth, posterHeight);
     context.stroke();
   }
 
@@ -86,8 +86,8 @@ export default function Poster(props) {
 
 Poster.propTypes = {
   parameters: PropTypes.any,
-  xW1: PropTypes.any,
-  yW1: PropTypes.any,
-  w1Teeth: PropTypes.any,
-  w2Teeth: PropTypes.any,
+  xPosition: PropTypes.any,
+  yPosition: PropTypes.any,
+  posterWidth: PropTypes.any,
+  posterHeight: PropTypes.any,
 };

@@ -2,19 +2,19 @@ import { combineReducers, createStore } from 'redux';
 import parameterList from '../data/parameters.json';
 import globalReducer from './globalRedux';
 import parameterReducer from './parametersRedux';
-import chosenSpirographIDReducer from './chosenSpirographIDRedux';
+import chosenPosterIDReducer from './chosenPosterIDRedux';
 
 
 // define initial state and shallow-merge initial data
 const initialState = {
   parameters: parameterList,
-  chosenSpirographID: undefined,
+  chosenPosterID: undefined,
 };
 
 // define reducers
 const reducers = {
   parameters: parameterReducer,
-  chosenSpirographID: chosenSpirographIDReducer,
+  chosenPosterID: chosenPosterIDReducer,
 };
 
 // add blank reducers for initial state properties without reducers

@@ -1,17 +1,10 @@
 [
     {
         "id": "01",
-        "spirographName": "poster01",
-        "xW1": 10,
-        "yW1": 20,
-        "r": 150,
-        "w1Teeth": 220,
-        "w2Teeth": 160,
-        "penPosition": 0.5,
-        "showOuterWheel": "true",
-        "showInnerWheel": "true",
-        "showPen": "true",
-        "color": "#ff0000",
-        "gamma": 0
+        "posterName": "poster01",
+        "xPosition": 10,
+        "yPosition": 20,
+        "posterWidth": 220,
+        "posterHeight": 160
     }
 ]
