@@ -56,7 +56,7 @@ export default function Poster(props) {
   function drawPoster(xPosition, yPosition, posterWidth, posterHeight) {
     context.beginPath();
     const img = new Image();
-    img.src = 'https://i.postimg.cc/cChyYPNt/fioletowe-jasniejsze.jpg';
+    img.src = 'https://i.postimg.cc/bY9GYRBK/fioletowe-jasniejsze-blue2.jpg';
     context.drawImage(img, xPosition, yPosition, posterWidth, posterHeight);
     context.stroke();
   }

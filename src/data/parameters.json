@@ -6,13 +6,5 @@
         "yPosition": 20,
         "posterWidth": 220,
         "posterHeight": 160
-    },
-    {
-        "id": "02",
-        "posterName": "poster02",
-        "xPosition": 110,
-        "yPosition": 120,
-        "posterWidth": 120,
-        "posterHeight": 60
     }
 ]
