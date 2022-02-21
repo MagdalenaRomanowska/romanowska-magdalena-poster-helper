@@ -1,5 +1,7 @@
 import React from 'react';
 import Parameters from '../../views/Parameters/ParametersContainer';
+import BackgroundWall from '../../views/BackgroundWall/BackgroundWall';
+import Poster from '../../views/Poster/PosterContainer.js';
 import PropTypes from 'prop-types';
 import styles from './ListOfPosters.module.scss';
 
@@ -32,7 +34,7 @@ class ListOfPosters extends React.Component {
     this._onChangeChosenPosterID(event.target.getAttribute('data-key'));
   }
 
-  render() {
+  render(props) {
     const { parameters, chosenPosterId } = this.props;
 
     return (
@@ -48,6 +50,38 @@ class ListOfPosters extends React.Component {
               {parameter.posterName}
             </textarea>
           ))}
+        </div>
+        <div>
+          <div className={styles.backgroundWall}>
+            {/* <BackgroundWall />           */}
+          </div>
+          {/* <div>
+            {parameters.map((parameter) => (
+              <div key={parameter.id}>
+                <textarea
+                  className={styles.clickedPosterName}
+                  key={parameter.id}
+                  data-key={parameter.id}
+                  onClick={this.handleClick}
+                >
+                  {parameter.posterName}
+                </textarea>
+                dupa
+              </div>
+            ))}
+          </div> */}
+          <div>
+            {parameters.map((parameter) => (
+              <div key={parameter.id} data-key={parameter.id}>
+                <Poster
+                  id={parameter.id}
+                  // xPosition={parameter.xPosition}
+                  // yPosition={parameter.yPosition}
+                />
+                
+              </div>
+            ))}
+          </div>
         </div>
         <div className={styles.parameters}>
           <p className={styles.title}>Parameters:</p>

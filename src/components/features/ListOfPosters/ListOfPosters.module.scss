@@ -55,3 +55,14 @@
   margin-left: 50vw;
   min-width: 24vw;
 }
+
+.backgroundWall {
+  position: absolute;
+  z-index: 3;
+}
+
+.poster {
+  //top: -200px;
+  position: absolute;
+  z-index: 4;
+}

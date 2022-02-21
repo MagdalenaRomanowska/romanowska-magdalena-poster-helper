@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BackgroundWall from '../BackgroundWall/BackgroundWall';
-import Poster from '../Poster/PosterContainer.js';
+// import BackgroundWall from '../BackgroundWall/BackgroundWall';
+// import Poster from '../Poster/PosterContainer.js';
 import ButtonAddPoster from '../../features/ButtonAddPoster/ButtonAddPosterContainer.js';
 import ListOfPosters from '../../features/ListOfPosters/ListOfPostersContainer.js';
 import styles from './Canva.module.scss';
@@ -13,7 +13,7 @@ const Canva = (props) => (
         <ButtonAddPoster />
         <ListOfPosters />
       </div>
-      <div>
+      {/* <div>
         <div className={styles.backgroundWall}>
           <BackgroundWall />          
         </div>
@@ -23,7 +23,7 @@ const Canva = (props) => (
             yPosition={props.parameters[0].yPosition}
           />
         </div>
-      </div>      
+      </div>       */}
     </div>
   </div>
 );

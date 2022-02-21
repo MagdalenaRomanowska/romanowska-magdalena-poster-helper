@@ -22,6 +22,11 @@ export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}
 export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTERHEIGHT });
 export const addPoster = (payload) => ({ payload, type: ADD_POSTER });
 
+export const getPosterParameters = ({ parameters }, posterId) => {
+  const filtered = parameters.filter((p) => p.id === posterId);
+  return filtered.length ? filtered[0] : { error: true };
+};
+
 // reducer
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
