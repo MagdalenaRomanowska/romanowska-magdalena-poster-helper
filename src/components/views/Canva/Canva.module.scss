@@ -1,16 +1,5 @@
 @import "../../../styles/settings.scss";
 
-// .backgroundWall {
-//   position: absolute;
-//   z-index: 3;
-// }
-
-// .poster {
-//   //top: -200px;
-//   position: absolute;
-//   z-index: 4;
-// }
-
 .canva {
   height: 70vh;
   padding-top: 2vh;
@@ -24,11 +13,9 @@
 } 
 
 .list {
-  width: 25vw;
+  width: 20vw;
 }
 
 .parameters {
   position: absolute;
- // left: 50%;
-  //transform: translate(-50%, 210%);
 }

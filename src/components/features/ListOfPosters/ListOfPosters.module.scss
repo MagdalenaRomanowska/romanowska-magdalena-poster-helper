@@ -51,12 +51,18 @@
   border: none;
 }
 
+.posters {
+  min-width: 48vw;
+  background-color: rgb(237, 237, 252);
+}
+
 .parameters {
-  margin-left: 50vw;
+  margin-left: 2vw;
   min-width: 24vw;
 }
 
 .backgroundWall {
+  // width: 40vw;
   position: absolute;
   z-index: 3;
 }

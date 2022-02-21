@@ -51,34 +51,16 @@ class ListOfPosters extends React.Component {
             </textarea>
           ))}
         </div>
-        <div>
+        <div className={styles.posters}>
           <div className={styles.backgroundWall}>
-            {/* <BackgroundWall />           */}
+            <BackgroundWall />          
           </div>
-          {/* <div>
-            {parameters.map((parameter) => (
-              <div key={parameter.id}>
-                <textarea
-                  className={styles.clickedPosterName}
-                  key={parameter.id}
-                  data-key={parameter.id}
-                  onClick={this.handleClick}
-                >
-                  {parameter.posterName}
-                </textarea>
-                dupa
-              </div>
-            ))}
-          </div> */}
-          <div>
+          <div className={styles.poster}>
             {parameters.map((parameter) => (
               <div key={parameter.id} data-key={parameter.id}>
                 <Poster
                   id={parameter.id}
-                  // xPosition={parameter.xPosition}
-                  // yPosition={parameter.yPosition}
-                />
-                
+                />                
               </div>
             ))}
           </div>
