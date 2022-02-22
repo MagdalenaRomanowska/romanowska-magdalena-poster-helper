@@ -60,6 +60,7 @@ class ListOfPosters extends React.Component {
               <div key={parameter.id} data-key={parameter.id}>
                 <Poster
                   id={parameter.id}
+                  // chosenPosterID={chosenPosterId}
                 />                
               </div>
             ))}

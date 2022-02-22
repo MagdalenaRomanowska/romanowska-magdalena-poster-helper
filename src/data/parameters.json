@@ -2,8 +2,8 @@
     {
         "id": "01",
         "posterName": "poster01",
-        "xPosition": 10,
-        "yPosition": 20,
+        "xPosition": 0,
+        "yPosition": 0,
         "posterWidth": 220,
         "posterHeight": 160
     }
