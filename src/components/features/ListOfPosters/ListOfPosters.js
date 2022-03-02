@@ -22,8 +22,17 @@ class ListOfPosters extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { chosenPosterID: ' ' };
+    this.state = { 
+      chosenPosterID: ' ',
+      movingModeOn: false,
+      pressed: false,
+      startPositionX: 0,
+      startPositionY: 0,
+    };
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickPoster = this.handleClickPoster.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
   }
 
   _onChangeChosenPosterID(chosenPosterID) {
@@ -31,10 +40,31 @@ class ListOfPosters extends React.Component {
   }
 
   handleClick(event) {
-    this._onChangeChosenPosterID(event.target.getAttribute('data-key'));
+    this._onChangeChosenPosterID(event.target.getAttribute('data-key'));    
   }
 
-  render(props) {
+  handleClickPoster(event) {
+    this.setState({ 
+      pressed: !this.state.pressed,
+      startPositionX: event.clientX,
+      startPositionY: event.clientY,
+    });    
+    // const chosenPoster = this.props.posterParameters;
+    // console.log('dupa: ', chosenPoster.id );
+  }
+
+  handleKeyDown() {
+    this.setState({ movingModeOn: !this.state.movingModeOn });
+  }
+
+  onMouseMove(event) {
+    if (this.state.pressed && this.state.movingModeOn) {
+      this.props.movePosterByDeltaX(this.state.chosenPosterID, event.movementX);
+      this.props.movePosterByDeltaY(this.state.chosenPosterID, event.movementY);
+    }
+  }
+
+  render() {
     const { parameters, chosenPosterId } = this.props;
 
     return (
@@ -51,23 +81,32 @@ class ListOfPosters extends React.Component {
             </textarea>
           ))}
         </div>
-        <div className={styles.posters}>
+        <div className={styles.posters}
+          onMouseMove={this.onMouseMove}  
+          onClick={this.handleClickPoster}        
+          onKeyDown={this.handleKeyDown}
+          tabIndex="0"
+        >
           <div className={styles.backgroundWall}>
             <BackgroundWall />          
           </div>
           <div className={styles.poster}>
             {parameters.map((parameter) => (
-              <div key={parameter.id} data-key={parameter.id}>
+              <div 
+                key={parameter.id} 
+                data-key={parameter.id}
+              >
                 <Poster
-                  id={parameter.id}
-                  // chosenPosterID={chosenPosterId}
+                  id={parameter.id}                 
                 />                
               </div>
             ))}
           </div>
+          
         </div>
         <div className={styles.parameters}>
           <p className={styles.title}>Parameters:</p>
+          <div>movingModeOn: {' ' + this.state.movingModeOn}</div>
           <Parameters chosenPosterID={chosenPosterId} />
         </div>
       </div>
@@ -77,9 +116,12 @@ class ListOfPosters extends React.Component {
 
 ListOfPosters.propTypes = {
   parameters: PropTypes.any,
+  posterParameters: PropTypes.any,
   poster: PropTypes.any,
   chosenPosterId: PropTypes.any,
   setChosenPosterID: PropTypes.func,
+  movePosterByDeltaX: PropTypes.func,
+  movePosterByDeltaY: PropTypes.func,
 };
 
 export default ListOfPosters;

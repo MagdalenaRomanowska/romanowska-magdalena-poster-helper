@@ -13,6 +13,8 @@ const SET_YPOSITION = createActionName('SET_YPOSITION');
 const SET_POSTERWIDTH = createActionName('SET_POSTERWIDTH');
 const SET_POSTERHEIGHT = createActionName('SET_POSTERHEIGHT');
 const ADD_POSTER = createActionName('ADD_POSTER');
+const MOVE_BYDELTAX = createActionName('MOVE_BYDELTAX');
+const MOVE_BYDELTAY = createActionName('MOVE_BYDELTAY');
 
 // action creators
 export const setName = (id, posterName) => ({ payload: {id, posterName}, type: SET_NAME });
@@ -21,6 +23,8 @@ export const setYPosition = (id, yPosition) => ({ payload: {id, yPosition}, type
 export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}, type: SET_POSTERWIDTH });
 export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTERHEIGHT });
 export const addPoster = (payload) => ({ payload, type: ADD_POSTER });
+export const movePosterByDeltaX =(id, deltaX) => ({ payload: {id, deltaX}, type: MOVE_BYDELTAX });
+export const movePosterByDeltaY =(id, deltaY) => ({ payload: {id, deltaY}, type: MOVE_BYDELTAY });
 
 export const getPosterParameters = ({ parameters }, posterId) => {
   const filtered = parameters.filter((p) => p.id === posterId);
@@ -62,7 +66,7 @@ export default function reducer(statePart = [], action = {}) {
           yPosition: parseInt(action.payload.yPosition),
         };
       });
-    }
+    }    
     case SET_POSTERWIDTH: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
@@ -89,6 +93,28 @@ export default function reducer(statePart = [], action = {}) {
       let newArray = statePart.slice();
       newArray.push(action.payload);
       return newArray;
+    }
+    case MOVE_BYDELTAX: {
+      return statePart.map((item) => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return {
+          ...item,
+          xPosition: item.xPosition + parseInt(action.payload.deltaX),
+        };
+      });
+    }
+    case MOVE_BYDELTAY: {
+      return statePart.map((item) => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return {
+          ...item,
+          yPosition: item.yPosition + parseInt(action.payload.deltaY),
+        };
+      });
     }
     default:
       return statePart;

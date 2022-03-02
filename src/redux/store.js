@@ -8,7 +8,7 @@ import chosenPosterIDReducer from './chosenPosterIDRedux';
 // define initial state and shallow-merge initial data
 const initialState = {
   parameters: parameterList,
-  chosenPosterID: undefined,
+  chosenPosterID: { value: 0, startPosterPositionX: 0, startPosterPositionY: 0 },
 };
 
 // define reducers

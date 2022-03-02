@@ -9,8 +9,9 @@ export default function Poster(props) {
   const wallPhotoHeight = 160;
   const startPositionX = 0;
   const startPositionY = 0;
-  const { posterParameters, parameters, chosenPosterID } = props;
-  const parameter = parameters.filter((e) => e.id === chosenPosterID)[0];
+  // const { posterParameters, parameters, chosenPosterID } = props;
+  const { posterParameters } = props;
+  // const parameter = parameters.filter((e) => e.id === chosenPosterID)[0];
   const [pressed, setPressed] = useState(false);
 
   // useEffect(() => {
@@ -67,6 +68,19 @@ export default function Poster(props) {
     }
   };
 
+  const _onChangeChosenPosterID = (chosenPosterID) => {
+    props.setChosenPosterID(chosenPosterID);
+    props.setStartPosterPositionX(props.posterParameters.xPosition);
+    props.setStartPosterPositionY(props.posterParameters.yPosition);
+    // props.setStartChosenPosterPositionX(posterParameters.xStartPosition);
+    // console.log('posterParameters.xStartPosition in Poster.js ' + posterParameters.xStartPosition);
+  };
+
+  const handleClick = (event) => {
+    _onChangeChosenPosterID(event.target.getAttribute('data-key'));
+  };
+
+  // onMouseDown - ustawiamy w storze wartość markedPoster na id naszego. 
   return (
     <div className={styles.root}
       style={{
@@ -74,16 +88,21 @@ export default function Poster(props) {
         left: posterParameters.xPosition,
         top: posterParameters.yPosition,
         backgroundColor: 'red',
-      }}
-      onMouseMove={onMouseMove}
-      onMouseDown={() => setPressed(true)}
-      onMouseUp={() => setPressed(false)}
+      }}      
+      // onMouseMove={onMouseMove}
+      // onMouseDown={() => setPressed(true)}
+      // onMouseUp={() => setPressed(false)}
+      // onMouseDown={() => setPressed(!pressed)}
+      // onMouseUp={() => setPressed(pressed)}
+      // tabIndex="0"
     >
       <img
         src='https://i.postimg.cc/cChyYPNt/fioletowe-jasniejsze.jpg'
         width='100'
         height='100'
         alt='koko'
+        data-key={posterParameters.id}
+        onClick={handleClick}
       />
       {/* <canvas
         style={{
@@ -105,16 +124,20 @@ export default function Poster(props) {
 }
 
 Poster.propTypes = {
-  parameters: PropTypes.any,
-  xPosition: PropTypes.any,
-  yPosition: PropTypes.any,
-  posterWidth: PropTypes.any,
-  posterHeight: PropTypes.any,
+  // parameters: PropTypes.any,
+  // xPosition: PropTypes.any,
+  // yPosition: PropTypes.any,
+  // posterWidth: PropTypes.any,
+  // posterHeight: PropTypes.any,
   chosenPosterID: PropTypes.any,
-  id: PropTypes.any,
+  // id: PropTypes.any,
   posterParameters: PropTypes.any,
+  setStartChosenPosterPositionX: PropTypes.any,
   setXPosition: PropTypes.func,
   setYPosition: PropTypes.func,
-  setPosterWidth: PropTypes.func,
-  setPosterHeight: PropTypes.func,
+  setChosenPosterID: PropTypes.func,
+  setStartPosterPositionX: PropTypes.func,
+  setStartPosterPositionY: PropTypes.func,
+  // setPosterWidth: PropTypes.func,
+  // setPosterHeight: PropTypes.func,
 };
