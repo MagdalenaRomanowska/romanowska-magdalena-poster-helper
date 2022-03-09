@@ -7,12 +7,12 @@ class Parameters extends Component {
     super(props);
   }
 
-  _onChangeXPosition(xPosition, parameterId) {
-    this.props.setXPosition(parameterId, xPosition);
+  _onChangeXPosition(xPosterPosition, parameterId) {
+    this.props.setXPosterPosition(parameterId, xPosterPosition);
   }
 
-  _onChangeYPosition(yPosition, parameterId) {
-    this.props.setYPosition(parameterId, yPosition);
+  _onChangeYPosition(yPosterPosition, parameterId) {
+    this.props.setYPosterPosition(parameterId, yPosterPosition);
   }
 
   _onChangePosterWidth(posterWidth, parameterId) {
@@ -49,7 +49,7 @@ class Parameters extends Component {
                     min='0'
                     max='1024'
                     step='10'
-                    value={parameter.xPosition}
+                    value={parameter.xPosterPosition}
                     onChange={(e) =>
                       this._onChangeXPosition(e.target.value, parameter.id)
                     }
@@ -62,7 +62,7 @@ class Parameters extends Component {
                     min='0'
                     max='768'
                     step='10'
-                    value={parameter.yPosition}
+                    value={parameter.yPosterPosition}
                     onChange={(e) =>
                       this._onChangeYPosition(e.target.value, parameter.id)
                     }
@@ -98,8 +98,8 @@ class Parameters extends Component {
 }
 
 Parameters.propTypes = {
-  setXPosition: PropTypes.func,
-  setYPosition: PropTypes.func,
+  setXPosterPosition: PropTypes.func,
+  setYPosterPosition: PropTypes.func,
   setPosterWidth: PropTypes.func,
   setPosterHeight: PropTypes.func,
   parameters: PropTypes.any,

@@ -6,30 +6,15 @@ import PropTypes from 'prop-types';
 import styles from './ListOfPosters.module.scss';
 
 class ListOfPosters extends React.Component {
-  componentDidUpdate(prevProps) {
-    if (this.props.parameters !== prevProps.parameters) {
-      let chosenPosterID = '';
-
-      if (
-        this.props.parameters !== undefined &&
-        this.props.parameters.length !== 0
-      ) {
-        chosenPosterID = this.props.chosenPosterId;
-      }
-      this.setState({ chosenPosterID: chosenPosterID });
-    }
-  }
-
+  
   constructor(props) {
     super(props);
     this.state = { 
       chosenPosterID: ' ',
       movingModeOn: false,
       pressed: false,
-      startPositionX: 0,
-      startPositionY: 0,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickPosterNameOnList = this.handleClickPosterNameOnList.bind(this);
     this.handleClickPoster = this.handleClickPoster.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
@@ -39,15 +24,13 @@ class ListOfPosters extends React.Component {
     this.props.setChosenPosterID(chosenPosterID);
   }
 
-  handleClick(event) {
+  handleClickPosterNameOnList(event) {
     this._onChangeChosenPosterID(event.target.getAttribute('data-key'));    
   }
 
   handleClickPoster(event) {
     this.setState({ 
       pressed: !this.state.pressed,
-      startPositionX: event.clientX,
-      startPositionY: event.clientY,
     });    
   }
 
@@ -61,8 +44,8 @@ class ListOfPosters extends React.Component {
     let startClickPositionX = this.props.startClickPositionX;
     let startClickPositionY = this.props.startClickPositionY;
     if (this.state.pressed && this.state.movingModeOn) {
-      this.props.setXPosition(this.state.chosenPosterID, event.clientX - startClickPositionX + startPosterPositionX);
-      this.props.setYPosition(this.state.chosenPosterID, event.clientY - startClickPositionY + startPosterPositionY);
+      this.props.setXPosterPosition(this.props.chosenPosterId, event.clientX - startClickPositionX + startPosterPositionX);
+      this.props.setYPosterPosition(this.props.chosenPosterId, event.clientY - startClickPositionY + startPosterPositionY);
     }
     
     // console.log('startPosterPositionX: ', startPosterPositionX, ' / startPosterPositionY: ', startPosterPositionY,
@@ -80,7 +63,7 @@ class ListOfPosters extends React.Component {
               className={styles.clickedPosterName}
               key={parameter.id}
               data-key={parameter.id}
-              onClick={this.handleClick}
+              onClick={this.handleClickPosterNameOnList}
             >
               {parameter.posterName}
             </textarea>
@@ -121,18 +104,14 @@ class ListOfPosters extends React.Component {
 
 ListOfPosters.propTypes = {
   parameters: PropTypes.any,
-  posterParameters: PropTypes.any,
-  poster: PropTypes.any,
   chosenPosterId: PropTypes.any,
   startPosterPositionX: PropTypes.any,
   startPosterPositionY: PropTypes.any,
   startClickPositionX: PropTypes.any,
   startClickPositionY: PropTypes.any,
   setChosenPosterID: PropTypes.func,
-  setXPosition: PropTypes.func,
-  setYPosition: PropTypes.func,
-  movePosterByDeltaX: PropTypes.func,
-  movePosterByDeltaY: PropTypes.func,
+  setXPosterPosition: PropTypes.func,
+  setYPosterPosition: PropTypes.func,
 };
 
 export default ListOfPosters;

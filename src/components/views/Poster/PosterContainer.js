@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Poster from './Poster';
-import { getPosterParameters, getAllParameters, setXPosition, setYPosition, setPosterWidth, setPosterHeight } from '../../../redux/parametersRedux';
+import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPosition, setPosterWidth, setPosterHeight } from '../../../redux/parametersRedux';
 import { getChosenPosterId, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 
 const mapStateToProps = (state, props) => ({
@@ -11,8 +11,8 @@ const mapStateToProps = (state, props) => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  setXPosition: (posterId, xPosition) => dispatch(setXPosition(posterId, xPosition)),
-  setYPosition: (posterId, yPosition) => dispatch(setYPosition(posterId, yPosition)),
+  setXPosterPosition: (posterId, xPosterPosition) => dispatch(setXPosterPosition(posterId, xPosterPosition)),
+  setYPosterPosition: (posterId, yPosterPosition) => dispatch(setYPosterPosition(posterId, yPosterPosition)),
   setPosterWidth: (posterId, posterWidth) => dispatch(setPosterWidth(posterId, posterWidth)),
   setPosterHeight: (posterId, posterHeight) => dispatch(setPosterHeight(posterId, posterHeight)),
   setChosenPosterID: (value) => dispatch(setChosenPosterID(value)),  

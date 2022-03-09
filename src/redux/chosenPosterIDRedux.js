@@ -41,7 +41,6 @@ export const getStartClickPositionY = (store) => {
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
-  // console.log('action:', action);
   switch (action.type) {
     
     case SET_CHOSENPOSTERID: {

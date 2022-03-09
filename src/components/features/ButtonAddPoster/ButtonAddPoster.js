@@ -13,8 +13,8 @@ export default function ButtonAddPoster(props) {
           props.addPoster({
             id: idUUID,
             posterName: 'Poster:  ' + idUUID,
-            xPosition: 220,
-            yPosition: 220,
+            xPosterPosition: 220,
+            yPosterPosition: 220,
             posterWidth: 220,
             posterHeight: 160,
           })

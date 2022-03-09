@@ -8,8 +8,8 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 
 // action types
 const SET_NAME = createActionName('SET_NAME');
-const SET_XPOSITION = createActionName('SET_XPOSITION');
-const SET_YPOSITION = createActionName('SET_YPOSITION');
+const SET_XPOSTERPOSITION = createActionName('SET_XPOSTERPOSITION');
+const SET_YPOSTERPOSITION = createActionName('SET_YPOSTERPOSITION');
 const SET_POSTERWIDTH = createActionName('SET_POSTERWIDTH');
 const SET_POSTERHEIGHT = createActionName('SET_POSTERHEIGHT');
 const ADD_POSTER = createActionName('ADD_POSTER');
@@ -18,8 +18,8 @@ const MOVE_BYDELTAY = createActionName('MOVE_BYDELTAY');
 
 // action creators
 export const setName = (id, posterName) => ({ payload: {id, posterName}, type: SET_NAME });
-export const setXPosition = (id, xPosition) => ({ payload: {id, xPosition}, type: SET_XPOSITION });
-export const setYPosition = (id, yPosition) => ({ payload: {id, yPosition}, type: SET_YPOSITION });
+export const setXPosterPosition = (id, xPosterPosition) => ({ payload: {id, xPosterPosition}, type: SET_XPOSTERPOSITION });
+export const setYPosterPosition = (id, yPosterPosition) => ({ payload: {id, yPosterPosition}, type: SET_YPOSTERPOSITION });
 export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}, type: SET_POSTERWIDTH });
 export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTERHEIGHT });
 export const addPoster = (payload) => ({ payload, type: ADD_POSTER });
@@ -45,25 +45,25 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
-    case SET_XPOSITION: {
+    case SET_XPOSTERPOSITION: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;
         }
         return {
           ...item,
-          xPosition: parseInt(action.payload.xPosition),
+          xPosterPosition: parseInt(action.payload.xPosterPosition),
         };
       });
     }
-    case SET_YPOSITION: {
+    case SET_YPOSTERPOSITION: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;
         }
         return {
           ...item,
-          yPosition: parseInt(action.payload.yPosition),
+          yPosterPosition: parseInt(action.payload.yPosterPosition),
         };
       });
     }    
@@ -101,7 +101,7 @@ export default function reducer(statePart = [], action = {}) {
         }
         return {
           ...item,
-          xPosition: item.xPosition + parseInt(action.payload.deltaX),
+          xPosterPosition: item.xPosterPosition + parseInt(action.payload.deltaX),
         };
       });
     }
@@ -112,7 +112,7 @@ export default function reducer(statePart = [], action = {}) {
         }
         return {
           ...item,
-          yPosition: item.yPosition + parseInt(action.payload.deltaY),
+          yPosterPosition: item.yPosterPosition + parseInt(action.payload.deltaY),
         };
       });
     }

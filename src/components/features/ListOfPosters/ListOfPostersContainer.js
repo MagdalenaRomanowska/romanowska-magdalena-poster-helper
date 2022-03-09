@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListOfPosters from './ListOfPosters';
-import { getPosterParameters, getAllParameters, movePosterByDeltaX, movePosterByDeltaY, setXPosition, setYPosition } from '../../../redux/parametersRedux';
+import { getPosterParameters, getAllParameters, movePosterByDeltaX, movePosterByDeltaY, setXPosterPosition, setYPosterPosition } from '../../../redux/parametersRedux';
 import { getChosenPosterId, setChosenPosterID, getStartPosterPositionX, getStartPosterPositionY, getStartClickPositionX, getStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 
 const mapStateToProps = (state) => ({
@@ -14,8 +14,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setXPosition: (posterId, xPosition) => dispatch(setXPosition(posterId, xPosition)),
-  setYPosition: (posterId, yPosition) => dispatch(setYPosition(posterId, yPosition)),
+  setXPosterPosition: (posterId, xPosterPosition) => dispatch(setXPosterPosition(posterId, xPosterPosition)),
+  setYPosterPosition: (posterId, yPosterPosition) => dispatch(setYPosterPosition(posterId, yPosterPosition)),
   setChosenPosterID: (value) => dispatch(setChosenPosterID(value)),
   movePosterByDeltaX: (id, deltaX) => dispatch(movePosterByDeltaX(id, deltaX)),
   movePosterByDeltaY: (id, deltaY) => dispatch(movePosterByDeltaY(id, deltaY)),
