@@ -12,7 +12,7 @@ export default function ButtonAddPoster(props) {
         onClick={(event) =>
           props.addPoster({
             id: idUUID,
-            posterName: 'Poster:  ' + idUUID,
+            posterName: idUUID.slice(0,5),
             xPosterPosition: 220,
             yPosterPosition: 220,
             posterWidth: 220,

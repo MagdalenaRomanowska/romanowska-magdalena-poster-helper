@@ -88,6 +88,17 @@ class Parameters extends Component {
                     }
                   />
                 </p>
+                <p className={styles.parameterLabel}>
+                  URL:{' '}
+                  <form>        
+                    <select id="framework">
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                    </select>
+                  </form>
+                </p>
               </td>
             </tbody>
           </table>

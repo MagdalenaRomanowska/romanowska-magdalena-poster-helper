@@ -23,8 +23,9 @@ table {
 th {
   text-align: left;
 }
-input {
-  width: 25%;
+input, form {
+  width: 20%;
+  margin-right: 60px;
   background-color: rgb(243, 243, 243);
   float: right;
   text-align: center;

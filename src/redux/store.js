@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from 'redux';
-import parameterList from '../data/parameters.json';
+import parametersList from '../data/store.json';
 import globalReducer from './globalRedux';
 import parameterReducer from './parametersRedux';
 import chosenPosterIDReducer from './chosenPosterIDRedux';
@@ -7,7 +7,7 @@ import chosenPosterIDReducer from './chosenPosterIDRedux';
 
 // define initial state and shallow-merge initial data
 const initialState = {
-  parameters: parameterList,
+  parameters: parametersList,
   chosenPosterID: { value: 0, startPosterPositionX: 0, startPosterPositionY: 0, startClickPositionX: 0, startClickPositionY: 0 },
 };
 
