@@ -68,16 +68,19 @@ export default function Poster(props) {
     }
   };
 
-  const _onChangeChosenPosterID = (chosenPosterID) => {
+  const _onChangeChosenPosterID = (chosenPosterID, ClickX, ClickY) => {
     props.setChosenPosterID(chosenPosterID);
-    props.setStartPosterPositionX(props.posterParameters.xPosition);
-    props.setStartPosterPositionY(props.posterParameters.yPosition);
+    props.setStartPosterPositionX(posterParameters.xPosition);
+    props.setStartPosterPositionY(posterParameters.yPosition);
+    props.setStartClickPositionX(ClickX);
+    props.setStartClickPositionY(ClickY);
     // props.setStartChosenPosterPositionX(posterParameters.xStartPosition);
     // console.log('posterParameters.xStartPosition in Poster.js ' + posterParameters.xStartPosition);
   };
 
   const handleClick = (event) => {
-    _onChangeChosenPosterID(event.target.getAttribute('data-key'));
+    _onChangeChosenPosterID(event.target.getAttribute('data-key'), event.clientX, event.clientY);
+    console.log('event.clientX ', event.clientX, '/ event.clientY ', event.clientY);
   };
 
   // onMouseDown - ustawiamy w storze wartość markedPoster na id naszego. 
@@ -138,6 +141,8 @@ Poster.propTypes = {
   setChosenPosterID: PropTypes.func,
   setStartPosterPositionX: PropTypes.func,
   setStartPosterPositionY: PropTypes.func,
+  setStartClickPositionX: PropTypes.func,
+  setStartClickPositionY: PropTypes.func,
   // setPosterWidth: PropTypes.func,
   // setPosterHeight: PropTypes.func,
 };

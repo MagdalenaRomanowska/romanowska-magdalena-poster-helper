@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Poster from './Poster';
 import { getPosterParameters, getAllParameters, setXPosition, setYPosition, setPosterWidth, setPosterHeight } from '../../../redux/parametersRedux';
-import { getChosenPosterId, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY } from '../../../redux/chosenPosterIDRedux';
+import { getChosenPosterId, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 
 const mapStateToProps = (state, props) => ({
   parameters: getAllParameters(state),
@@ -18,6 +18,8 @@ const mapDispatchToProps = dispatch => ({
   setChosenPosterID: (value) => dispatch(setChosenPosterID(value)),  
   setStartPosterPositionX: (startPosterPositionX) => dispatch(setStartPosterPositionX(startPosterPositionX)),  
   setStartPosterPositionY: (startPosterPositionY) => dispatch(setStartPosterPositionY(startPosterPositionY)),  
+  setStartClickPositionX: (startClickPositionX) => dispatch(setStartClickPositionX(startClickPositionX)),  
+  setStartClickPositionY: (startClickPositionY) => dispatch(setStartClickPositionY(startClickPositionY)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Poster);

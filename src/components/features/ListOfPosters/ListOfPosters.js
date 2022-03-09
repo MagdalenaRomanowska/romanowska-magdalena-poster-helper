@@ -49,8 +49,6 @@ class ListOfPosters extends React.Component {
       startPositionX: event.clientX,
       startPositionY: event.clientY,
     });    
-    // const chosenPoster = this.props.posterParameters;
-    // console.log('dupa: ', chosenPoster.id );
   }
 
   handleKeyDown() {
@@ -58,10 +56,17 @@ class ListOfPosters extends React.Component {
   }
 
   onMouseMove(event) {
+    let startPosterPositionX = this.props.startPosterPositionX;
+    let startPosterPositionY = this.props.startPosterPositionY;
+    let startClickPositionX = this.props.startClickPositionX;
+    let startClickPositionY = this.props.startClickPositionY;
     if (this.state.pressed && this.state.movingModeOn) {
-      this.props.movePosterByDeltaX(this.state.chosenPosterID, event.movementX);
-      this.props.movePosterByDeltaY(this.state.chosenPosterID, event.movementY);
+      this.props.setXPosition(this.state.chosenPosterID, event.clientX - startClickPositionX + startPosterPositionX);
+      this.props.setYPosition(this.state.chosenPosterID, event.clientY - startClickPositionY + startPosterPositionY);
     }
+    
+    // console.log('startPosterPositionX: ', startPosterPositionX, ' / startPosterPositionY: ', startPosterPositionY,
+    //   ' / startClickPositionX: ', startClickPositionX, ' / startClickPositionY:', startClickPositionY);
   }
 
   render() {
@@ -119,7 +124,13 @@ ListOfPosters.propTypes = {
   posterParameters: PropTypes.any,
   poster: PropTypes.any,
   chosenPosterId: PropTypes.any,
+  startPosterPositionX: PropTypes.any,
+  startPosterPositionY: PropTypes.any,
+  startClickPositionX: PropTypes.any,
+  startClickPositionY: PropTypes.any,
   setChosenPosterID: PropTypes.func,
+  setXPosition: PropTypes.func,
+  setYPosition: PropTypes.func,
   movePosterByDeltaX: PropTypes.func,
   movePosterByDeltaY: PropTypes.func,
 };
