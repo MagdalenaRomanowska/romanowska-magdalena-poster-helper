@@ -5,7 +5,7 @@ import { getChosenPosterId, setChosenPosterID, getStartPosterPositionX, getStart
 
 const mapStateToProps = (state) => ({
   parameters: getAllParameters(state),
-  posterParameters: getPosterParameters(state, state.chosenPosterID.value),
+  posterParameters: getPosterParameters(state, state.chosenPoster.id),
   chosenPosterId: getChosenPosterId(state),
   startPosterPositionX: getStartPosterPositionX(state),
   startPosterPositionY: getStartPosterPositionY(state),

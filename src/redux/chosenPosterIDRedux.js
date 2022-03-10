@@ -5,69 +5,69 @@ const reducerName = 'poster';
 const createActionName = (name) => `app/${reducerName}/${name}`;
 
 /* action types */
-const SET_CHOSENPOSTERID = createActionName('SET_CHOSENPOSTERID');
-const SET_STARTPOSTERPOSITIONX = createActionName('SET_STARTPOSTERPOSITIONX');
-const SET_STARTPOSTERPOSITIONY = createActionName('SET_STARTPOSTERPOSITIONY');
-const SET_STARTCLICKPOSITIONX = createActionName('SET_STARTCLICKPOSITIONX');
-const SET_STARTCLICKPOSITIONY = createActionName('SET_STARTCLICKPOSITIONY');
+const SET_CHOSEN_POSTER_ID = createActionName('SET_CHOSEN_POSTER_ID');
+const SET_START_POSTER_POSITION_X = createActionName('SET_START_POSTER_POSITION_X');
+const SET_START_POSTER_POSITION_Y = createActionName('SET_START_POSTER_POSITION_Y');
+const SET_START_CLICK_POSITION_X = createActionName('SET_START_CLICK_POSITION_X');
+const SET_START_CLICK_POSITION_Y = createActionName('SET_START_CLICK_POSITION_Y');
 
 /* action creators */
 
-export const setChosenPosterID = (value) => ({ payload: {value}, type: SET_CHOSENPOSTERID });
-export const setStartPosterPositionX = (value) => ({ payload: {value}, type: SET_STARTPOSTERPOSITIONX });
-export const setStartPosterPositionY = (value) => ({ payload: {value}, type: SET_STARTPOSTERPOSITIONY });
-export const setStartClickPositionX = (value) => ({ payload: {value}, type: SET_STARTCLICKPOSITIONX });
-export const setStartClickPositionY = (value) => ({ payload: {value}, type: SET_STARTCLICKPOSITIONY });
+export const setChosenPosterID = (value) => ({ payload: {value}, type: SET_CHOSEN_POSTER_ID });
+export const setStartPosterPositionX = (value) => ({ payload: {value}, type: SET_START_POSTER_POSITION_X });
+export const setStartPosterPositionY = (value) => ({ payload: {value}, type: SET_START_POSTER_POSITION_Y });
+export const setStartClickPositionX = (value) => ({ payload: {value}, type: SET_START_CLICK_POSITION_X });
+export const setStartClickPositionY = (value) => ({ payload: {value}, type: SET_START_CLICK_POSITION_Y });
 
 export const getChosenPosterId = (store) => {
-  return store.chosenPosterID.value;
+  return store.chosenPoster.id;
 };
 
 export const getStartPosterPositionX = (store) => {
-  return store.chosenPosterID.startPosterPositionX;
+  return store.chosenPoster.startPosterPositionX;
 };
 
 export const getStartPosterPositionY = (store) => {
-  return store.chosenPosterID.startPosterPositionY;
+  return store.chosenPoster.startPosterPositionY;
 };
 
 export const getStartClickPositionX = (store) => {
-  return store.chosenPosterID.startClickPositionX;
+  return store.chosenPoster.startClickPositionX;
 };
 
 export const getStartClickPositionY = (store) => {
-  return store.chosenPosterID.startClickPositionY;
+  return store.chosenPoster.startClickPositionY;
 };
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     
-    case SET_CHOSENPOSTERID: {
+    case SET_CHOSEN_POSTER_ID: {
       return {
         ...statePart,
-        value: action.payload.value,
+        id: action.payload.value,
       };
     }
-    case SET_STARTPOSTERPOSITIONX: {
+    case SET_START_POSTER_POSITION_X: {
       return {
         ...statePart,
         startPosterPositionX: action.payload.value,
       };
     }
-    case SET_STARTPOSTERPOSITIONY: {
+    case SET_START_POSTER_POSITION_Y: {
       return {
         ...statePart,
         startPosterPositionY: action.payload.value,
       };
     }
-    case SET_STARTCLICKPOSITIONX: {
+    case SET_START_CLICK_POSITION_X: {
       return {
         ...statePart,
         startClickPositionX: action.payload.value,
       };
     }
-    case SET_STARTCLICKPOSITIONY: {
+    case SET_START_CLICK_POSITION_Y: {
       return {
         ...statePart,
         startClickPositionY: action.payload.value,

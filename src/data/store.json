@@ -1,11 +1,34 @@
-[
-    {
+{
+    "posters": [
+      {
         "id": "01",
         "posterName": "poster01",
         "xPosterPosition": 0,
         "yPosterPosition": 0,
         "posterWidth": 220,
         "posterHeight": 160,
-        "url": "https://i.postimg.cc/QN9MLwVG/green.jpg"
-    }
-]
+        "pictureName": "Saturn"
+      }
+    ],
+    "chosenPoster": {
+      "id": 0,
+      "startPosterPositionX": 0,
+      "startPosterPositionY": 0,
+      "startClickPositionX": 0,
+      "startClickPositionY": 0
+    },
+    "pictures":[
+        {
+            "pictureName": "Saturn",
+            "url": "/images/Saturn.jpg"
+        },
+        {
+            "pictureName": "Jupiter",
+            "url": "/images/Jupiter.jpg"
+        },
+        {
+            "pictureName": "Mars",
+            "url": "/images/Mars.png"
+        }
+    ]
+}

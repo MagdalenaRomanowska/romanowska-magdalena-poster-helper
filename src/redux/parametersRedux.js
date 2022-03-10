@@ -1,6 +1,6 @@
 /* SELECTORS */
 
-export const getAllParameters = ({ parameters }) => parameters;
+export const getAllParameters = ({ posters }) => posters;
 
 // action name creator
 const reducerName = 'parameter';
@@ -8,26 +8,34 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 
 // action types
 const SET_NAME = createActionName('SET_NAME');
-const SET_XPOSTERPOSITION = createActionName('SET_XPOSTERPOSITION');
-const SET_YPOSTERPOSITION = createActionName('SET_YPOSTERPOSITION');
-const SET_POSTERWIDTH = createActionName('SET_POSTERWIDTH');
-const SET_POSTERHEIGHT = createActionName('SET_POSTERHEIGHT');
+const SET_X_POSTER_POSITION = createActionName('SET_X_POSTER_POSITION');
+const SET_Y_POSTER_POSITION = createActionName('SET_Y_POSTER_POSITION');
+const SET_POSTER_WIDTH = createActionName('SET_POSTER_WIDTH');
+const SET_POSTER_HEIGHT = createActionName('SET_POSTER_HEIGHT');
 const ADD_POSTER = createActionName('ADD_POSTER');
-const MOVE_BYDELTAX = createActionName('MOVE_BYDELTAX');
-const MOVE_BYDELTAY = createActionName('MOVE_BYDELTAY');
+const MOVE_BY_DELTA_X = createActionName('MOVE_BY_DELTA_X');
+const MOVE_BY_DELTA_Y = createActionName('MOVE_BY_DELTA_Y');
+const SET_PICTURE_NAME = createActionName('SET_PICTURE_NAME');
 
 // action creators
 export const setName = (id, posterName) => ({ payload: {id, posterName}, type: SET_NAME });
-export const setXPosterPosition = (id, xPosterPosition) => ({ payload: {id, xPosterPosition}, type: SET_XPOSTERPOSITION });
-export const setYPosterPosition = (id, yPosterPosition) => ({ payload: {id, yPosterPosition}, type: SET_YPOSTERPOSITION });
-export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}, type: SET_POSTERWIDTH });
-export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTERHEIGHT });
+export const setXPosterPosition = (id, xPosterPosition) => ({ payload: {id, xPosterPosition}, type: SET_X_POSTER_POSITION });
+export const setYPosterPosition = (id, yPosterPosition) => ({ payload: {id, yPosterPosition}, type: SET_Y_POSTER_POSITION });
+export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}, type: SET_POSTER_WIDTH });
+export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTER_HEIGHT });
 export const addPoster = (payload) => ({ payload, type: ADD_POSTER });
-export const movePosterByDeltaX =(id, deltaX) => ({ payload: {id, deltaX}, type: MOVE_BYDELTAX });
-export const movePosterByDeltaY =(id, deltaY) => ({ payload: {id, deltaY}, type: MOVE_BYDELTAY });
+export const movePosterByDeltaX =(id, deltaX) => ({ payload: {id, deltaX}, type: MOVE_BY_DELTA_X });
+export const movePosterByDeltaY =(id, deltaY) => ({ payload: {id, deltaY}, type: MOVE_BY_DELTA_Y });
+export const setPictureName =(id, pictureName) => ({ payload: {id, pictureName}, type: SET_PICTURE_NAME });
 
-export const getPosterParameters = ({ parameters }, posterId) => {
-  const filtered = parameters.filter((p) => p.id === posterId);
+export const getPictureNameByPosterID = ({ posters }, posterId) => {
+  const filtered = posters.filter((p) => p.id === posterId);
+  return filtered.length ? filtered[0].pictureName : { error: true };
+};
+
+
+export const getPosterParameters = ({ posters }, posterId) => {
+  const filtered = posters.filter((p) => p.id === posterId);
   return filtered.length ? filtered[0] : { error: true };
 };
 
@@ -45,7 +53,7 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
-    case SET_XPOSTERPOSITION: {
+    case SET_X_POSTER_POSITION: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;
@@ -56,7 +64,7 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
-    case SET_YPOSTERPOSITION: {
+    case SET_Y_POSTER_POSITION: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;
@@ -67,7 +75,7 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }    
-    case SET_POSTERWIDTH: {
+    case SET_POSTER_WIDTH: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;
@@ -78,7 +86,7 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
-    case SET_POSTERHEIGHT: {
+    case SET_POSTER_HEIGHT: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;
@@ -89,12 +97,23 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
+    case SET_PICTURE_NAME: {
+      return statePart.map((item) => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return {
+          ...item,
+          pictureName: action.payload.pictureName,
+        };
+      });
+    }
     case ADD_POSTER: {
       let newArray = statePart.slice();
       newArray.push(action.payload);
       return newArray;
     }
-    case MOVE_BYDELTAX: {
+    case MOVE_BY_DELTA_X: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;
@@ -105,7 +124,7 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
-    case MOVE_BYDELTAY: {
+    case MOVE_BY_DELTA_Y: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
           return item;

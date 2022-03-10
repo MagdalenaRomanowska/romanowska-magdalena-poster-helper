@@ -23,8 +23,13 @@ class Parameters extends Component {
     this.props.setPosterHeight(parameterId, posterHeight);
   }
 
+  _onChangePicture(pictureName, parameterId) {
+    this.props.setPictureName(parameterId, pictureName);
+    
+  }
+
   render() {
-    const { parameters, chosenPosterID } = this.props;
+    const { parameters, chosenPosterID, pictures } = this.props;
     const parameter = parameters.filter((e) => e.id === chosenPosterID)[0];
 
     if (!parameter) {
@@ -89,14 +94,14 @@ class Parameters extends Component {
                   />
                 </p>
                 <p className={styles.parameterLabel}>
-                  URL:{' '}
-                  <form>        
-                    <select id="framework">
-                      <option value="1">01</option>
-                      <option value="2">02</option>
-                      <option value="3">03</option>
-                      <option value="4">04</option>
+                  Picture:{' '}
+                  <form>
+                    <select onChange={(e) => this._onChangePicture(e.target.value, parameter.id)} value={parameter.pictureName}>
+                      {pictures.map((picture) => (
+                        <option key={picture._id} value={picture.pictureName}>{picture.pictureName}</option>
+                      ))}
                     </select>
+                    
                   </form>
                 </p>
               </td>
@@ -115,6 +120,8 @@ Parameters.propTypes = {
   setPosterHeight: PropTypes.func,
   parameters: PropTypes.any,
   chosenPosterID: PropTypes.any,
+  pictures: PropTypes.any,
+  setPictureName: PropTypes.func,
 };
 
 export default Parameters;

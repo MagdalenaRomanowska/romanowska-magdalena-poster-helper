@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Poster.module.scss';
 
 export default function Poster(props) {
-  const { posterParameters, setXPosterPosition, setYPosterPosition, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } = props;
+  const { pictureURL, posterParameters, setXPosterPosition, setYPosterPosition, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } = props;
   const [pressed, setPressed] = useState(false);
 
   const onMouseMove = (event) => {
@@ -36,7 +36,7 @@ export default function Poster(props) {
       }}      
     >
       <img
-        src='https://i.postimg.cc/cChyYPNt/fioletowe-jasniejsze.jpg'
+        src={pictureURL}
         width='100'
         height='100'
         alt='poster'
@@ -56,4 +56,5 @@ Poster.propTypes = {
   setStartPosterPositionY: PropTypes.func,
   setStartClickPositionX: PropTypes.func,
   setStartClickPositionY: PropTypes.func,
+  pictureURL: PropTypes.any,
 };

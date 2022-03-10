@@ -1,20 +1,18 @@
 import { combineReducers, createStore } from 'redux';
-import parametersList from '../data/store.json';
+import storeJSON from '../data/store.json';
 import globalReducer from './globalRedux';
 import parameterReducer from './parametersRedux';
 import chosenPosterIDReducer from './chosenPosterIDRedux';
-
+import pictureReducer from './picturesRedux';
 
 // define initial state and shallow-merge initial data
-const initialState = {
-  parameters: parametersList,
-  chosenPosterID: { value: 0, startPosterPositionX: 0, startPosterPositionY: 0, startClickPositionX: 0, startClickPositionY: 0 },
-};
+const initialState = storeJSON;
 
 // define reducers
 const reducers = {
-  parameters: parameterReducer,
-  chosenPosterID: chosenPosterIDReducer,
+  posters: parameterReducer,
+  chosenPoster: chosenPosterIDReducer,
+  pictures: pictureReducer,
 };
 
 // add blank reducers for initial state properties without reducers

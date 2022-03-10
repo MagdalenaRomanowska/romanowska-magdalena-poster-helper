@@ -17,6 +17,12 @@ export default function ButtonAddPoster(props) {
             yPosterPosition: 220,
             posterWidth: 220,
             posterHeight: 160,
+            // value: 0, 
+            // startPosterPositionX: 0, 
+            // startPosterPositionY: 0, 
+            // startClickPositionX: 0, 
+            // startClickPositionY: 0,
+            pictureName: 'Saturn',
           })
         }
       >
