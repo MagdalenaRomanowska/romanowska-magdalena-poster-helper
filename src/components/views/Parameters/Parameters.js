@@ -29,7 +29,7 @@ class Parameters extends Component {
   }
 
   render() {
-    const { parameters, chosenPosterID, pictures } = this.props;
+    const { parameters, chosenPosterID, pictures, posterDimensions } = this.props;
     const parameter = parameters.filter((e) => e.id === chosenPosterID)[0];
 
     if (!parameter) {
@@ -104,6 +104,17 @@ class Parameters extends Component {
                     
                   </form>
                 </p>
+                <p className={styles.parameterLabel}>
+                  Dimensions in &apos; &apos;:{' '}
+                  <form>
+                    <select onChange={(e) => this._onChangePicture(e.target.value, parameter.id)} value={parameter.pictureName}>
+                      {posterDimensions.map((posterDimension) => (
+                        <option key={posterDimension._id} value={posterDimension.posterDimensionsWidth}>{posterDimension.posterDimensionsWidth} x {posterDimension.posterDimensionsHeight}</option>
+                      ))}
+                    </select>
+                    
+                  </form>
+                </p>
               </td>
             </tbody>
           </table>
@@ -122,6 +133,7 @@ Parameters.propTypes = {
   chosenPosterID: PropTypes.any,
   pictures: PropTypes.any,
   setPictureName: PropTypes.func,
+  posterDimensions: PropTypes.any,
 };
 
 export default Parameters;

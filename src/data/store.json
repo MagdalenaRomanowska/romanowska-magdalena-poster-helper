@@ -30,5 +30,63 @@
             "pictureName": "Mars",
             "url": "/images/Mars.png"
         }
-    ]
+    ],
+    "posterDimensions":[
+      {
+        "posterDimensionsWidth": "18",
+        "posterDimensionsHeight": "12"
+      },
+      {
+        "posterDimensionsWidth": "20",
+        "posterDimensionsHeight": "16"
+      },
+      {
+        "posterDimensionsWidth": "08",
+        "posterDimensionsHeight": "11"
+      },
+      {
+        "posterDimensionsWidth": "11",
+        "posterDimensionsHeight": "08"
+      },
+      {
+        "posterDimensionsWidth": "11",
+        "posterDimensionsHeight": "14"
+      },
+      {
+        "posterDimensionsWidth": "14",
+        "posterDimensionsHeight": "11"
+      },
+      {
+        "posterDimensionsWidth": "12",
+        "posterDimensionsHeight": "18"
+      },
+      {
+        "posterDimensionsWidth": "16",
+        "posterDimensionsHeight": "20"
+      },
+      {
+        "posterDimensionsWidth": "18",
+        "posterDimensionsHeight": "24"
+      },
+      {
+        "posterDimensionsWidth": "24",
+        "posterDimensionsHeight": "18"
+      },
+      {
+        "posterDimensionsWidth": "20",
+        "posterDimensionsHeight": "30"
+      },
+      {
+        "posterDimensionsWidth": "24",
+        "posterDimensionsHeight": "36"
+      },
+      {
+        "posterDimensionsWidth": "30",
+        "posterDimensionsHeight": "20"
+      },
+      {
+        "posterDimensionsWidth": "36",
+        "posterDimensionsHeight": "24"
+      }
+  ]
 }

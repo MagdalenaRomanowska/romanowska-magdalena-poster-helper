@@ -2,10 +2,12 @@ import {connect} from 'react-redux';
 import Parameters from './Parameters';
 import {getAllParameters, setXPosterPosition, setYPosterPosition, setPosterWidth, setPosterHeight, setPictureName } from '../../../redux/parametersRedux';
 import { getAllPictures } from '../../../redux/picturesRedux';
+import { getAllPosterDimensions } from '../../../redux/posterDimensionsRedux';
 
 const mapStateToProps = (state) => ({
   parameters: getAllParameters(state),
   pictures: getAllPictures(state),
+  posterDimensions: getAllPosterDimensions(state),
 });
 
 const mapDispatchToProps = dispatch => ({
