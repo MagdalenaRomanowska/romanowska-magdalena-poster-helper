@@ -4,7 +4,7 @@ import styles from './Poster.module.scss';
 
 export default function Poster(props) {
   const { pictureURL, posterParameters, setChosenPosterID, setStartPosterPositionX, 
-    setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY, posterWidth, posterHeight } = props;
+    setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY, posterWidth, posterHeight, globalScale } = props;
 
   console.log('posterWidth ', posterWidth);
   
@@ -32,8 +32,8 @@ export default function Poster(props) {
     >
       <img
         src={pictureURL}
-        width={posterWidth * 10}
-        height={posterHeight * 10}
+        width={posterWidth * globalScale}
+        height={posterHeight * globalScale}
         alt='poster'
         data-key={posterParameters.id}
         onClick={handleClick}
@@ -54,4 +54,5 @@ Poster.propTypes = {
   pictureURL: PropTypes.any,  
   posterWidth: PropTypes.any,
   posterHeight: PropTypes.any,
+  globalScale: PropTypes.any,
 };

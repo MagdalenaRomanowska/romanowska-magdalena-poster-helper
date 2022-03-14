@@ -4,6 +4,8 @@ import globalReducer from './globalRedux';
 import parameterReducer from './parametersRedux';
 import chosenPosterIDReducer from './chosenPosterIDRedux';
 import pictureReducer from './picturesRedux';
+import posterDimensionsReducer from './posterDimensionsRedux';
+import scaleReducer from './scaleRedux';
 
 // define initial state and shallow-merge initial data
 const initialState = storeJSON;
@@ -13,6 +15,8 @@ const reducers = {
   posters: parameterReducer,
   chosenPoster: chosenPosterIDReducer,
   pictures: pictureReducer,
+  posterDimensions: posterDimensionsReducer,
+  globalScale: scaleReducer,
 };
 
 // add blank reducers for initial state properties without reducers

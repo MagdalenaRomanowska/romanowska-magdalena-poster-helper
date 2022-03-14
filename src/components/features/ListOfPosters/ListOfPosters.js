@@ -12,6 +12,7 @@ class ListOfPosters extends React.Component {
       chosenPosterID: ' ',
       movingModeOn: false,
       pressed: false,
+      scale: ' ',
     };
     this.handleClickPosterNameOnList =
       this.handleClickPosterNameOnList.bind(this);
@@ -53,13 +54,13 @@ class ListOfPosters extends React.Component {
         event.clientY - startClickPositionY + startPosterPositionY
       );
     }
-
-    // console.log('startPosterPositionX: ', startPosterPositionX, ' / startPosterPositionY: ', startPosterPositionY,
-    //   ' / startClickPositionX: ', startClickPositionX, ' / startClickPositionY:', startClickPositionY);
   }
 
+  _onChangeXPosition(scale) {
+    this.props.setGlobalScale(scale);
+  }
   render() {
-    const { parameters, chosenPosterId } = this.props;
+    const { parameters, chosenPosterId, globalScale } = this.props;
 
     return (
       <div className={styles.root}>
@@ -93,6 +94,17 @@ class ListOfPosters extends React.Component {
           </div>
         </div>
         <div className={styles.parameters}>
+          <p>Scale: {globalScale}</p><br></br>
+          <p><input
+            type='number'
+            min='0'
+            max='10'
+            step='1'
+            value={globalScale}
+            onChange={(e) =>
+              this._onChangeXPosition(e.target.value)
+            }
+          /></p><br></br>
           <p className={styles.title}>Parameters:</p>
           <div>movingModeOn: {' ' + this.state.movingModeOn}</div>
           <Parameters chosenPosterID={chosenPosterId} />
@@ -112,6 +124,8 @@ ListOfPosters.propTypes = {
   setChosenPosterID: PropTypes.func,
   setXPosterPosition: PropTypes.func,
   setYPosterPosition: PropTypes.func,
+  globalScale: PropTypes.any,
+  setGlobalScale: PropTypes.func,
 };
 
 export default ListOfPosters;

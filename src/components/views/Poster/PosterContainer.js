@@ -4,6 +4,7 @@ import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPo
 import { getChosenPosterId, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 import { getURLByPictureName } from '../../../redux/picturesRedux';
 import { getPosterWidthByPictureName, getPosterHeightByPictureName } from '../../../redux/posterDimensionsRedux';
+import { getGlobalScale } from '../../../redux/scaleRedux';
 
 const mapStateToProps = (state, props) => ({
   parameters: getAllParameters(state),
@@ -12,6 +13,7 @@ const mapStateToProps = (state, props) => ({
   pictureURL: getURLByPictureName(state, getPictureNameByPosterID(state, props.id)),    
   posterWidth: getPosterWidthByPictureName(state, getPosterDimensionsNameByPosterID(state, props.id)),
   posterHeight: getPosterHeightByPictureName(state, getPosterDimensionsNameByPosterID(state, props.id)),
+  globalScale: getGlobalScale(state),
 });
 
 

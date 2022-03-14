@@ -14,15 +14,9 @@ export default function ButtonAddPoster(props) {
             id: idUUID,
             posterName: idUUID.slice(0,5),
             xPosterPosition: 220,
-            yPosterPosition: 220,
-            posterWidth: 220,
-            posterHeight: 160,
-            // value: 0, 
-            // startPosterPositionX: 0, 
-            // startPosterPositionY: 0, 
-            // startClickPositionX: 0, 
-            // startClickPositionY: 0,
+            yPosterPosition: 220,            
             pictureName: 'Saturn',
+            posterDimensionsName: '18x12',
           })
         }
       >

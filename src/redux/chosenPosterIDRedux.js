@@ -1,5 +1,3 @@
-// import axios from 'axios';
-
 /* action name creator */
 const reducerName = 'poster';
 const createActionName = (name) => `app/${reducerName}/${name}`;
