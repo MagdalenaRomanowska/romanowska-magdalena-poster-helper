@@ -2,13 +2,15 @@
 
 export const getAllPosterDimensions = ({ posterDimensions }) => posterDimensions;
 
-// action name creator
-const reducerName = 'picture';
-const createActionName = (name) => `app/${reducerName}/${name}`;
+export const getPosterWidthByPictureName = ({ posterDimensions }, pictureName) => {
+  const filtered = posterDimensions.filter((p) => p.posterDimensionsName === pictureName);
+  return filtered.length ? filtered[0].w : { error: true };
+};
 
-// action types
-
-// action creators
+export const getPosterHeightByPictureName = ({ posterDimensions }, pictureName) => {
+  const filtered = posterDimensions.filter((p) => p.posterDimensionsName === pictureName);
+  return filtered.length ? filtered[0].h : { error: true };
+};
 
 // reducer
 export default function reducer(statePart = [], action = {}) {

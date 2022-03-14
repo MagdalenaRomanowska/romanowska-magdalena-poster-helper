@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Poster.module.scss';
 
 export default function Poster(props) {
-  const { pictureURL, posterParameters, setXPosterPosition, setYPosterPosition, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } = props;
-  const [pressed, setPressed] = useState(false);
+  const { pictureURL, posterParameters, setChosenPosterID, setStartPosterPositionX, 
+    setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY, posterWidth, posterHeight } = props;
 
-  const onMouseMove = (event) => {
-    if (pressed) {
-      setXPosterPosition(posterParameters.id, posterParameters.xPosterPosition + event.movementX);
-      setYPosterPosition(posterParameters.id, posterParameters.yPosterPosition + event.movementY);
-    }
-  };
-
+  console.log('posterWidth ', posterWidth);
+  
   const _onChangeChosenPosterID = (chosenPosterID, ClickX, ClickY) => {
     setChosenPosterID(chosenPosterID);
     setStartPosterPositionX(posterParameters.xPosterPosition);
@@ -37,8 +32,8 @@ export default function Poster(props) {
     >
       <img
         src={pictureURL}
-        width='100'
-        height='100'
+        width={posterWidth * 10}
+        height={posterHeight * 10}
         alt='poster'
         data-key={posterParameters.id}
         onClick={handleClick}
@@ -56,5 +51,7 @@ Poster.propTypes = {
   setStartPosterPositionY: PropTypes.func,
   setStartClickPositionX: PropTypes.func,
   setStartClickPositionY: PropTypes.func,
-  pictureURL: PropTypes.any,
+  pictureURL: PropTypes.any,  
+  posterWidth: PropTypes.any,
+  posterHeight: PropTypes.any,
 };

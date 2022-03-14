@@ -1,15 +1,17 @@
 import {connect} from 'react-redux';
 import Poster from './Poster';
-import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPosition, setPosterWidth, setPosterHeight, getPictureNameByPosterID } from '../../../redux/parametersRedux';
+import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPosition, setPosterWidth, setPosterHeight, getPictureNameByPosterID, getPosterDimensionsNameByPosterID } from '../../../redux/parametersRedux';
 import { getChosenPosterId, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 import { getURLByPictureName } from '../../../redux/picturesRedux';
+import { getPosterWidthByPictureName, getPosterHeightByPictureName } from '../../../redux/posterDimensionsRedux';
 
 const mapStateToProps = (state, props) => ({
   parameters: getAllParameters(state),
   posterParameters: getPosterParameters(state, props.id),
   chosenPosterId: getChosenPosterId(state),
-  pictureURL: getURLByPictureName(state, getPictureNameByPosterID(state, props.id)),
-  //pictureURL: getURLByPictureName(state, 'Jupiter'),
+  pictureURL: getURLByPictureName(state, getPictureNameByPosterID(state, props.id)),    
+  posterWidth: getPosterWidthByPictureName(state, getPosterDimensionsNameByPosterID(state, props.id)),
+  posterHeight: getPosterHeightByPictureName(state, getPosterDimensionsNameByPosterID(state, props.id)),
 });
 
 

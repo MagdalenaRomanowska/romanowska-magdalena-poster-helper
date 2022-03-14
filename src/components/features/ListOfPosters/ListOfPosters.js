@@ -6,15 +6,15 @@ import PropTypes from 'prop-types';
 import styles from './ListOfPosters.module.scss';
 
 class ListOfPosters extends React.Component {
-  
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       chosenPosterID: ' ',
       movingModeOn: false,
       pressed: false,
     };
-    this.handleClickPosterNameOnList = this.handleClickPosterNameOnList.bind(this);
+    this.handleClickPosterNameOnList =
+      this.handleClickPosterNameOnList.bind(this);
     this.handleClickPoster = this.handleClickPoster.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
@@ -25,13 +25,13 @@ class ListOfPosters extends React.Component {
   }
 
   handleClickPosterNameOnList(event) {
-    this._onChangeChosenPosterID(event.target.getAttribute('data-key'));    
+    this._onChangeChosenPosterID(event.target.getAttribute('data-key'));
   }
 
   handleClickPoster(event) {
-    this.setState({ 
+    this.setState({
       pressed: !this.state.pressed,
-    });    
+    });
   }
 
   handleKeyDown() {
@@ -44,10 +44,16 @@ class ListOfPosters extends React.Component {
     let startClickPositionX = this.props.startClickPositionX;
     let startClickPositionY = this.props.startClickPositionY;
     if (this.state.pressed && this.state.movingModeOn) {
-      this.props.setXPosterPosition(this.props.chosenPosterId, event.clientX - startClickPositionX + startPosterPositionX);
-      this.props.setYPosterPosition(this.props.chosenPosterId, event.clientY - startClickPositionY + startPosterPositionY);
+      this.props.setXPosterPosition(
+        this.props.chosenPosterId,
+        event.clientX - startClickPositionX + startPosterPositionX
+      );
+      this.props.setYPosterPosition(
+        this.props.chosenPosterId,
+        event.clientY - startClickPositionY + startPosterPositionY
+      );
     }
-    
+
     // console.log('startPosterPositionX: ', startPosterPositionX, ' / startPosterPositionY: ', startPosterPositionY,
     //   ' / startClickPositionX: ', startClickPositionX, ' / startClickPositionY:', startClickPositionY);
   }
@@ -64,33 +70,27 @@ class ListOfPosters extends React.Component {
               key={parameter.id}
               data-key={parameter.id}
               onClick={this.handleClickPosterNameOnList}
-            >
-              {parameter.posterName}
-            </textarea>
+              defaultValue={parameter.posterName}
+            ></textarea>
           ))}
         </div>
-        <div className={styles.posters}
-          onMouseMove={this.onMouseMove}  
-          onClick={this.handleClickPoster}        
+        <div
+          className={styles.posters}
+          onMouseMove={this.onMouseMove}
+          onClick={this.handleClickPoster}
           onKeyDown={this.handleKeyDown}
-          tabIndex="0"
+          tabIndex='0'
         >
           <div className={styles.backgroundWall}>
-            <BackgroundWall />          
+            <BackgroundWall />
           </div>
           <div className={styles.poster}>
             {parameters.map((parameter) => (
-              <div 
-                key={parameter.id} 
-                data-key={parameter.id}
-              >
-                <Poster
-                  id={parameter.id}                 
-                />                
+              <div key={parameter.id} data-key={parameter.id}>
+                <Poster id={parameter.id} />
               </div>
             ))}
           </div>
-          
         </div>
         <div className={styles.parameters}>
           <p className={styles.title}>Parameters:</p>
