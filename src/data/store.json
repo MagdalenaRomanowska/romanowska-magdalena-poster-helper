@@ -8,7 +8,8 @@
         "posterWidth": 220,
         "posterHeight": 160,
         "pictureName": "Saturn",
-        "posterDimensionsName": "18x12"
+        "posterDimensionsName": "18x12",
+        "angle": 0
       }
     ],
     "chosenPoster": {

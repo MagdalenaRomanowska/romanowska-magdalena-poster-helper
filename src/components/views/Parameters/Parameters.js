@@ -12,6 +12,10 @@ class Parameters extends Component {
     this.props.setYPosterPosition(parameterId, yPosterPosition);
   }
 
+  _onChangeAngle(angle, parameterId) {
+    this.props.setPosterAngle(parameterId, angle);
+  }
+
   _onChangePosterWidth(posterWidth, parameterId) {
     this.props.setPosterWidth(parameterId, posterWidth);
   }
@@ -27,8 +31,7 @@ class Parameters extends Component {
   _onChangePosterDimensions(
     posterDimensionsName,
     parameterId
-  ) {
-    console.log('posterDimensionsName : ', posterDimensionsName , ' parameterId : ', parameterId);
+  ) {    
     this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
   }
 
@@ -78,6 +81,19 @@ class Parameters extends Component {
                       value={parameter.yPosterPosition}
                       onChange={(e) =>
                         this._onChangeYPosition(e.target.value, parameter.id)
+                      }
+                    />
+                  </p>
+                  <p className={styles.parameterLabel}>
+                    Angle:{' '}
+                    <input
+                      type='number'
+                      min='0'
+                      max='360'
+                      step='5'
+                      value={parameter.angle}
+                      onChange={(e) =>
+                        this._onChangeAngle(e.target.value, parameter.id)
                       }
                     />
                   </p>
@@ -147,6 +163,7 @@ class Parameters extends Component {
 Parameters.propTypes = {
   setXPosterPosition: PropTypes.func,
   setYPosterPosition: PropTypes.func,
+  setPosterAngle: PropTypes.func,
   setPosterWidth: PropTypes.func,
   setPosterHeight: PropTypes.func,
   parameters: PropTypes.any,

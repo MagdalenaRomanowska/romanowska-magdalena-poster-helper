@@ -5,8 +5,6 @@ import styles from './Poster.module.scss';
 export default function Poster(props) {
   const { pictureURL, posterParameters, setChosenPosterID, setStartPosterPositionX, 
     setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY, posterWidth, posterHeight, globalScale } = props;
-
-  console.log('posterWidth ', posterWidth);
   
   const _onChangeChosenPosterID = (chosenPosterID, ClickX, ClickY) => {
     setChosenPosterID(chosenPosterID);
@@ -18,7 +16,6 @@ export default function Poster(props) {
 
   const handleClick = (event) => {
     _onChangeChosenPosterID(event.target.getAttribute('data-key'), event.clientX, event.clientY);
-    // console.log('event.clientX ', event.clientX, '/ event.clientY ', event.clientY);
   };
 
   return (
@@ -28,6 +25,7 @@ export default function Poster(props) {
         left: posterParameters.xPosterPosition,
         top: posterParameters.yPosterPosition,
         backgroundColor: 'red',
+        transform: 'rotate(' + posterParameters.angle + 'deg)',
       }}      
     >
       <img

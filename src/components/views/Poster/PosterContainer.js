@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Poster from './Poster';
-import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPosition, setPosterWidth, setPosterHeight, getPictureNameByPosterID, getPosterDimensionsNameByPosterID } from '../../../redux/parametersRedux';
+import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPosition, setPosterAngle, setPosterWidth, setPosterHeight, 
+  getPictureNameByPosterID, getPosterDimensionsNameByPosterID } from '../../../redux/parametersRedux';
 import { getChosenPosterId, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 import { getURLByPictureName } from '../../../redux/picturesRedux';
 import { getPosterWidthByPictureName, getPosterHeightByPictureName } from '../../../redux/posterDimensionsRedux';
@@ -20,6 +21,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = dispatch => ({
   setXPosterPosition: (posterId, xPosterPosition) => dispatch(setXPosterPosition(posterId, xPosterPosition)),
   setYPosterPosition: (posterId, yPosterPosition) => dispatch(setYPosterPosition(posterId, yPosterPosition)),
+  setPosterAngle: (posterId, posterAngle) => dispatch(setPosterAngle(posterId, posterAngle)),
   setPosterWidth: (posterId, posterWidth) => dispatch(setPosterWidth(posterId, posterWidth)),
   setPosterHeight: (posterId, posterHeight) => dispatch(setPosterHeight(posterId, posterHeight)),
   setChosenPosterID: (value) => dispatch(setChosenPosterID(value)),  

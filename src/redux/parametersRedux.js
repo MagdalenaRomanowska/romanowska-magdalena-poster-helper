@@ -10,6 +10,7 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 const SET_NAME = createActionName('SET_NAME');
 const SET_X_POSTER_POSITION = createActionName('SET_X_POSTER_POSITION');
 const SET_Y_POSTER_POSITION = createActionName('SET_Y_POSTER_POSITION');
+const SET_POSTER_ANGLE = createActionName('SET_POSTER_ANGLE');
 const SET_POSTER_WIDTH = createActionName('SET_POSTER_WIDTH');
 const SET_POSTER_HEIGHT = createActionName('SET_POSTER_HEIGHT');
 const ADD_POSTER = createActionName('ADD_POSTER');
@@ -22,6 +23,7 @@ const SET_POSTER_DIMENSIONS_NAME = createActionName('SET_POSTER_DIMENSIONS_NAME'
 export const setName = (id, posterName) => ({ payload: {id, posterName}, type: SET_NAME });
 export const setXPosterPosition = (id, xPosterPosition) => ({ payload: {id, xPosterPosition}, type: SET_X_POSTER_POSITION });
 export const setYPosterPosition = (id, yPosterPosition) => ({ payload: {id, yPosterPosition}, type: SET_Y_POSTER_POSITION });
+export const setPosterAngle = (id, angle) => ({ payload: {id, angle}, type: SET_POSTER_ANGLE });
 export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}, type: SET_POSTER_WIDTH });
 export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTER_HEIGHT });
 export const addPoster = (payload) => ({ payload, type: ADD_POSTER });
@@ -78,6 +80,17 @@ export default function reducer(statePart = [], action = {}) {
         return {
           ...item,
           yPosterPosition: parseInt(action.payload.yPosterPosition),
+        };
+      });
+    }   
+    case SET_POSTER_ANGLE: {
+      return statePart.map((item) => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return {
+          ...item,
+          angle: parseInt(action.payload.angle),
         };
       });
     }    
