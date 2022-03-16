@@ -1,6 +1,6 @@
 import React from 'react';
 import Parameters from '../../views/Parameters/ParametersContainer';
-import BackgroundWall from '../../views/BackgroundWall/BackgroundWall';
+import BackgroundWall from '../../views/BackgroundWall/BackgroundWallContainer';
 import Poster from '../../views/Poster/PosterContainer.js';
 import PropTypes from 'prop-types';
 import styles from './ListOfPosters.module.scss';
@@ -56,7 +56,7 @@ class ListOfPosters extends React.Component {
     }
   }
 
-  _onChangeXPosition(scale) {
+  _onChangeScale(scale) {
     this.props.setGlobalScale(scale);
   }
   render() {
@@ -102,7 +102,7 @@ class ListOfPosters extends React.Component {
             step='1'
             value={globalScale}
             onChange={(e) =>
-              this._onChangeXPosition(e.target.value)
+              this._onChangeScale(e.target.value)
             }
           /></p><br></br>
           <p className={styles.title}>Parameters:</p>

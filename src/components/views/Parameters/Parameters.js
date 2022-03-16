@@ -28,6 +28,10 @@ class Parameters extends Component {
     this.props.setPictureName(parameterId, pictureName);
   }
 
+  _onChangeBackgroundWall(backgroundWallName) {
+    this.props.setSelectedBackgroundWallName(backgroundWallName);
+  }  
+
   _onChangePosterDimensions(
     posterDimensionsName,
     parameterId
@@ -36,7 +40,7 @@ class Parameters extends Component {
   }
 
   render() {
-    const { parameters, chosenPosterID, pictures, posterDimensions, posterWidth, posterHeight } =
+    const { parameters, chosenPosterID, pictures, backgroundWalls, posterDimensions, posterWidth, posterHeight, selectedBackgroundWallName } =
       this.props;
     const parameter = parameters.filter((e) => e.id === chosenPosterID)[0];
 
@@ -118,6 +122,21 @@ class Parameters extends Component {
                     />
                   </p>
                   <p className={styles.parameterLabel}>
+                    BackgroundWall:{' '}
+                    <select
+                      onChange={(e) =>
+                        this._onChangeBackgroundWall(e.target.value)
+                      }
+                      value={selectedBackgroundWallName}
+                    >
+                      {backgroundWalls.map((backgroundWall) => (
+                        <option key={backgroundWall.backgroundWallName} value={backgroundWall.backgroundWallName}>
+                          {backgroundWall.backgroundWallName}
+                        </option>
+                      ))}
+                    </select>
+                  </p>
+                  <p className={styles.parameterLabel}>
                     Picture:{' '}
                     <select
                       onChange={(e) =>
@@ -169,7 +188,10 @@ Parameters.propTypes = {
   parameters: PropTypes.any,
   chosenPosterID: PropTypes.any,
   pictures: PropTypes.any,
+  backgroundWalls: PropTypes.any,
+  selectedBackgroundWallName: PropTypes.any,
   setPictureName: PropTypes.func,
+  setSelectedBackgroundWallName: PropTypes.func,
   posterDimensions: PropTypes.any,
   setPosterDimensionsName: PropTypes.func,
   posterWidth: PropTypes.any,

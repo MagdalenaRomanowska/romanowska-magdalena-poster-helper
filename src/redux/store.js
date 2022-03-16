@@ -4,6 +4,8 @@ import globalReducer from './globalRedux';
 import parameterReducer from './parametersRedux';
 import chosenPosterIDReducer from './chosenPosterIDRedux';
 import pictureReducer from './picturesRedux';
+import backgroundWallsReducer from './backgroundWallsRedux';
+import selectedBackgroundWallNameReducer from './selectedBackgroundWallNameRedux';
 import posterDimensionsReducer from './posterDimensionsRedux';
 import scaleReducer from './scaleRedux';
 
@@ -15,6 +17,8 @@ const reducers = {
   posters: parameterReducer,
   chosenPoster: chosenPosterIDReducer,
   pictures: pictureReducer,
+  backgroundWalls: backgroundWallsReducer,
+  selectedBackgroundWallName: selectedBackgroundWallNameReducer,
   posterDimensions: posterDimensionsReducer,
   globalScale: scaleReducer,
 };

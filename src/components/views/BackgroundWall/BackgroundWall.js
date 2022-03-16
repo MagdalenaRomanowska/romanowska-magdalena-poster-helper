@@ -1,20 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './BackgroundWall.module.scss';
 
-export default function BackgroundWall() {
-  
+export default function BackgroundWall(props) {
+  const { backgroundWallURL } = props;
+
   return (
-    <div className={styles.root}>      
-      <img 
+    <div className={styles.root}>
+      <img
         className={styles.img}
-        id={'scream'} 
-        width={window.innerWidth / 2} 
-        height={Math.floor(window.innerHeight * 0.68)} 
+        id={'scream'}
+        width={window.innerWidth / 2}
+        height={Math.floor(window.innerHeight * 0.68)}
         alt={'background wall'}
-        src={'https://www.bergerpaints.com/blog/wp-content/uploads/2019/05/maintaining_interior_paint.png'}>
-        
-      </img>
+        src={backgroundWallURL}
+      ></img>
     </div>
   );
 }
 
+BackgroundWall.propTypes = {
+  backgroundWallURL: PropTypes.any,
+};

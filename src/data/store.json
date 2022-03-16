@@ -33,6 +33,20 @@
             "url": "/images/Mars.png"
         }
     ],
+    "backgroundWalls":[
+      {
+          "backgroundWallName": "backgroundWall01",
+          "url": "/images/backgroundWall01.png"
+      },
+      {
+          "backgroundWallName": "backgroundWall02",
+          "url": "/images/backgroundWall02.png"
+      },
+      {
+          "backgroundWallName": "backgroundWall03",
+          "url": "/images/backgroundWall03.jpg"
+      }
+  ],
     "posterDimensions":[
       {
         "posterDimensionsName": "18x12",
@@ -50,5 +64,6 @@
         "h": 11
       }
     ],
-    "globalScale": 1
+    "globalScale": 1,
+    "selectedBackgroundWallName": "backgroundWall03"
 }
