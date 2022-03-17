@@ -2,46 +2,25 @@
 
 .root {
   display: inline-flex;
-}
-
-.title {
-  text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  font-weight: bold;
+  margin-top: 2vh;
+  // max-height: 90vh;
 }
 
 .clickedPosterName {
   border: none;
-  resize: none;
+  // resize: none;
+  // background-color: rgb(161, 252, 188);
+  width: 11.5vw;
+  height: 1.6vw;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+  text-align: center;
 }
 
 .clickedPosterName:hover {
-  background-color: rgb(216, 216, 253);
+  background-color: rgb(228, 236, 245);
 }
 
 .clickedPosterName:active {
-  background-color: rgb(161, 161, 252);
   border: none;
-}
-
-.posters {
-  min-width: 48vw;
-  background-color: rgb(54, 54, 134);
-}
-
-.parameters {
-  margin-left: 2vw;
-  min-width: 24vw;
-}
-
-.backgroundWall {
-  position: absolute;
-  z-index: 3;
-}
-
-.poster {
-  position: absolute;
-  z-index: 4;
 }

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Header from '../Header/Header';
-import Canva from '../../views/Canva/CanvaContainer';
+import Layout from '../../views/Layout/LayoutContainer';
 import styles from './MainLayout.module.scss';
 
 const Component = ({children}) => (
   <div className={styles.root}>
     {/* <Header /> */}
-    <Canva />    
+    <Layout />    
     {children}
   </div>
 );

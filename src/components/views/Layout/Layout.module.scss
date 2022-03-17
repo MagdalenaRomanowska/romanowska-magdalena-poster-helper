@@ -1,0 +1,49 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  // max-height: 90vh;
+  // padding-top: 2vh;
+  font-family: $font-family;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  display: inline-flex;
+  margin: 8vh 0;
+}
+
+
+
+.buttonAndList {
+  width: 12vw;
+  background-color: rgb(255, 255, 255);
+  margin: 2vw 1vh;  
+}
+
+.view {
+  // position: relative;
+  width: 68vw;
+  // background-color: yellowgreen;
+  margin: 2vw 0; 
+}
+
+.scale{
+  // text-align: end;
+}
+
+.scale input {
+  width: fit-content;
+}
+
+.parameters {
+  width: 15vw;
+  margin: 2vw 1vh;  
+  font-size: 12px;
+}
+
+.moveable {
+  font-size: 8px;
+  text-align: center;
+}
+
+.trueOrFalse {
+  text-transform: uppercase;
+}

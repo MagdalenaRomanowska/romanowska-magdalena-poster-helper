@@ -28,10 +28,6 @@ class Parameters extends Component {
     this.props.setPictureName(parameterId, pictureName);
   }
 
-  _onChangeBackgroundWall(backgroundWallName) {
-    this.props.setSelectedBackgroundWallName(backgroundWallName);
-  }  
-
   _onChangePosterDimensions(
     posterDimensionsName,
     parameterId
@@ -40,7 +36,7 @@ class Parameters extends Component {
   }
 
   render() {
-    const { parameters, chosenPosterId, pictures, backgroundWalls, posterDimensions, posterWidth, posterHeight, selectedBackgroundWallName } =
+    const { parameters, chosenPosterId, pictures, posterDimensions, posterWidth, posterHeight } =
       this.props;
     const parameter = parameters.filter((e) => e.id === chosenPosterId)[0];
 
@@ -54,7 +50,7 @@ class Parameters extends Component {
           <table key={parameter.posterName}>
             <thead>
               <tr>
-                <th scope='col' className={styles.tableLabel}>
+                <th className={styles.tableLabel}>
                   Poster name: {parameter.posterName}
                 </th>
               </tr>
@@ -122,23 +118,9 @@ class Parameters extends Component {
                     />
                   </p>
                   <p className={styles.parameterLabel}>
-                    BackgroundWall:{' '}
-                    <select
-                      onChange={(e) =>
-                        this._onChangeBackgroundWall(e.target.value)
-                      }
-                      value={selectedBackgroundWallName}
-                    >
-                      {backgroundWalls.map((backgroundWall) => (
-                        <option key={backgroundWall.backgroundWallName} value={backgroundWall.backgroundWallName}>
-                          {backgroundWall.backgroundWallName}
-                        </option>
-                      ))}
-                    </select>
-                  </p>
-                  <p className={styles.parameterLabel}>
                     Picture:{' '}
                     <select
+                      className={styles.select}
                       onChange={(e) =>
                         this._onChangePicture(e.target.value, parameter.id)
                       }
@@ -154,6 +136,7 @@ class Parameters extends Component {
                   <p className={styles.parameterLabel}>
                     Dimensions in &apos; &apos;:{' '}
                     <select
+                      className={styles.select}
                       onChange={(event) =>                        
                         this._onChangePosterDimensions(event.target.value, parameter.id)
                       }
@@ -187,11 +170,8 @@ Parameters.propTypes = {
   setPosterHeight: PropTypes.func,
   parameters: PropTypes.any,
   chosenPosterId: PropTypes.any,
-  pictures: PropTypes.any,
-  backgroundWalls: PropTypes.any,
-  selectedBackgroundWallName: PropTypes.any,
-  setPictureName: PropTypes.func,
-  setSelectedBackgroundWallName: PropTypes.func,
+  pictures: PropTypes.any,  
+  setPictureName: PropTypes.func,  
   posterDimensions: PropTypes.any,
   setPosterDimensionsName: PropTypes.func,
   posterWidth: PropTypes.any,

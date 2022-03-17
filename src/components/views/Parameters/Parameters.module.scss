@@ -1,36 +1,33 @@
 @import "../../../styles/settings.scss";
 
-.App {
-  margin: 0;
-  text-align: center;
-}
-
 .tableLabel {
   text-align: left;
   padding-top: 12px;
+  font-size: 11px;
 }
 
 .parameterLabel {
   text-align: left;
   word-wrap: break-word;
+  font-size: 10px;
 }
 
-table {
-  width: 90%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-th {
-  text-align: left;
-}
-input, form {
-  width: 20%;
-  margin-right: 60px;
-  background-color: rgb(243, 243, 243);
+.select {
+  width: 40%;
+  // margin-right: 1vw;
+  background-color: rgb(228, 236, 245);
   float: right;
   text-align: center;
+  font-size: 8px;
+  border: solid 1px rgb(173, 172, 172);
 }
 
-h2 {
-  color: black;
+input, form {
+  width: 28%;
+  // margin-right: 1vw;
+  background-color: rgb(228, 236, 245);
+  float: right;
+  text-align: center;
+  font-size: 8px;
+  border: solid 1px rgb(173, 172, 172);
 }

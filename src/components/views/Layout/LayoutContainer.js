@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Canva from './Canva';
+import Layout from './Layout';
 import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPosition } from '../../../redux/parametersRedux';
 import { getChosenPosterId, setChosenPosterID, getStartPosterPositionX, getStartPosterPositionY, getStartClickPositionX, getStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 import { getGlobalScale, setGlobalScale } from '../../../redux/scaleRedux';
@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
   setGlobalScale: (value) => dispatch(setGlobalScale(value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Canva);
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

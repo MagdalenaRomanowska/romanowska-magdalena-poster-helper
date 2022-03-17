@@ -4,17 +4,13 @@ import {getAllParameters, setXPosterPosition, setYPosterPosition, setPosterAngle
   setPictureName, setPosterDimensionsName, getPosterDimensionsNameByPosterID } from '../../../redux/parametersRedux';
 import { getAllPictures } from '../../../redux/picturesRedux';
 import { getChosenPosterId } from '../../../redux/chosenPosterIDRedux';
-import { getAllBackgroundWalls } from '../../../redux/backgroundWallsRedux';
-import { setSelectedBackgroundWallName, getSelectedBackgroundWallName } from '../../../redux/selectedBackgroundWallNameRedux';
 import { getAllPosterDimensions } from '../../../redux/posterDimensionsRedux';
 import { getPosterWidthByPictureName, getPosterHeightByPictureName } from '../../../redux/posterDimensionsRedux';
 
 const mapStateToProps = (state, props) => ({
   parameters: getAllParameters(state),
-  pictures: getAllPictures(state),
-  backgroundWalls: getAllBackgroundWalls(state),
-  chosenPosterId: getChosenPosterId(state),  
-  selectedBackgroundWallName: getSelectedBackgroundWallName(state),
+  pictures: getAllPictures(state),  
+  chosenPosterId: getChosenPosterId(state),    
   posterDimensions: getAllPosterDimensions(state),
   posterWidth: getPosterWidthByPictureName(state, getPosterDimensionsNameByPosterID(state, props.chosenPosterID)),
   posterHeight: getPosterHeightByPictureName(state, getPosterDimensionsNameByPosterID(state, props.chosenPosterID)),
@@ -26,8 +22,7 @@ const mapDispatchToProps = dispatch => ({
   setPosterAngle: (posterId, angle) => dispatch(setPosterAngle(posterId, angle)),
   setPosterWidth: (posterId, posterWidth) => dispatch(setPosterWidth(posterId, posterWidth)),
   setPosterHeight: (posterId, posterHeight) => dispatch(setPosterHeight(posterId, posterHeight)),
-  setPictureName: (posterId, pictureName) => dispatch(setPictureName(posterId, pictureName)),
-  setSelectedBackgroundWallName: (backgroundWallName) => dispatch(setSelectedBackgroundWallName(backgroundWallName)),
+  setPictureName: (posterId, pictureName) => dispatch(setPictureName(posterId, pictureName)),  
   setPosterDimensionsName: (posterId, posterDimensionsName) => dispatch(setPosterDimensionsName(posterId, posterDimensionsName)),
 });
 

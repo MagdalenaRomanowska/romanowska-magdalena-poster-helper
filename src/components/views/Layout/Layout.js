@@ -6,9 +6,9 @@ import ListOfPosters from '../../features/ListOfPosters/ListOfPostersContainer.j
 import Parameters from '../../views/Parameters/ParametersContainer';
 import Poster from '../../views/Poster/PosterContainer.js';
 import PropTypes from 'prop-types';
-import styles from './Canva.module.scss';
+import styles from './Layout.module.scss';
 
-class Canva extends React.Component {
+class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,39 +48,25 @@ class Canva extends React.Component {
     }
   }
 
-  // _onChangeScale(scale) {
-  //   this.props.setGlobalScale(scale);
-  // }
-
   render() {
-    const { parameters, globalScale } = this.props;
+    const { parameters } = this.props;
 
     return (
-      <div className={styles.canva}>
+      <div className={styles.root}>
         <div className={styles.buttonAndList}>
           <ButtonAddPoster />
           <ListOfPosters />
         </div>
         <div
-          className={styles.backgroundWallAndPoster}
+          className={styles.view}
           onMouseMove={this.onMouseMove}
           onClick={this.handleClickPoster}
           onKeyDown={this.handleKeyDown}
           tabIndex='0'
         >
           <div className={styles.scale}>
-            {/* Scale:
-            <input
-              type='number'
-              min='0'
-              max='10'
-              step='1'
-              value={globalScale}
-              onChange={(e) => this._onChangeScale(e.target.value)}
-            /> */}
             <GlobalFeatures />
           </div>
-          
           <div className={styles.backgroundWall}>
             <BackgroundWall />
           </div>
@@ -93,9 +79,9 @@ class Canva extends React.Component {
           </div>
         </div>
         <div className={styles.parameters}>
-          <br></br>
-          <p className={styles.title}>Parameters:</p>
-          <div>movingModeOn: {' ' + this.state.movingModeOn}</div>
+          <div className={styles.moveable}>
+            <p className={styles.trueOrFalse}>Moveable poster: &nbsp; {' ' + this.state.movingModeOn}</p>
+          </div>
           <Parameters />
         </div>
       </div>
@@ -103,7 +89,7 @@ class Canva extends React.Component {
   }
 }
 
-Canva.propTypes = {
+Layout.propTypes = {
   parameters: PropTypes.any,
   chosenPosterId: PropTypes.any,
   startPosterPositionX: PropTypes.any,
@@ -113,8 +99,6 @@ Canva.propTypes = {
   setChosenPosterID: PropTypes.func,
   setXPosterPosition: PropTypes.func,
   setYPosterPosition: PropTypes.func,
-  globalScale: PropTypes.any,
-  setGlobalScale: PropTypes.func,
 };
 
-export default Canva;
+export default Layout;

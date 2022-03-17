@@ -24,7 +24,6 @@ export default function Poster(props) {
         position: 'absolute',
         left: posterParameters.xPosterPosition,
         top: posterParameters.yPosterPosition,
-        backgroundColor: 'red',
         transform: 'rotate(' + posterParameters.angle + 'deg)',
       }}      
     >
