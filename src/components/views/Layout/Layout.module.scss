@@ -1,8 +1,6 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  // max-height: 90vh;
-  // padding-top: 2vh;
   font-family: $font-family;
   background-color: rgb(255, 255, 255);
   border: 1px solid black;
@@ -10,23 +8,20 @@
   margin: 8vh 0;
 }
 
-
+.backgroundWall {
+  position: relative;
+  margin: 0 0 0 4vw;
+}
 
 .buttonAndList {
   width: 12vw;
   background-color: rgb(255, 255, 255);
-  margin: 2vw 1vh;  
+  margin: 2vw 1vh 2vw 7vh;  
 }
 
 .view {
-  // position: relative;
-  width: 68vw;
-  // background-color: yellowgreen;
+  width: 65vw;
   margin: 2vw 0; 
-}
-
-.scale{
-  // text-align: end;
 }
 
 .scale input {
@@ -35,13 +30,13 @@
 
 .parameters {
   width: 15vw;
-  margin: 2vw 1vh;  
+  margin: 2vw 2vh 2vw 0vh;  
   font-size: 12px;
 }
 
 .moveable {
   font-size: 8px;
-  text-align: center;
+  text-align: left;
 }
 
 .trueOrFalse {

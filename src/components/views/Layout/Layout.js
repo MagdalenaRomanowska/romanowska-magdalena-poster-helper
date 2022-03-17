@@ -69,18 +69,20 @@ class Layout extends React.Component {
           </div>
           <div className={styles.backgroundWall}>
             <BackgroundWall />
-          </div>
-          <div className={styles.poster}>
-            {parameters.map((parameter) => (
-              <div key={parameter.id} data-key={parameter.id}>
-                <Poster id={parameter.id} />
-              </div>
-            ))}
+            <div className={styles.poster}>
+              {parameters.map((parameter) => (
+                <div key={parameter.id} data-key={parameter.id}>
+                  <Poster id={parameter.id} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className={styles.parameters}>
           <div className={styles.moveable}>
-            <p className={styles.trueOrFalse}>Moveable poster: &nbsp; {' ' + this.state.movingModeOn}</p>
+            <p className={styles.trueOrFalse}>
+              Moveable poster: &nbsp; {' ' + this.state.movingModeOn}
+            </p>
           </div>
           <Parameters />
         </div>

@@ -45,6 +45,14 @@
       {
           "backgroundWallName": "backgroundWall03",
           "url": "/images/backgroundWall03.jpg"
+      },
+      {
+        "backgroundWallName": "backgroundWall04",
+        "url": "/images/backgroundWall04.png"
+      },
+      {
+        "backgroundWallName": "backgroundWall05",
+        "url": "/images/backgroundWall05.jpg"
       }
   ],
     "posterDimensions":[
@@ -65,5 +73,5 @@
       }
     ],
     "globalScale": 1,
-    "selectedBackgroundWallName": "backgroundWall03"
+    "selectedBackgroundWallName": "backgroundWall02"
 }

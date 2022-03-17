@@ -8,7 +8,7 @@ export default function BackgroundWall(props) {
   return (
     <div className={styles.root}>
       <img
-        width={window.innerWidth / 1.471}
+        width={window.innerWidth / 1.8}
         height={Math.floor(window.innerHeight * 0.68)}
         alt={'background wall'}
         src={backgroundWallURL}

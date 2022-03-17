@@ -16,14 +16,6 @@ class Parameters extends Component {
     this.props.setPosterAngle(parameterId, angle);
   }
 
-  _onChangePosterWidth(posterWidth, parameterId) {
-    this.props.setPosterWidth(parameterId, posterWidth);
-  }
-
-  _onChangePosterHeight(posterHeight, parameterId) {
-    this.props.setPosterHeight(parameterId, posterHeight);
-  }
-
   _onChangePicture(pictureName, parameterId) {
     this.props.setPictureName(parameterId, pictureName);
   }
@@ -36,7 +28,7 @@ class Parameters extends Component {
   }
 
   render() {
-    const { parameters, chosenPosterId, pictures, posterDimensions, posterWidth, posterHeight } =
+    const { parameters, chosenPosterId, pictures, posterDimensions } =
       this.props;
     const parameter = parameters.filter((e) => e.id === chosenPosterId)[0];
 
@@ -96,27 +88,7 @@ class Parameters extends Component {
                         this._onChangeAngle(e.target.value, parameter.id)
                       }
                     />
-                  </p>
-                  <p className={styles.parameterLabel}>
-                    Width:{' '}
-                    <input
-                      type='number'
-                      value={posterWidth}
-                      onChange={(e) =>
-                        this._onChangePosterWidth(e.target.value, parameter.id)
-                      }
-                    />
-                  </p>
-                  <p className={styles.parameterLabel}>
-                    Height:{' '}
-                    <input
-                      type='number'
-                      value={posterHeight}
-                      onChange={(e) =>
-                        this._onChangePosterHeight(e.target.value, parameter.id)
-                      }
-                    />
-                  </p>
+                  </p>                  
                   <p className={styles.parameterLabel}>
                     Picture:{' '}
                     <select
@@ -174,8 +146,6 @@ Parameters.propTypes = {
   setPictureName: PropTypes.func,  
   posterDimensions: PropTypes.any,
   setPosterDimensionsName: PropTypes.func,
-  posterWidth: PropTypes.any,
-  posterHeight: PropTypes.any,
 };
 
 export default Parameters;
