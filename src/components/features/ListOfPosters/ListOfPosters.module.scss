@@ -4,29 +4,6 @@
   display: inline-flex;
 }
 
-.selectBox {
-  min-width: 24vw;
-  width: fit-content;
-  height: 40px;
-  padding-left: 8px;
-  margin: 2vh 0 2vh 8px;
-  border-radius: 5px;
-}
-
-.selectBox2 {
-  width: 24vw;
-  height: 40px;
-  padding-left: 8px;
-  margin: 2vh 0 2vh 8px;
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: '';
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
 .title {
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
@@ -37,9 +14,7 @@
 .clickedPosterName {
   border: none;
   resize: none;
-  min-width: 24vw;
   font-family: Arial, Helvetica, sans-serif;
-  padding-left: 28px;
 }
 
 .clickedPosterName:hover {
@@ -53,7 +28,7 @@
 
 .posters {
   min-width: 48vw;
-  background-color: rgb(237, 237, 252);
+  background-color: rgb(54, 54, 134);
 }
 
 .parameters {
@@ -62,13 +37,11 @@
 }
 
 .backgroundWall {
-  // width: 40vw;
   position: absolute;
   z-index: 3;
 }
 
 .poster {
-  //top: -200px;
   position: absolute;
   z-index: 4;
 }

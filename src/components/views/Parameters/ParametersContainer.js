@@ -3,6 +3,7 @@ import Parameters from './Parameters';
 import {getAllParameters, setXPosterPosition, setYPosterPosition, setPosterAngle, setPosterWidth, setPosterHeight, 
   setPictureName, setPosterDimensionsName, getPosterDimensionsNameByPosterID } from '../../../redux/parametersRedux';
 import { getAllPictures } from '../../../redux/picturesRedux';
+import { getChosenPosterId } from '../../../redux/chosenPosterIDRedux';
 import { getAllBackgroundWalls } from '../../../redux/backgroundWallsRedux';
 import { setSelectedBackgroundWallName, getSelectedBackgroundWallName } from '../../../redux/selectedBackgroundWallNameRedux';
 import { getAllPosterDimensions } from '../../../redux/posterDimensionsRedux';
@@ -12,6 +13,7 @@ const mapStateToProps = (state, props) => ({
   parameters: getAllParameters(state),
   pictures: getAllPictures(state),
   backgroundWalls: getAllBackgroundWalls(state),
+  chosenPosterId: getChosenPosterId(state),  
   selectedBackgroundWallName: getSelectedBackgroundWallName(state),
   posterDimensions: getAllPosterDimensions(state),
   posterWidth: getPosterWidthByPictureName(state, getPosterDimensionsNameByPosterID(state, props.chosenPosterID)),

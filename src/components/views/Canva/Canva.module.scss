@@ -1,21 +1,31 @@
 @import "../../../styles/settings.scss";
 
 .canva {
-  height: 70vh;
+  // height: 70vh;
   padding-top: 2vh;
-  background-color: white;
+  background-color: rgb(173, 219, 98);
   border: 1px solid black;
-  position: relative;
-}
-
-.listAndPoster {
   display: inline-flex;
-} 
-
-.list {
-  width: 20vw;
 }
 
-.parameters {
-  position: absolute;
+.buttonAndList {
+  width: 12vw;
+  background-color: red;
+  margin: 0 0 0 1vh;  
+}
+
+.backgroundWallAndPoster {
+  // position: relative;
+}
+
+.scale{
+  text-align: end;
+  // position: absolute; 
+  // top: 50%; 
+  // left: 50%; 
+  // transform: translate(-50%, 50%)
+}
+
+.scale input {
+  width: fit-content;
 }

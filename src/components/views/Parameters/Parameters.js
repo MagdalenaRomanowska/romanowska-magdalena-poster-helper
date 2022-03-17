@@ -40,9 +40,9 @@ class Parameters extends Component {
   }
 
   render() {
-    const { parameters, chosenPosterID, pictures, backgroundWalls, posterDimensions, posterWidth, posterHeight, selectedBackgroundWallName } =
+    const { parameters, chosenPosterId, pictures, backgroundWalls, posterDimensions, posterWidth, posterHeight, selectedBackgroundWallName } =
       this.props;
-    const parameter = parameters.filter((e) => e.id === chosenPosterID)[0];
+    const parameter = parameters.filter((e) => e.id === chosenPosterId)[0];
 
     if (!parameter) {
       return ' ';
@@ -186,7 +186,7 @@ Parameters.propTypes = {
   setPosterWidth: PropTypes.func,
   setPosterHeight: PropTypes.func,
   parameters: PropTypes.any,
-  chosenPosterID: PropTypes.any,
+  chosenPosterId: PropTypes.any,
   pictures: PropTypes.any,
   backgroundWalls: PropTypes.any,
   selectedBackgroundWallName: PropTypes.any,
