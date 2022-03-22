@@ -21,11 +21,11 @@ export default function ButtonAddPoster(props) {
         }
       >
         Add Poster
-      </button>
+      </button>      
     </div>
   );
 }
 
 ButtonAddPoster.propTypes = {
-  addPoster: PropTypes.func,
+  addPoster: PropTypes.func,  
 };

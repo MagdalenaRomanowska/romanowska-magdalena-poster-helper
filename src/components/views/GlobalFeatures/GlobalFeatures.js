@@ -21,7 +21,7 @@ class GlobalFeatures extends React.Component {
           <input
             type='number'
             min='0'
-            max='10'
+            max='20'
             step='1'
             value={globalScale}
             onChange={(e) => this._onChangeScale(e.target.value)}

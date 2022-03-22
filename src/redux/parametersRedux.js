@@ -14,6 +14,7 @@ const SET_POSTER_ANGLE = createActionName('SET_POSTER_ANGLE');
 const SET_POSTER_WIDTH = createActionName('SET_POSTER_WIDTH');
 const SET_POSTER_HEIGHT = createActionName('SET_POSTER_HEIGHT');
 const ADD_POSTER = createActionName('ADD_POSTER');
+const REMOVE_POSTER = createActionName('REMOVE_POSTER');
 const SET_PICTURE_NAME = createActionName('SET_PICTURE_NAME');
 const SET_BACKGROUNDWALL_NAME = createActionName('SET_BACKGROUNDWALL_NAME');
 const SET_POSTER_DIMENSIONS_NAME = createActionName('SET_POSTER_DIMENSIONS_NAME');
@@ -26,6 +27,7 @@ export const setPosterAngle = (id, angle) => ({ payload: {id, angle}, type: SET_
 export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}, type: SET_POSTER_WIDTH });
 export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTER_HEIGHT });
 export const addPoster = (payload) => ({ payload, type: ADD_POSTER });
+export const removePoster = (payload) => ({ payload, type: REMOVE_POSTER });
 export const setPictureName =(id, pictureName) => ({ payload: {id, pictureName}, type: SET_PICTURE_NAME });
 export const setBackgroundWallName =(id, backgroundWallName) => ({ payload: {id, backgroundWallName}, type: SET_BACKGROUNDWALL_NAME });
 export const setPosterDimensionsName =(id, posterDimensionsName) => ({ payload: {id, posterDimensionsName}, type: SET_POSTER_DIMENSIONS_NAME });
@@ -157,6 +159,9 @@ export default function reducer(statePart = [], action = {}) {
       newArray.push(action.payload);
       return newArray;
     }    
+    case REMOVE_POSTER: {
+      return statePart.filter((item) => item.id !== action.payload);
+    }   
     default:
       return statePart;
   }

@@ -16,6 +16,7 @@ export default function Poster(props) {
 
   const handleClick = (event) => {
     _onChangeChosenPosterID(event.target.getAttribute('data-key'), event.clientX, event.clientY);
+    
   };
 
   return (

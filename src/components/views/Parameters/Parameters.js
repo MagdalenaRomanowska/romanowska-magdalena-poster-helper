@@ -126,22 +126,10 @@ class Parameters extends Component {
                     ></div>
                     <div
                       id={'gallery'}
-                      style={{ display: 'block' }}
+                      style={{ display: 'none' }}
                       className={styles.gallery}
                     >
-                      {pictures.map((picture) => (                        
-                        //   <img
-                        //     className={styles.imageInGallery}
-                        //     src={picture.url}
-                        //     key={picture.pictureName}
-                        //     alt={'gallery posters'}
-                        //     onClick={(e) =>
-                        //       this._onChangePicture(
-                        //         e.target.value,
-                        //         parameter.id
-                        //       )
-                        //     }
-                        //   ></img>
+                      {pictures.map((picture) => (
                         <div
                           key={picture.pictureName}
                           className={styles.picture}
@@ -150,6 +138,12 @@ class Parameters extends Component {
                             className={styles.imageInGallery}
                             src={picture.url}
                             alt={'gallery posters'}
+                            onClick={(e) =>
+                              this._onChangePicture(
+                                picture.pictureName,
+                                parameter.id
+                              )
+                            }
                           />
                           <section className={styles.pictureName}>
                             {picture.pictureName}
@@ -159,7 +153,7 @@ class Parameters extends Component {
                     </div>
                     <div
                       id={'closeGallery'}
-                      style={{ display: 'block' }}
+                      style={{ display: 'none' }}
                       onClick={() => this.closeGallery()}
                       className={styles.closeGallery}
                     >

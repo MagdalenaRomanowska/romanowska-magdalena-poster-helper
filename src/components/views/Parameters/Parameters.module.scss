@@ -80,6 +80,9 @@ table {
   &:hover {
     transform: scale(1.2);
   }
+  &:active {
+    opacity: 0.5;
+  }
 }
 
 .pictureName {

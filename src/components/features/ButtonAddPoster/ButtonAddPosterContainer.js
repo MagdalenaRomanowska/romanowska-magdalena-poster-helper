@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addPoster: order => dispatch(addPoster(order)),
+  addPoster: order => dispatch(addPoster(order)),  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ButtonAddPoster);
