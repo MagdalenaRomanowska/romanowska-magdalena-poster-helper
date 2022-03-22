@@ -30,7 +30,43 @@
         },
         {
             "pictureName": "Mars",
-            "url": "/images/Mars.png"
+            "url": "/images/Mars.jpg"
+        },
+        {
+            "pictureName": "Space01",
+            "url": "/images/Space01.jpg"
+        },
+        {
+            "pictureName": "Space02",
+            "url": "/images/Space02.jpg"
+        },
+        {
+            "pictureName": "Space03",
+            "url": "/images/Space03.jpg"
+        },
+        {
+            "pictureName": "Venus",
+            "url": "/images/Venus.jpg"
+        },
+        {
+            "pictureName": "kosmos01",
+            "url": "/images/kosmos01.jpg"
+        },
+        {
+            "pictureName": "kosmos02",
+            "url": "/images/kosmos02.jpg"
+        },
+        {
+            "pictureName": "kosmos03",
+            "url": "/images/kosmos03.jpg"
+        },
+        {
+            "pictureName": "blackhole",
+            "url": "/images/blackhole.jpg"
+        },
+        {
+            "pictureName": "blackholeNASA",
+            "url": "/images/blackholeNASA.jpg"
         }
     ],
     "backgroundWalls":[

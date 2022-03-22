@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './Parameters.module.scss';
 
 class Parameters extends Component {
-  
   _onChangeXPosition(xPosterPosition, parameterId) {
     this.props.setXPosterPosition(parameterId, xPosterPosition);
   }
@@ -17,14 +16,22 @@ class Parameters extends Component {
   }
 
   _onChangePicture(pictureName, parameterId) {
+    console.log('onChange', parameterId, pictureName);
     this.props.setPictureName(parameterId, pictureName);
   }
 
-  _onChangePosterDimensions(
-    posterDimensionsName,
-    parameterId
-  ) {    
+  _onChangePosterDimensions(posterDimensionsName, parameterId) {
     this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
+  }
+
+  openGallery() {
+    document.getElementById('gallery').style.display = 'block';
+    document.getElementById('closeGallery').style.display = 'block';
+  }
+
+  closeGallery() {
+    document.getElementById('gallery').style.display = 'none';
+    document.getElementById('closeGallery').style.display = 'none';
   }
 
   render() {
@@ -37,7 +44,7 @@ class Parameters extends Component {
     }
 
     return (
-      <div>
+      <div className={styles.root}>
         <div>
           <table key={parameter.posterName}>
             <thead>
@@ -88,29 +95,16 @@ class Parameters extends Component {
                         this._onChangeAngle(e.target.value, parameter.id)
                       }
                     />
-                  </p>                  
-                  <p className={styles.parameterLabel}>
-                    Picture:{' '}
-                    <select
-                      className={styles.select}
-                      onChange={(e) =>
-                        this._onChangePicture(e.target.value, parameter.id)
-                      }
-                      value={parameter.pictureName}
-                    >
-                      {pictures.map((picture) => (
-                        <option key={picture.pictureName} value={picture.pictureName}>
-                          {picture.pictureName}
-                        </option>
-                      ))}
-                    </select>
                   </p>
                   <p className={styles.parameterLabel}>
                     Dimensions in &apos; &apos;:{' '}
                     <select
                       className={styles.select}
-                      onChange={(event) =>                        
-                        this._onChangePosterDimensions(event.target.value, parameter.id)
+                      onChange={(event) =>
+                        this._onChangePosterDimensions(
+                          event.target.value,
+                          parameter.id
+                        )
                       }
                       value={parameter.posterDimensionsName}
                     >
@@ -124,6 +118,67 @@ class Parameters extends Component {
                       ))}
                     </select>
                   </p>
+                  <div className={styles.parameterLabelWithPicture}>
+                    Choose picture:{' '}
+                    <div
+                      className={styles.openGallery}
+                      onClick={() => this.openGallery()}
+                    ></div>
+                    <div
+                      id={'gallery'}
+                      style={{ display: 'block' }}
+                      className={styles.gallery}
+                    >
+                      {pictures.map((picture) => (                        
+                        //   <img
+                        //     className={styles.imageInGallery}
+                        //     src={picture.url}
+                        //     key={picture.pictureName}
+                        //     alt={'gallery posters'}
+                        //     onClick={(e) =>
+                        //       this._onChangePicture(
+                        //         e.target.value,
+                        //         parameter.id
+                        //       )
+                        //     }
+                        //   ></img>
+                        <div
+                          key={picture.pictureName}
+                          className={styles.picture}
+                        >
+                          <img
+                            className={styles.imageInGallery}
+                            src={picture.url}
+                            alt={'gallery posters'}
+                          />
+                          <section className={styles.pictureName}>
+                            {picture.pictureName}
+                          </section>
+                        </div>
+                      ))}
+                    </div>
+                    <div
+                      id={'closeGallery'}
+                      style={{ display: 'block' }}
+                      onClick={() => this.closeGallery()}
+                      className={styles.closeGallery}
+                    >
+                      <p className={styles.closeGalleryX}>x</p>
+                    </div>
+                    {/* <select
+                      className={styles.select}
+                      onChange={(e) =>
+                        this._onChangePicture(e.target.value, parameter.id)
+                      }
+                      value={parameter.pictureName}
+                    >
+                      {pictures.map((picture) => (
+                        <option key={picture.pictureName} value={picture.pictureName}>
+                          {picture.pictureName}
+                        </option>
+                      ))}
+                    </select> */}
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -142,8 +197,8 @@ Parameters.propTypes = {
   setPosterHeight: PropTypes.func,
   parameters: PropTypes.any,
   chosenPosterId: PropTypes.any,
-  pictures: PropTypes.any,  
-  setPictureName: PropTypes.func,  
+  pictures: PropTypes.any,
+  setPictureName: PropTypes.func,
   posterDimensions: PropTypes.any,
   setPosterDimensionsName: PropTypes.func,
 };
