@@ -1,9 +1,8 @@
 /* SELECTORS */
-
-export const getAllParameters = ({ posters }) => posters;
+export const getAllPosters = ({ posters }) => posters;
 
 // action name creator
-const reducerName = 'parameter';
+const reducerName = 'poster';
 const createActionName = (name) => `app/${reducerName}/${name}`;
 
 // action types
@@ -15,6 +14,7 @@ const SET_POSTER_WIDTH = createActionName('SET_POSTER_WIDTH');
 const SET_POSTER_HEIGHT = createActionName('SET_POSTER_HEIGHT');
 const ADD_POSTER = createActionName('ADD_POSTER');
 const REMOVE_POSTER = createActionName('REMOVE_POSTER');
+const REMOVE_ALL_POSTERS = createActionName('REMOVE_ALL_POSTERS');
 const SET_PICTURE_NAME = createActionName('SET_PICTURE_NAME');
 const SET_BACKGROUNDWALL_NAME = createActionName('SET_BACKGROUNDWALL_NAME');
 const SET_POSTER_DIMENSIONS_NAME = createActionName('SET_POSTER_DIMENSIONS_NAME');
@@ -28,6 +28,7 @@ export const setPosterWidth = (id, posterWidth) => ({ payload: {id, posterWidth}
 export const setPosterHeight = (id, posterHeight) => ({ payload: {id, posterHeight}, type: SET_POSTER_HEIGHT });
 export const addPoster = (payload) => ({ payload, type: ADD_POSTER });
 export const removePoster = (payload) => ({ payload, type: REMOVE_POSTER });
+export const removeAllPosters = (payload) => ({ payload, type: REMOVE_ALL_POSTERS });
 export const setPictureName =(id, pictureName) => ({ payload: {id, pictureName}, type: SET_PICTURE_NAME });
 export const setBackgroundWallName =(id, backgroundWallName) => ({ payload: {id, backgroundWallName}, type: SET_BACKGROUNDWALL_NAME });
 export const setPosterDimensionsName =(id, posterDimensionsName) => ({ payload: {id, posterDimensionsName}, type: SET_POSTER_DIMENSIONS_NAME });
@@ -162,6 +163,9 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_POSTER: {
       return statePart.filter((item) => item.id !== action.payload);
     }   
+    case REMOVE_ALL_POSTERS: {
+      return [];
+    } 
     default:
       return statePart;
   }

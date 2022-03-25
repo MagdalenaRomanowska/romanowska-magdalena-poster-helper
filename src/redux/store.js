@@ -8,6 +8,7 @@ import backgroundWallsReducer from './backgroundWallsRedux';
 import selectedBackgroundWallNameReducer from './selectedBackgroundWallNameRedux';
 import posterDimensionsReducer from './posterDimensionsRedux';
 import scaleReducer from './scaleRedux';
+import everythingReducer from './everythingRedux';
 
 // define initial state and shallow-merge initial data
 const initialState = storeJSON;
@@ -21,6 +22,7 @@ const reducers = {
   selectedBackgroundWallName: selectedBackgroundWallNameReducer,
   posterDimensions: posterDimensionsReducer,
   globalScale: scaleReducer,
+  everything: everythingReducer,
 };
 
 // add blank reducers for initial state properties without reducers

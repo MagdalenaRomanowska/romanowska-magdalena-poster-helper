@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import Layout from './Layout';
-import { getPosterParameters, getAllParameters, setXPosterPosition, setYPosterPosition } from '../../../redux/parametersRedux';
+import { getPosterParameters, getAllPosters, setXPosterPosition, setYPosterPosition } from '../../../redux/parametersRedux';
 import { getChosenPosterId, setChosenPosterID, getStartPosterPositionX, getStartPosterPositionY, getStartClickPositionX, getStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 import { getGlobalScale, setGlobalScale } from '../../../redux/scaleRedux';
 
 const mapStateToProps = (state) => ({
-  parameters: getAllParameters(state),
+  posters: getAllPosters(state),
   posterParameters: getPosterParameters(state, state.chosenPoster.id),
   chosenPosterId: getChosenPosterId(state),
   startPosterPositionX: getStartPosterPositionX(state),

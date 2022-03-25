@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import ButtonAddPoster from './ButtonAddPoster';
-import {getAllParameters, addPoster } from '../../../redux/parametersRedux';
+import {getAllPosters, addPoster } from '../../../redux/parametersRedux';
 
 const mapStateToProps = (state) => ({
-  parameters: getAllParameters(state),
+  posters: getAllPosters(state),
 });
 
 const mapDispatchToProps = dispatch => ({

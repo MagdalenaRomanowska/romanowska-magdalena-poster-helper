@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import ListOfPosters from './ListOfPosters';
-import { getAllParameters, removePoster } from '../../../redux/parametersRedux';
+import { getAllPosters, removePoster } from '../../../redux/parametersRedux';
 import { getChosenPosterId, setChosenPosterID } from '../../../redux/chosenPosterIDRedux';
 
 
 const mapStateToProps = (state) => ({
-  parameters: getAllParameters(state),  
+  posters: getAllPosters(state),  
   chosenPosterId: getChosenPosterId(state),    
 });
 

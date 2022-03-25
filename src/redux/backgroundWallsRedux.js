@@ -1,6 +1,4 @@
 /* action name creator */
-const reducerName = 'scale';
-const createActionName = (name) => `app/${reducerName}/${name}`;
 
 export const getAllBackgroundWalls = ({ backgroundWalls }) => backgroundWalls;
 

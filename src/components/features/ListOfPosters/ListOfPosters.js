@@ -32,23 +32,23 @@ class ListOfPosters extends React.Component {
   }
 
   render() {
-    const { parameters } = this.props;
+    const { posters } = this.props;
 
     return (
       <div className={styles.root}>
         <div>
-          {parameters.map((parameter) => (
-            <div key={parameter.id}>
+          {posters.map((poster) => (
+            <div key={poster.id}>
               <textarea
                 className={styles.clickedPosterName}
-                data-key={parameter.id}
+                data-key={poster.id}
                 onClick={this.handleClickPosterNameOnList}
-                defaultValue={parameter.posterName}
+                defaultValue={poster.posterName}
               ></textarea>
               <button className={styles.removePoster}>
                 <i
                   className={'fa fa-trash-o'}
-                  data-key={parameter.id}
+                  data-key={poster.id}
                   onClick={this.handleClickRemovePoster}
                 ></i>
               </button>
@@ -61,7 +61,7 @@ class ListOfPosters extends React.Component {
 }
 
 ListOfPosters.propTypes = {
-  parameters: PropTypes.any,
+  posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
   setChosenPosterID: PropTypes.func,
   removePoster: PropTypes.func,

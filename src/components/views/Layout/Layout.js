@@ -1,5 +1,6 @@
 import React from 'react';
 import BackgroundWall from '../../views/BackgroundWall/BackgroundWallContainer';
+import ButtonSaveProject from '../../features/ButtonSaveProject/ButtonSaveProjectContainer.js';
 import ButtonAddPoster from '../../features/ButtonAddPoster/ButtonAddPosterContainer.js';
 import GlobalFeatures from '../../views/GlobalFeatures/GlobalFeaturesContainer';
 import ListOfPosters from '../../features/ListOfPosters/ListOfPostersContainer.js';
@@ -49,11 +50,12 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { parameters } = this.props;
+    const { posters } = this.props;
 
     return (
       <div className={styles.root}>
         <div className={styles.buttonAndList}>
+          <ButtonSaveProject />
           <ButtonAddPoster />
           <ListOfPosters />
         </div>
@@ -70,15 +72,15 @@ class Layout extends React.Component {
           <div className={styles.backgroundWall}>
             <BackgroundWall />
             <div className={styles.poster}>
-              {parameters.map((parameter) => (
-                <div key={parameter.id} data-key={parameter.id}>
-                  <Poster id={parameter.id} />
+              {posters.map((poster) => (
+                <div key={poster.id} data-key={poster.id}>
+                  <Poster id={poster.id} />
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <div className={styles.parameters}>
+        <div className={styles.posters}>
           <div className={styles.moveable}>
             <p className={styles.trueOrFalse}>
               Moveable poster: &nbsp; {' ' + this.state.movingModeOn}
@@ -92,7 +94,7 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  parameters: PropTypes.any,
+  posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
   startPosterPositionX: PropTypes.any,
   startPosterPositionY: PropTypes.any,

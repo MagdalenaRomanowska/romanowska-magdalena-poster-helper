@@ -35,22 +35,22 @@ class Parameters extends Component {
   }
 
   render() {
-    const { parameters, chosenPosterId, pictures, posterDimensions } =
+    const { posters, chosenPosterId, pictures, posterDimensions } =
       this.props;
-    const parameter = parameters.filter((e) => e.id === chosenPosterId)[0];
+    const poster = posters.filter((poster) => poster.id === chosenPosterId)[0];
 
-    if (!parameter) {
+    if (!poster) {
       return ' ';
     }
 
     return (
       <div className={styles.root}>
         <div>
-          <table key={parameter.posterName}>
+          <table key={poster.posterName}>
             <thead>
               <tr>
                 <th className={styles.tableLabel}>
-                  Poster name: {parameter.posterName}
+                  Poster name: {poster.posterName}
                 </th>
               </tr>
             </thead>
@@ -64,9 +64,9 @@ class Parameters extends Component {
                       min='0'
                       max='1024'
                       step='10'
-                      value={parameter.xPosterPosition}
+                      value={poster.xPosterPosition}
                       onChange={(e) =>
-                        this._onChangeXPosition(e.target.value, parameter.id)
+                        this._onChangeXPosition(e.target.value, poster.id)
                       }
                     />
                   </p>
@@ -77,9 +77,9 @@ class Parameters extends Component {
                       min='0'
                       max='768'
                       step='10'
-                      value={parameter.yPosterPosition}
+                      value={poster.yPosterPosition}
                       onChange={(e) =>
-                        this._onChangeYPosition(e.target.value, parameter.id)
+                        this._onChangeYPosition(e.target.value, poster.id)
                       }
                     />
                   </p>
@@ -90,9 +90,9 @@ class Parameters extends Component {
                       min='0'
                       max='360'
                       step='5'
-                      value={parameter.angle}
+                      value={poster.angle}
                       onChange={(e) =>
-                        this._onChangeAngle(e.target.value, parameter.id)
+                        this._onChangeAngle(e.target.value, poster.id)
                       }
                     />
                   </p>
@@ -103,10 +103,10 @@ class Parameters extends Component {
                       onChange={(event) =>
                         this._onChangePosterDimensions(
                           event.target.value,
-                          parameter.id
+                          poster.id
                         )
                       }
-                      value={parameter.posterDimensionsName}
+                      value={poster.posterDimensionsName}
                     >
                       {posterDimensions.map((posterDimension) => (
                         <option
@@ -141,7 +141,7 @@ class Parameters extends Component {
                             onClick={(e) =>
                               this._onChangePicture(
                                 picture.pictureName,
-                                parameter.id
+                                poster.id
                               )
                             }
                           />
@@ -162,9 +162,9 @@ class Parameters extends Component {
                     {/* <select
                       className={styles.select}
                       onChange={(e) =>
-                        this._onChangePicture(e.target.value, parameter.id)
+                        this._onChangePicture(e.target.value, poster.id)
                       }
-                      value={parameter.pictureName}
+                      value={poster.pictureName}
                     >
                       {pictures.map((picture) => (
                         <option key={picture.pictureName} value={picture.pictureName}>
@@ -189,7 +189,7 @@ Parameters.propTypes = {
   setPosterAngle: PropTypes.func,
   setPosterWidth: PropTypes.func,
   setPosterHeight: PropTypes.func,
-  parameters: PropTypes.any,
+  posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
   pictures: PropTypes.any,
   setPictureName: PropTypes.func,
