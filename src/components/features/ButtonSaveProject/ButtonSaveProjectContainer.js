@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import ButtonSaveProject from './ButtonSaveProject';
 import { getAllPosters, removeAllPosters } from '../../../redux/parametersRedux';
-import { getEverything } from '../../../redux/everythingRedux';
+import { getEverything, deleteEverything } from '../../../redux/everythingRedux';
 
 const mapStateToProps = (state) => ({
   posters: getAllPosters(state),
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // setEverything: (everything) => dispatch(setEverything(everything)),
+  deleteEverything: (items) => dispatch(deleteEverything(items)),
   removeAllPosters: () => dispatch(removeAllPosters()),
 });
 

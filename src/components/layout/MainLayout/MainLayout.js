@@ -5,7 +5,7 @@ import styles from './MainLayout.module.scss';
 
 const Component = ({children}) => (
   <div className={styles.root}>
-    <div className={styles.description}>click chosen poster and press any key to move it</div>
+    <div className={styles.description}>click poster and press any key to move it</div>
     <Layout />    
     {children}
   </div>

@@ -4,7 +4,7 @@ import styles from './ButtonSaveProject.module.scss';
 
 export default function ButtonSaveProject(props) {
 
-  const { everything, removeAllPosters } = props;
+  const { everything, deleteEverything, removeAllPosters } = props;
 
   function saveThisProject(filename, data) {
     const blob = new Blob([data], { type: 'text/csv' });
@@ -20,23 +20,21 @@ export default function ButtonSaveProject(props) {
     }  
   }
   
-  function deleteAll() {
-    console.log('delete All Posters');  
+  function deleteAllPosters() { 
     removeAllPosters();
   }
     
-  function uploadProject() {
-    console.log('upload');  
-    let jsonStr = '{"name":"ABC", "age":10 }';
-    // setEverything(newProject);
+  function uploadProject(everything) {
+    // let jsonStr = '{"name":"ABC", "age":10 }';
+    deleteEverything(everything);
   }
   
 
   return (
     <div className={styles.root}>
-      <button className={styles.buttonUploadProject} onClick={() => uploadProject}>Upload Project</button>
+      <button className={styles.buttonUploadProject} onClick={() => uploadProject()}>Upload Project</button>
       <button className={styles.buttonSaveProject} onClick={() => saveThisProject('Saved Project', JSON.stringify(everything))}>Save This Project</button>
-      <button className={styles.buttonSaveProject} onClick={() => deleteAll()}>Delete All Posters</button>
+      <button className={styles.buttonSaveProject} onClick={() => deleteAllPosters(everything)}>Delete All Posters</button>
     </div>
   );
 }
@@ -44,5 +42,5 @@ export default function ButtonSaveProject(props) {
 ButtonSaveProject.propTypes = {
   everything: PropTypes.any,
   removeAllPosters: PropTypes.func,
-  // setEverything: PropTypes.func,
+  deleteEverything: PropTypes.func,
 };

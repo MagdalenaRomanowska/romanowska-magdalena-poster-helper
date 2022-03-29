@@ -3,9 +3,20 @@ import PropTypes from 'prop-types';
 import styles from './Poster.module.scss';
 
 export default function Poster(props) {
-  const { pictureURL, posterParameters, setChosenPosterID, setStartPosterPositionX, 
-    setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY, posterWidth, posterHeight, globalScale } = props;
-  
+  const {
+    pictureURL,
+    posterParameters,
+    setChosenPosterID,
+    setStartPosterPositionX,
+    setStartPosterPositionY,
+    setStartClickPositionX,
+    setStartClickPositionY,
+    posterWidth,
+    posterHeight,
+    globalScale,
+    removePoster,
+  } = props;
+
   const _onChangeChosenPosterID = (chosenPosterID, ClickX, ClickY) => {
     setChosenPosterID(chosenPosterID);
     setStartPosterPositionX(posterParameters.xPosterPosition);
@@ -15,20 +26,33 @@ export default function Poster(props) {
   };
 
   const handleClick = (event) => {
-    _onChangeChosenPosterID(event.target.getAttribute('data-key'), event.clientX, event.clientY);
-    
+    _onChangeChosenPosterID(
+      event.target.getAttribute('data-key'),
+      event.clientX,
+      event.clientY
+    );
+  };
+
+  const _onChangeRemovePoster = (chosenPosterID) => {
+    removePoster(chosenPosterID);
+  };
+
+  const handleClickRemovePoster = (event) => {
+    _onChangeRemovePoster(event.target.getAttribute('data-key'));
   };
 
   return (
-    <div className={styles.root}
+    <div
+      className={styles.root}
       style={{
         position: 'absolute',
         left: posterParameters.xPosterPosition,
         top: posterParameters.yPosterPosition,
         transform: 'rotate(' + posterParameters.angle + 'deg)',
-      }}      
+      }}
     >
       <img
+        className={styles.image}
         src={pictureURL}
         width={posterWidth * globalScale}
         height={posterHeight * globalScale}
@@ -36,6 +60,13 @@ export default function Poster(props) {
         data-key={posterParameters.id}
         onClick={handleClick}
       />
+      <div
+        className={styles.deleteImage}
+        data-key={posterParameters.id}
+        onClick={handleClickRemovePoster}
+      >
+        X
+      </div>
     </div>
   );
 }
@@ -49,8 +80,9 @@ Poster.propTypes = {
   setStartPosterPositionY: PropTypes.func,
   setStartClickPositionX: PropTypes.func,
   setStartClickPositionY: PropTypes.func,
-  pictureURL: PropTypes.any,  
+  pictureURL: PropTypes.any,
   posterWidth: PropTypes.any,
   posterHeight: PropTypes.any,
   globalScale: PropTypes.any,
+  removePoster: PropTypes.func,
 };

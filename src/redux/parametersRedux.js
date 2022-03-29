@@ -163,7 +163,7 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_POSTER: {
       return statePart.filter((item) => item.id !== action.payload);
     }   
-    case REMOVE_ALL_POSTERS: {
+    case REMOVE_ALL_POSTERS: {      
       return [];
     } 
     default:
