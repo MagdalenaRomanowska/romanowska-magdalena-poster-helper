@@ -1,4 +1,5 @@
 import React from 'react';
+import DropZone from '../DropZone/DropZoneContainer';
 import PropTypes from 'prop-types';
 import styles from './ButtonSaveProject.module.scss';
 
@@ -35,6 +36,7 @@ export default function ButtonSaveProject(props) {
 
   return (
     <div className={styles.root}>
+      <DropZone />
       <button className={styles.buttonUploadProject} onClick={() => uploadProject()}>Upload My Project</button>
       <button className={styles.buttonSaveProject} onClick={() => saveThisProject('Saved Project', JSON.stringify(everything))}>Save This Project</button>
       <button className={styles.buttonSaveProject} onClick={() => deleteAllPosters(everything)}>Delete All Posters</button>
