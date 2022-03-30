@@ -9,10 +9,11 @@ class GlobalFeatures extends React.Component {
 
   _onChangeBackgroundWall(backgroundWallName) {
     this.props.setSelectedBackgroundWallName(backgroundWallName);
-  }  
+  }
 
   render() {
-    const { globalScale, selectedBackgroundWallName, backgroundWalls } = this.props;
+    const { globalScale, selectedBackgroundWallName, backgroundWalls } =
+      this.props;
 
     return (
       <div className={styles.root}>
@@ -53,7 +54,7 @@ GlobalFeatures.propTypes = {
   setGlobalScale: PropTypes.func,
   selectedBackgroundWallName: PropTypes.any,
   setSelectedBackgroundWallName: PropTypes.func,
-  backgroundWalls: PropTypes.any,  
+  backgroundWalls: PropTypes.any,
 };
 
 export default GlobalFeatures;

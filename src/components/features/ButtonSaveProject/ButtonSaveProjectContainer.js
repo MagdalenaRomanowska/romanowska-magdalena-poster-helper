@@ -1,7 +1,9 @@
 import {connect} from 'react-redux';
 import ButtonSaveProject from './ButtonSaveProject';
-import { getAllPosters, removeAllPosters } from '../../../redux/parametersRedux';
-import { getEverything, deleteEverything } from '../../../redux/everythingRedux';
+import { getAllPosters, removeAllPosters, setPosters } from '../../../redux/parametersRedux';
+import { setSelectedBackgroundWallName } from '../../../redux/selectedBackgroundWallNameRedux';
+import { getEverything } from '../../../redux/everythingRedux';
+import { setGlobalScale } from '../../../redux/scaleRedux';
 
 const mapStateToProps = (state) => ({
   posters: getAllPosters(state),
@@ -9,8 +11,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  deleteEverything: (items) => dispatch(deleteEverything(items)),
   removeAllPosters: () => dispatch(removeAllPosters()),
+  setGlobalScale: (value) => dispatch(setGlobalScale(value)),
+  setSelectedBackgroundWallName: (backgroundWallName) => dispatch(setSelectedBackgroundWallName(backgroundWallName)),
+  setPosters: (value) => dispatch(setPosters(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ButtonSaveProject);

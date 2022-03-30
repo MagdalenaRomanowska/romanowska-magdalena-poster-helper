@@ -18,6 +18,7 @@ const REMOVE_ALL_POSTERS = createActionName('REMOVE_ALL_POSTERS');
 const SET_PICTURE_NAME = createActionName('SET_PICTURE_NAME');
 const SET_BACKGROUNDWALL_NAME = createActionName('SET_BACKGROUNDWALL_NAME');
 const SET_POSTER_DIMENSIONS_NAME = createActionName('SET_POSTER_DIMENSIONS_NAME');
+const SET_POSTERS = createActionName('SET_POSTERS');
 
 // action creators
 export const setName = (id, posterName) => ({ payload: {id, posterName}, type: SET_NAME });
@@ -32,6 +33,7 @@ export const removeAllPosters = (payload) => ({ payload, type: REMOVE_ALL_POSTER
 export const setPictureName =(id, pictureName) => ({ payload: {id, pictureName}, type: SET_PICTURE_NAME });
 export const setBackgroundWallName =(id, backgroundWallName) => ({ payload: {id, backgroundWallName}, type: SET_BACKGROUNDWALL_NAME });
 export const setPosterDimensionsName =(id, posterDimensionsName) => ({ payload: {id, posterDimensionsName}, type: SET_POSTER_DIMENSIONS_NAME });
+export const setPosters = (value) => ({ payload: {value}, type: SET_POSTERS });
 
 export const getPictureNameByPosterID = ({ posters }, posterId) => {
   const filtered = posters.filter((p) => p.id === posterId);
@@ -165,6 +167,9 @@ export default function reducer(statePart = [], action = {}) {
     }   
     case REMOVE_ALL_POSTERS: {      
       return [];
+    } 
+    case SET_POSTERS: {
+      return  action.payload.value;
     } 
     default:
       return statePart;
