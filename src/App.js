@@ -10,9 +10,9 @@ import { persistor } from './redux/store';
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <MainLayout />
-      </PersistGate>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+      <MainLayout />
+      {/* </PersistGate> */}
     </Provider>
   );
 };

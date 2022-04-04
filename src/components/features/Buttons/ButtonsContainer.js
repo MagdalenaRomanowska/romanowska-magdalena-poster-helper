@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import ButtonSaveProject from './ButtonSaveProject';
-import { getAllPosters, removeAllPosters } from '../../../redux/parametersRedux';
+import Buttons from './Buttons';
+import { getAllPosters, removeAllPosters, addPoster } from '../../../redux/parametersRedux';
 import { getEverything } from '../../../redux/everythingRedux';
 
 const mapStateToProps = (state) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   removeAllPosters: () => dispatch(removeAllPosters()),
+  addPoster: order => dispatch(addPoster(order)),  
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ButtonSaveProject);
+export default connect(mapStateToProps, mapDispatchToProps)(Buttons);

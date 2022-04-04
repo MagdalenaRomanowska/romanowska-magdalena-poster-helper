@@ -22,7 +22,7 @@
     "pictures":[
         {
             "pictureName": "Saturn",
-            "url": "/images/Saturn.jpg"
+            "url": "/images/Saturn.jpg"  
         },
         {
             "pictureName": "Jupiter",

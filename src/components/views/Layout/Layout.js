@@ -1,7 +1,6 @@
 import React from 'react';
 import BackgroundWall from '../../views/BackgroundWall/BackgroundWallContainer';
-import ButtonSaveProject from '../../features/ButtonSaveProject/ButtonSaveProjectContainer.js';
-import ButtonAddPoster from '../../features/ButtonAddPoster/ButtonAddPosterContainer.js';
+import Buttons from '../../features/Buttons/ButtonsContainer.js';
 import GlobalFeatures from '../../views/GlobalFeatures/GlobalFeaturesContainer';
 import ListOfPosters from '../../features/ListOfPosters/ListOfPostersContainer.js';
 import Parameters from '../../views/Parameters/ParametersContainer';
@@ -55,8 +54,7 @@ class Layout extends React.Component {
     return (
       <div className={styles.root}>
         <div className={styles.buttonAndList}>
-          <ButtonSaveProject />
-          <ButtonAddPoster />
+          <Buttons />
           <ListOfPosters />
         </div>
         <div

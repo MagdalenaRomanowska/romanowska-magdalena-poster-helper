@@ -5,18 +5,14 @@ import styles from './ListOfPosters.module.scss';
 class ListOfPosters extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      movingModeOn: false,
-      pressed: false,
-      scale: ' ',
-    };
+    this.state = { isActive: false };
     this.handleClickPosterNameOnList =
       this.handleClickPosterNameOnList.bind(this);
     this.handleClickRemovePoster = this.handleClickRemovePoster.bind(this);
   }
 
   _onChangeChosenPosterID(chosenPosterID) {
-    this.props.setChosenPosterID(chosenPosterID);    
+    this.props.setChosenPosterID(chosenPosterID);
   }
 
   handleClickPosterNameOnList(event) {
@@ -32,15 +28,16 @@ class ListOfPosters extends React.Component {
   }
 
   render() {
-    const { posters } = this.props;
-
+    const { posters, chosenPosterId } = this.props;
+    
     return (
       <div className={styles.root}>
         <div>
           {posters.map((poster) => (
             <div key={poster.id}>
               <textarea
-                className={styles.clickedPosterName}
+                id={'clickedPosterName'}                
+                className={chosenPosterId === poster.id ? styles.notClickedPosterName : styles.clickedPosterName}
                 data-key={poster.id}
                 onClick={this.handleClickPosterNameOnList}
                 defaultValue={poster.posterName}
