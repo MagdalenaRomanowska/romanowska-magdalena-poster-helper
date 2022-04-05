@@ -1,5 +1,9 @@
 /* SELECTORS */
-export const getAllPosters = ({ posters }) => posters;
+
+export const getAllPostersByProjectName = ({ posters }, projectName) => {
+  const filtered = posters.filter((p) => p.projectName === projectName);
+  return filtered;
+};
 
 // action name creator
 const reducerName = 'poster';

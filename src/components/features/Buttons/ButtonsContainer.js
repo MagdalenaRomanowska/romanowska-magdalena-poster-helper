@@ -1,10 +1,9 @@
 import {connect} from 'react-redux';
 import Buttons from './Buttons';
-import { getAllPosters, removeAllPosters, addPoster } from '../../../redux/parametersRedux';
+import { removeAllPosters, addPoster } from '../../../redux/parametersRedux';
 import { getEverything } from '../../../redux/everythingRedux';
 
 const mapStateToProps = (state) => ({
-  posters: getAllPosters(state),
   everything: getEverything(state),
 });
 

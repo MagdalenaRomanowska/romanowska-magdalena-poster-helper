@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Parameters from './Parameters';
-import {getAllPosters, setXPosterPosition, setYPosterPosition, setPosterAngle, setPosterWidth, setPosterHeight, 
+import {getAllPostersByProjectName, setXPosterPosition, setYPosterPosition, setPosterAngle, setPosterWidth, setPosterHeight, 
   setPictureName, setPosterDimensionsName, getPosterDimensionsNameByPosterID } from '../../../redux/parametersRedux';
 import { getAllPictures } from '../../../redux/picturesRedux';
 import { getChosenPosterId } from '../../../redux/chosenPosterIDRedux';
@@ -8,7 +8,7 @@ import { getAllPosterDimensions } from '../../../redux/posterDimensionsRedux';
 import { getPosterWidthByPictureName, getPosterHeightByPictureName } from '../../../redux/posterDimensionsRedux';
 
 const mapStateToProps = (state, props) => ({
-  posters: getAllPosters(state),
+  posters: getAllPostersByProjectName(state, state.selectedProjectName),
   pictures: getAllPictures(state),  
   chosenPosterId: getChosenPosterId(state),    
   posterDimensions: getAllPosterDimensions(state),

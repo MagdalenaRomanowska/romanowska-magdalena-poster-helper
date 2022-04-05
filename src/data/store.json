@@ -1,6 +1,7 @@
 {
   "posters": [
     {
+      "projectName": "project01",
       "id": "01",
       "posterName": "poster01",
       "xPosterPosition": 0,
@@ -8,6 +9,18 @@
       "posterWidth": 220,
       "posterHeight": 160,
       "pictureName": "Saturn",
+      "posterDimensionsName": "18x12",
+      "angle": 0
+    },
+    {
+      "projectName": "project02",
+      "id": "02",
+      "posterName": "poster02",
+      "xPosterPosition": 0,
+      "yPosterPosition": 0,
+      "posterWidth": 220,
+      "posterHeight": 160,
+      "pictureName": "Mars",
       "posterDimensionsName": "18x12",
       "angle": 0
     }
