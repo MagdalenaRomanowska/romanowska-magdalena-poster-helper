@@ -12,27 +12,27 @@ class GlobalFeatures extends React.Component {
   }
 
   render() {
-    const { globalScale, selectedBackgroundWallName, backgroundWalls } =
+    const { selectedBackgroundWallName, backgroundWalls, globalScaleByProjectName, backgroundWallNameByProjectName } =
       this.props;
 
     return (
       <div className={styles.root}>
         <div className={styles.scale}>
-          Scale:
+          Change scale:
           <input
             type='number'
             min='0'
             max='20'
             step='1'
-            value={globalScale}
+            value={globalScaleByProjectName}
             onChange={(e) => this._onChangeScale(e.target.value)}
           />
         </div>
         <div className={styles.parameterLabel}>
-          BackgroundWall:{' '}
+          Choose background wall:{' '}
           <select
             onChange={(e) => this._onChangeBackgroundWall(e.target.value)}
-            value={selectedBackgroundWallName}
+            value={backgroundWallNameByProjectName}
           >
             {backgroundWalls.map((backgroundWall) => (
               <option
@@ -50,11 +50,12 @@ class GlobalFeatures extends React.Component {
 }
 
 GlobalFeatures.propTypes = {
-  globalScale: PropTypes.any,
   setGlobalScale: PropTypes.func,
   selectedBackgroundWallName: PropTypes.any,
   setSelectedBackgroundWallName: PropTypes.func,
   backgroundWalls: PropTypes.any,
+  globalScaleByProjectName: PropTypes.any,
+  backgroundWallNameByProjectName: PropTypes.any,
 };
 
 export default GlobalFeatures;

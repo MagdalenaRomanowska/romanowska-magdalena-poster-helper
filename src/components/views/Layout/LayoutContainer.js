@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
   startPosterPositionY: getStartPosterPositionY(state),
   startClickPositionX: getStartClickPositionX(state),
   startClickPositionY: getStartClickPositionY(state),
-  globalScale: getGlobalScale(state),
+  // globalScale: getGlobalScale(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -13,7 +13,7 @@ export default function Poster(props) {
     setStartClickPositionY,
     posterWidth,
     posterHeight,
-    globalScale,
+    globalScaleByProjectName,
     removePoster,
   } = props;
 
@@ -54,8 +54,8 @@ export default function Poster(props) {
       <img
         className={styles.image}
         src={pictureURL}
-        width={posterWidth * globalScale}
-        height={posterHeight * globalScale}
+        width={posterWidth * globalScaleByProjectName}
+        height={posterHeight * globalScaleByProjectName}
         alt='poster'
         data-key={posterParameters.id}
         onClick={handleClick}
@@ -83,6 +83,6 @@ Poster.propTypes = {
   pictureURL: PropTypes.any,
   posterWidth: PropTypes.any,
   posterHeight: PropTypes.any,
-  globalScale: PropTypes.any,
+  globalScaleByProjectName: PropTypes.any,
   removePoster: PropTypes.func,
 };

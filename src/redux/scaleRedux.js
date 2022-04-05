@@ -6,13 +6,12 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 const SET_GLOBAL_SCALE = createActionName('SET_GLOBAL_SCALE');
 
 /* action creators */
-
 export const setGlobalScale = (value) => ({ payload: {value}, type: SET_GLOBAL_SCALE });
 
 /* SELECTORS */
-
-export const getGlobalScale = (store) => {
-  return store.globalScale;
+export const getGlobalScaleByProjectName = ({ globalScales }, projectName) => {
+  const filtered = globalScales.filter((gS) => gS.projectName === projectName);
+  return filtered.length ? filtered[0].scale : { error: true };
 };
 
 // reducer

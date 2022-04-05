@@ -3,6 +3,8 @@ import BackgroundWall from '../../views/BackgroundWall/BackgroundWallContainer';
 import Buttons from '../../features/Buttons/ButtonsContainer.js';
 import GlobalFeatures from '../../views/GlobalFeatures/GlobalFeaturesContainer';
 import ListOfPosters from '../../features/ListOfPosters/ListOfPostersContainer.js';
+import DropZone from '../../features/DropZone/DropZoneContainer';
+import ProjectToChoose from '../../features/ProjectToChoose/ProjectToChooseContainer';
 import Parameters from '../../views/Parameters/ParametersContainer';
 import Poster from '../../views/Poster/PosterContainer.js';
 import PropTypes from 'prop-types';
@@ -53,7 +55,9 @@ class Layout extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className={styles.buttonAndList}>
+        <div className={styles.features}>          
+          <DropZone />
+          <ProjectToChoose />
           <Buttons />
           <ListOfPosters />
         </div>

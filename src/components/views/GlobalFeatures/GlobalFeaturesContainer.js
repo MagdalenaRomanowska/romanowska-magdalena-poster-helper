@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import GlobalFeatures from './GlobalFeatures';
-import { getGlobalScale, setGlobalScale } from '../../../redux/scaleRedux';
-import { setSelectedBackgroundWallName, getSelectedBackgroundWallName } from '../../../redux/selectedBackgroundWallNameRedux';
+import { setGlobalScale, getGlobalScaleByProjectName } from '../../../redux/scaleRedux';
+import { setSelectedBackgroundWallName, getSelectedBackgroundWallName, getSelectedBackgroundWallNameByProjectName } from '../../../redux/selectedBackgroundWallNameRedux';
 import { getAllBackgroundWalls } from '../../../redux/backgroundWallsRedux';
 
-const mapStateToProps = (state) => ({  
-  globalScale: getGlobalScale(state),
+const mapStateToProps = (state) => ({ 
+  globalScaleByProjectName: getGlobalScaleByProjectName(state, state.selectedProjectName),
+  backgroundWallNameByProjectName: getSelectedBackgroundWallNameByProjectName(state, state.selectedProjectName),
   selectedBackgroundWallName: getSelectedBackgroundWallName(state),
   backgroundWalls: getAllBackgroundWalls(state),
 });
