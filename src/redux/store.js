@@ -21,7 +21,7 @@ const reducers = {
   chosenPoster: chosenPosterIDReducer,
   pictures: pictureReducer,
   backgroundWalls: backgroundWallsReducer,
-  selectedBackgroundWallName: selectedBackgroundWallNameReducer,
+  selectedBackgroundWallNames: selectedBackgroundWallNameReducer,
   projectNames: projectNamesReducer,
   selectedProjectName: selectedProjectNameReducer,
   posterDimensions: posterDimensionsReducer,

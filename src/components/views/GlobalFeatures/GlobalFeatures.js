@@ -4,11 +4,11 @@ import styles from './GlobalFeatures.module.scss';
 
 class GlobalFeatures extends React.Component {
   _onChangeScale(scale, projectName) {
-    this.props.setGlobalScale(scale, projectName);
+    this.props.setGlobalScaleByProjectName(scale, projectName);
   }
 
-  _onChangeBackgroundWall(backgroundWallName) {
-    this.props.setSelectedBackgroundWallName(backgroundWallName);
+  _onChangeBackgroundWall(backgroundWallName, projectName) {
+    this.props.setSelectedBackgroundWallNameByProjectName(backgroundWallName, projectName);
   }
 
   render() {
@@ -31,7 +31,7 @@ class GlobalFeatures extends React.Component {
         <div className={styles.parameterLabel}>
           Choose background wall:{' '}
           <select
-            onChange={(e) => this._onChangeBackgroundWall(e.target.value)}
+            onChange={(e) => this._onChangeBackgroundWall(e.target.value, selectedProjectName)}
             value={backgroundWallNameByProjectName}
           >
             {backgroundWalls.map((backgroundWall) => (
@@ -50,8 +50,8 @@ class GlobalFeatures extends React.Component {
 }
 
 GlobalFeatures.propTypes = {
-  setGlobalScale: PropTypes.func,
-  setSelectedBackgroundWallName: PropTypes.func,
+  setGlobalScaleByProjectName: PropTypes.func,
+  setSelectedBackgroundWallNameByProjectName: PropTypes.func,
   backgroundWalls: PropTypes.any,
   globalScaleByProjectName: PropTypes.any,
   backgroundWallNameByProjectName: PropTypes.any,

@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import DropZone from './DropZone';
 import { setPosters } from '../../../redux/postersRedux';
-import { setSelectedBackgroundWallName } from '../../../redux/selectedBackgroundWallNameRedux';
-import { setGlobalScale } from '../../../redux/scaleRedux';
+import { setSelectedBackgroundWallNameByProjectName } from '../../../redux/selectedBackgroundWallNameRedux';
+import { setGlobalScaleByProjectName } from '../../../redux/scaleRedux';
 
 const mapStateToProps = () => ({
   
 });
 
 const mapDispatchToProps = dispatch => ({
-  setGlobalScale: (value) => dispatch(setGlobalScale(value)),
-  setSelectedBackgroundWallName: (backgroundWallName) => dispatch(setSelectedBackgroundWallName(backgroundWallName)),
+  setGlobalScaleByProjectName: (scale, projectName) => dispatch(setGlobalScaleByProjectName(scale, projectName)),
+  setSelectedBackgroundWallNameByProjectName: (backgroundWallName, projectName) => dispatch(setSelectedBackgroundWallNameByProjectName(backgroundWallName, projectName)),
   setPosters: (value) => dispatch(setPosters(value)),
 });
 
