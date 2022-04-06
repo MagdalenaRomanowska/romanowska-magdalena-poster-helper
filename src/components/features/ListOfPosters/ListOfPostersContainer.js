@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListOfPosters from './ListOfPosters';
-import { getAllPostersByProjectName, removePoster } from '../../../redux/parametersRedux';
+import { getAllPostersByProjectName, removePoster } from '../../../redux/postersRedux';
 import { getChosenPosterId, setChosenPosterID } from '../../../redux/chosenPosterIDRedux';
 
 

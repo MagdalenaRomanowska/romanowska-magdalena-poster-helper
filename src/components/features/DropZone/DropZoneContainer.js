@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DropZone from './DropZone';
-import { setPosters } from '../../../redux/parametersRedux';
+import { setPosters } from '../../../redux/postersRedux';
 import { setSelectedBackgroundWallName } from '../../../redux/selectedBackgroundWallNameRedux';
 import { setGlobalScale } from '../../../redux/scaleRedux';
 

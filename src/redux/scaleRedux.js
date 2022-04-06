@@ -6,7 +6,7 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 const SET_GLOBAL_SCALE = createActionName('SET_GLOBAL_SCALE');
 
 /* action creators */
-export const setGlobalScale = (value) => ({ payload: {value}, type: SET_GLOBAL_SCALE });
+export const setGlobalScale = (scale, projectName) => ({ payload: {scale, projectName}, type: SET_GLOBAL_SCALE });
 
 /* SELECTORS */
 export const getGlobalScaleByProjectName = ({ globalScales }, projectName) => {
@@ -18,7 +18,15 @@ export const getGlobalScaleByProjectName = ({ globalScales }, projectName) => {
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {   
     case SET_GLOBAL_SCALE: {
-      return  action.payload.value;
+      return statePart.map((item) => {
+        if (item.projectName !== action.payload.projectName) {
+          return item;
+        }
+        return {
+          ...item,
+          scale: parseInt(action.payload.scale),
+        };
+      });
     } 
     default:
       return statePart;

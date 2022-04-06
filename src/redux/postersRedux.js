@@ -10,7 +10,6 @@ const reducerName = 'poster';
 const createActionName = (name) => `app/${reducerName}/${name}`;
 
 // action types
-const SET_NAME = createActionName('SET_NAME');
 const SET_X_POSTER_POSITION = createActionName('SET_X_POSTER_POSITION');
 const SET_Y_POSTER_POSITION = createActionName('SET_Y_POSTER_POSITION');
 const SET_POSTER_ANGLE = createActionName('SET_POSTER_ANGLE');
@@ -25,7 +24,6 @@ const SET_POSTER_DIMENSIONS_NAME = createActionName('SET_POSTER_DIMENSIONS_NAME'
 const SET_POSTERS = createActionName('SET_POSTERS');
 
 // action creators
-export const setName = (id, posterName) => ({ payload: {id, posterName}, type: SET_NAME });
 export const setXPosterPosition = (id, xPosterPosition) => ({ payload: {id, xPosterPosition}, type: SET_X_POSTER_POSITION });
 export const setYPosterPosition = (id, yPosterPosition) => ({ payload: {id, yPosterPosition}, type: SET_Y_POSTER_POSITION });
 export const setPosterAngle = (id, angle) => ({ payload: {id, angle}, type: SET_POSTER_ANGLE });
@@ -62,17 +60,6 @@ export const getPosterParameters = ({ posters }, posterId) => {
 // reducer
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case SET_NAME: {
-      return statePart.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return {
-          ...item,
-          name: action.payload.posterName,
-        };
-      });
-    }
     case SET_X_POSTER_POSITION: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {

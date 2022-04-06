@@ -1,7 +1,7 @@
 import { combineReducers, createStore } from 'redux';
 import storeJSON from '../data/store.json';
 import globalReducer from './globalRedux';
-import parameterReducer from './parametersRedux';
+import posterReducer from './postersRedux';
 import chosenPosterIDReducer from './chosenPosterIDRedux';
 import pictureReducer from './picturesRedux';
 import backgroundWallsReducer from './backgroundWallsRedux';
@@ -17,7 +17,7 @@ const initialState = storeJSON;
 
 // define reducers
 const reducers = {
-  posters: parameterReducer,
+  posters: posterReducer,
   chosenPoster: chosenPosterIDReducer,
   pictures: pictureReducer,
   backgroundWalls: backgroundWallsReducer,
@@ -25,7 +25,7 @@ const reducers = {
   projectNames: projectNamesReducer,
   selectedProjectName: selectedProjectNameReducer,
   posterDimensions: posterDimensionsReducer,
-  globalScale: scaleReducer,
+  globalScales: scaleReducer,
   everything: everythingReducer,
 };
 

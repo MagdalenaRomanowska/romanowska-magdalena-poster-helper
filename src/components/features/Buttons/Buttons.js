@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './Buttons.module.scss';
 
 export default function Buttons(props) {
-  const { everything, removeAllPosters, addPoster } = props;
+  const { everything, removeAllPosters, addPoster, selectedProjectName } = props;
   const idUUID = uuidv4();
 
   function saveThisProject(filename, data) {
@@ -46,6 +46,7 @@ export default function Buttons(props) {
         onClick={(event) =>
           addPoster({
             id: idUUID,
+            projectName: selectedProjectName,
             posterName: idUUID.slice(0, 5),
             xPosterPosition: 220,
             yPosterPosition: 220,
@@ -63,5 +64,6 @@ export default function Buttons(props) {
 Buttons.propTypes = {
   everything: PropTypes.any,
   removeAllPosters: PropTypes.func,
-  addPoster: PropTypes.func,
+  addPoster: PropTypes.any,
+  selectedProjectName: PropTypes.any,
 };

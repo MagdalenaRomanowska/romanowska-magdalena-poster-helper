@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Parameters from './Parameters';
 import {getAllPostersByProjectName, setXPosterPosition, setYPosterPosition, setPosterAngle, setPosterWidth, setPosterHeight, 
-  setPictureName, setPosterDimensionsName, getPosterDimensionsNameByPosterID } from '../../../redux/parametersRedux';
+  setPictureName, setPosterDimensionsName, getPosterDimensionsNameByPosterID } from '../../../redux/postersRedux';
 import { getAllPictures } from '../../../redux/picturesRedux';
 import { getChosenPosterId } from '../../../redux/chosenPosterIDRedux';
 import { getAllPosterDimensions } from '../../../redux/posterDimensionsRedux';

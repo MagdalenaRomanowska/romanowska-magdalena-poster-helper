@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './GlobalFeatures.module.scss';
 
 class GlobalFeatures extends React.Component {
-  _onChangeScale(scale) {
-    this.props.setGlobalScale(scale);
+  _onChangeScale(scale, projectName) {
+    this.props.setGlobalScale(scale, projectName);
   }
 
   _onChangeBackgroundWall(backgroundWallName) {
@@ -12,7 +12,7 @@ class GlobalFeatures extends React.Component {
   }
 
   render() {
-    const { selectedBackgroundWallName, backgroundWalls, globalScaleByProjectName, backgroundWallNameByProjectName } =
+    const { backgroundWalls, globalScaleByProjectName, backgroundWallNameByProjectName, selectedProjectName } =
       this.props;
 
     return (
@@ -25,7 +25,7 @@ class GlobalFeatures extends React.Component {
             max='20'
             step='1'
             value={globalScaleByProjectName}
-            onChange={(e) => this._onChangeScale(e.target.value)}
+            onChange={(e) => this._onChangeScale(e.target.value, selectedProjectName)}
           />
         </div>
         <div className={styles.parameterLabel}>
@@ -51,11 +51,11 @@ class GlobalFeatures extends React.Component {
 
 GlobalFeatures.propTypes = {
   setGlobalScale: PropTypes.func,
-  selectedBackgroundWallName: PropTypes.any,
   setSelectedBackgroundWallName: PropTypes.func,
   backgroundWalls: PropTypes.any,
   globalScaleByProjectName: PropTypes.any,
   backgroundWallNameByProjectName: PropTypes.any,
+  selectedProjectName: PropTypes.any,
 };
 
 export default GlobalFeatures;

@@ -23,6 +23,42 @@
       "pictureName": "Mars",
       "posterDimensionsName": "18x12",
       "angle": 0
+    },
+    {
+      "projectName": "project03",
+      "id": "03",
+      "posterName": "poster03",
+      "xPosterPosition": 0,
+      "yPosterPosition": 0,
+      "posterWidth": 220,
+      "posterHeight": 160,
+      "pictureName": "Mars",
+      "posterDimensionsName": "18x12",
+      "angle": 0
+    },
+    {
+      "projectName": "project04",
+      "id": "04",
+      "posterName": "poster04",
+      "xPosterPosition": 0,
+      "yPosterPosition": 0,
+      "posterWidth": 220,
+      "posterHeight": 160,
+      "pictureName": "Mars",
+      "posterDimensionsName": "18x12",
+      "angle": 0
+    },
+    {
+      "projectName": "project05",
+      "id": "05",
+      "posterName": "poster05",
+      "xPosterPosition": 0,
+      "yPosterPosition": 0,
+      "posterWidth": 220,
+      "posterHeight": 160,
+      "pictureName": "Mars",
+      "posterDimensionsName": "18x12",
+      "angle": 0
     }
   ],
   "posterDimensions": [
@@ -160,7 +196,7 @@
       "projectName": "project05"
     }
   ],
-  "selectedProjectName": "project02",
+  "selectedProjectName": "project01",
   "selectedBackgroundWallNames": [
     {
       "backgroundWallName": "backgroundWall01",

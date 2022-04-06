@@ -16,7 +16,6 @@ class Parameters extends Component {
   }
 
   _onChangePicture(pictureName, parameterId) {
-    console.log('onChange', parameterId, pictureName);
     this.props.setPictureName(parameterId, pictureName);
   }
 

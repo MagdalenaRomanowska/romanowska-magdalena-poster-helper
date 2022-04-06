@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Layout from './Layout';
-import { getPosterParameters, getAllPostersByProjectName, setXPosterPosition, setYPosterPosition } from '../../../redux/parametersRedux';
+import { getPosterParameters, getAllPostersByProjectName, setXPosterPosition, setYPosterPosition } from '../../../redux/postersRedux';
 import { getChosenPosterId, setChosenPosterID, getStartPosterPositionX, getStartPosterPositionY, getStartClickPositionX, getStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 import { getGlobalScale, setGlobalScale } from '../../../redux/scaleRedux';
 

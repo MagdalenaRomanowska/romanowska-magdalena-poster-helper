@@ -73,8 +73,6 @@ export default function Poster(props) {
 
 Poster.propTypes = {
   posterParameters: PropTypes.any,
-  setXPosterPosition: PropTypes.func,
-  setYPosterPosition: PropTypes.func,
   setChosenPosterID: PropTypes.func,
   setStartPosterPositionX: PropTypes.func,
   setStartPosterPositionY: PropTypes.func,
