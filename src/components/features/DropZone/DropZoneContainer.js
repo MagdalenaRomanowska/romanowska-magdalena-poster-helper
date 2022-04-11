@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import DropZone from './DropZone';
 import { setPosters } from '../../../redux/postersRedux';
-import { setSelectedBackgroundWallNameByProjectName } from '../../../redux/selectedBackgroundWallNameRedux';
+import { getSelectedBackgroundWallNameByProjectName, setSelectedBackgroundWallNameByProjectName } from '../../../redux/selectedBackgroundWallNameRedux';
 import { setGlobalScaleByProjectName } from '../../../redux/scaleRedux';
+import { getSelectedProjectName } from '../../../redux/selectedProjectNameRedux';
 
-const mapStateToProps = () => ({
-  
+const mapStateToProps = (state) => ({
+  selectedProjectName: getSelectedProjectName(state),
+  selectedBackgroundWallNameByProjectName: getSelectedBackgroundWallNameByProjectName(state, state.selectedProjectName),
 });
 
 const mapDispatchToProps = dispatch => ({

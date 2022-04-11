@@ -11,7 +11,7 @@ const SET_START_CLICK_POSITION_Y = createActionName('SET_START_CLICK_POSITION_Y'
 
 /* action creators */
 
-export const setChosenPosterID = (value) => ({ payload: {value}, type: SET_CHOSEN_POSTER_ID }); 
+export const setChosenPosterID = (value, projectName) => ({ payload: {value, projectName}, type: SET_CHOSEN_POSTER_ID }); 
 export const setStartPosterPositionX = (value) => ({ payload: {value}, type: SET_START_POSTER_POSITION_X });
 export const setStartPosterPositionY = (value) => ({ payload: {value}, type: SET_START_POSTER_POSITION_Y });
 export const setStartClickPositionX = (value) => ({ payload: {value}, type: SET_START_CLICK_POSITION_X });
@@ -42,6 +42,16 @@ export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     
     case SET_CHOSEN_POSTER_ID: {
+      // return statePart.map((item) => {
+      //   if (item.projectName !== action.payload.projectName) {
+      //     return item;
+      //   }
+      //   return {
+      //     ...item,
+      //     id: action.payload.value,
+
+      //   };
+      // });
       return {
         ...statePart,
         id: action.payload.value,

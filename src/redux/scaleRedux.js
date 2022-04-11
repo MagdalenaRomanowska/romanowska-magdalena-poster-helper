@@ -24,7 +24,7 @@ export default function reducer(statePart = [], action = {}) {
         }
         return {
           ...item,
-          scale: parseInt(action.payload.scale),
+          scale: action.payload.scale,
         };
       });
     } 

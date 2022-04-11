@@ -102,7 +102,6 @@ Layout.propTypes = {
   startPosterPositionY: PropTypes.any,
   startClickPositionX: PropTypes.any,
   startClickPositionY: PropTypes.any,
-  setChosenPosterID: PropTypes.func,
   setXPosterPosition: PropTypes.func,
   setYPosterPosition: PropTypes.func,
 };

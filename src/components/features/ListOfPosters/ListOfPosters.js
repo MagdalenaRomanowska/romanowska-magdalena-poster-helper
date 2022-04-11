@@ -12,7 +12,7 @@ class ListOfPosters extends React.Component {
   }
 
   _onChangeChosenPosterID(chosenPosterID) {
-    this.props.setChosenPosterID(chosenPosterID);
+    this.props.setChosenPosterID(chosenPosterID, this.props.selectedProjectName);
   }
 
   handleClickPosterNameOnList(event) {
@@ -62,6 +62,7 @@ ListOfPosters.propTypes = {
   chosenPosterId: PropTypes.any,
   setChosenPosterID: PropTypes.func,
   removePoster: PropTypes.func,
+  selectedProjectName: PropTypes.func,
 };
 
 export default ListOfPosters;

@@ -79,6 +79,7 @@
     }
   ],
   "chosenPoster": {
+    "projectName": "project01",
     "id": 0,
     "startPosterPositionX": 0,
     "startPosterPositionY": 0,

@@ -15,10 +15,11 @@ export default function Poster(props) {
     posterHeight,
     globalScaleByProjectName,
     removePoster,
+    selectedProjectName,
   } = props;
 
   const _onChangeChosenPosterID = (chosenPosterID, ClickX, ClickY) => {
-    setChosenPosterID(chosenPosterID);
+    setChosenPosterID(chosenPosterID, selectedProjectName);
     setStartPosterPositionX(posterParameters.xPosterPosition);
     setStartPosterPositionY(posterParameters.yPosterPosition);
     setStartClickPositionX(ClickX);
@@ -40,15 +41,27 @@ export default function Poster(props) {
   const handleClickRemovePoster = (event) => {
     _onChangeRemovePoster(event.target.getAttribute('data-key'));
   };
+   
+  let scale = globalScaleByProjectName;
+  const el = document.getElementById('poster');
+
+  const onChangeScale = (event) => {
+    scale += event.deltaY * -0.005;
+    scale = Math.min(Math.max(1, scale), 5);
+    el.style.transform = `scale(${scale})`;
+    props.setGlobalScaleByProjectName(scale, selectedProjectName);
+  };
 
   return (
     <div
       className={styles.root}
+      id={'poster'}
       style={{
         position: 'absolute',
         left: posterParameters.xPosterPosition,
         top: posterParameters.yPosterPosition,
         transform: 'rotate(' + posterParameters.angle + 'deg)',
+        transform: 'scale(' + scale + ')',
       }}
     >
       <img
@@ -56,16 +69,17 @@ export default function Poster(props) {
         src={pictureURL}
         width={posterWidth * globalScaleByProjectName}
         height={posterHeight * globalScaleByProjectName}
-        alt='poster'
+        alt='poster'        
         data-key={posterParameters.id}
         onClick={handleClick}
+        onWheel = {(e) => onChangeScale(e)}
       />
       <div
         className={styles.deleteImage}
         data-key={posterParameters.id}
         onClick={handleClickRemovePoster}
       >
-        X
+        X 
       </div>
     </div>
   );
@@ -83,4 +97,6 @@ Poster.propTypes = {
   posterHeight: PropTypes.any,
   globalScaleByProjectName: PropTypes.any,
   removePoster: PropTypes.func,
+  selectedProjectName: PropTypes.any,
+  setGlobalScaleByProjectName: PropTypes.func,
 };
