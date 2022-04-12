@@ -15,14 +15,6 @@ class Parameters extends Component {
     this.props.setPosterAngle(parameterId, angle);
   }
 
-  _onChangePicture(pictureName, parameterId) {
-    this.props.setPictureName(parameterId, pictureName);
-  }
-
-  _onChangePosterDimensions(posterDimensionsName, parameterId) {
-    this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
-  }
-
   openGallery() {
     document.getElementById('gallery').style.display = 'block';
     document.getElementById('closeGallery').style.display = 'block';
@@ -32,6 +24,15 @@ class Parameters extends Component {
     document.getElementById('gallery').style.display = 'none';
     document.getElementById('closeGallery').style.display = 'none';
   }
+
+  _onChangePicture(pictureName, parameterId) {
+    this.props.setPictureName(parameterId, pictureName);
+    this.closeGallery();
+  }
+
+  _onChangePosterDimensions(posterDimensionsName, parameterId) {
+    this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
+  } 
 
   render() {
     const { posters, chosenPosterId, pictures, posterDimensions } =

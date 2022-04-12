@@ -46,9 +46,8 @@ export default function Poster(props) {
   const el = document.getElementById('poster');
 
   const onChangeScale = (event) => {
-    scale += event.deltaY * -0.005;
-    scale = Math.min(Math.max(1, scale), 5);
-    el.style.transform = `scale(${scale})`;
+    scale += event.deltaY * -0.001;
+    scale = Math.min(Math.max(1, scale), 20);
     props.setGlobalScaleByProjectName(scale, selectedProjectName);
   };
 
@@ -61,7 +60,6 @@ export default function Poster(props) {
         left: posterParameters.xPosterPosition,
         top: posterParameters.yPosterPosition,
         transform: 'rotate(' + posterParameters.angle + 'deg)',
-        transform: 'scale(' + scale + ')',
       }}
     >
       <img

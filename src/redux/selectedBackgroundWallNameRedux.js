@@ -30,7 +30,7 @@ export default function reducer(statePart = [], action = {}) {
           return item;
         }
         return {
-          // ...item,
+          ...item,
           backgroundWallName: action.payload.backgroundWallName,
         };
       });

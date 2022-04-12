@@ -14,7 +14,7 @@ class GlobalFeatures extends React.Component {
   render() {
     const { backgroundWalls, globalScaleByProjectName, backgroundWallNameByProjectName, selectedProjectName } =
       this.props;
-
+    
     return (
       <div className={styles.root}>
         <div className={styles.scale}>
