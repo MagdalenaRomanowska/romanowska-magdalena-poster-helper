@@ -4,6 +4,11 @@
   position: relative;  
 }
 
+.imageChosen {
+  position: relative;  
+  box-shadow: 0 0px 10px rgb(255, 255, 255);
+}
+
 .deleteImage {
   color: white;
   font-size: 6px;

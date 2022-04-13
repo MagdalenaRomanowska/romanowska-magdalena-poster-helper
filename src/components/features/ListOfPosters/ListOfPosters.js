@@ -83,7 +83,7 @@ class ListOfPosters extends React.Component {
                   className={'fa fa-trash-o'}
                   data-key={poster.id}
                   onClick={this.handleClickRemovePoster}
-                ></i>{index}
+                ></i>
               </button>              
             </div>
           ))}

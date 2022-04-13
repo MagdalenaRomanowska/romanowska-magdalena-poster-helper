@@ -4,6 +4,7 @@ import styles from './Poster.module.scss';
 
 export default function Poster(props) {
   const {
+    chosenPosterId,
     pictureURL,
     posterParameters,
     setChosenPosterID,
@@ -63,7 +64,12 @@ export default function Poster(props) {
       }}
     >
       <img
-        className={styles.image}
+        // className={styles.image}
+        className={
+          chosenPosterId === posterParameters.id
+            ? styles.imageChosen
+            : styles.image
+        }
         src={pictureURL}
         width={posterWidth * globalScaleByProjectName}
         height={posterHeight * globalScaleByProjectName}
@@ -84,6 +90,7 @@ export default function Poster(props) {
 }
 
 Poster.propTypes = {
+  chosenPosterId: PropTypes.any,
   posterParameters: PropTypes.any,
   setChosenPosterID: PropTypes.func,
   setStartPosterPositionX: PropTypes.func,
