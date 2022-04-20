@@ -20,21 +20,50 @@ const MOVE_POSTER_DOWN = createActionName('MOVE_POSTER_DOWN');
 const REMOVE_ALL_POSTERS = createActionName('REMOVE_ALL_POSTERS');
 const SET_PICTURE_NAME = createActionName('SET_PICTURE_NAME');
 const SET_BACKGROUNDWALL_NAME = createActionName('SET_BACKGROUNDWALL_NAME');
-const SET_POSTER_DIMENSIONS_NAME = createActionName('SET_POSTER_DIMENSIONS_NAME');
+const SET_POSTER_DIMENSIONS_NAME = createActionName(
+  'SET_POSTER_DIMENSIONS_NAME'
+);
 const SET_POSTERS = createActionName('SET_POSTERS');
 
 // action creators
-export const setXPosterPosition = (id, xPosterPosition) => ({ payload: { id, xPosterPosition }, type: SET_X_POSTER_POSITION });
-export const setYPosterPosition = (id, yPosterPosition) => ({ payload: { id, yPosterPosition }, type: SET_Y_POSTER_POSITION });
-export const setPosterAngle = (id, angle) => ({ payload: { id, angle }, type: SET_POSTER_ANGLE });
+export const setXPosterPosition = (id, xPosterPosition) => ({
+  payload: { id, xPosterPosition },
+  type: SET_X_POSTER_POSITION,
+});
+export const setYPosterPosition = (id, yPosterPosition) => ({
+  payload: { id, yPosterPosition },
+  type: SET_Y_POSTER_POSITION,
+});
+export const setPosterAngle = (id, angle) => ({
+  payload: { id, angle },
+  type: SET_POSTER_ANGLE,
+});
 export const addPoster = (id) => ({ id, type: ADD_POSTER });
 export const removePoster = (id) => ({ id, type: REMOVE_POSTER });
-export const movePosterUp = (id) => ({ id, type: MOVE_POSTER_UP });
-export const movePosterDown = (id) => ({ id, type: MOVE_POSTER_DOWN});
-export const removeAllPosters = (projectName) => ({ projectName, type: REMOVE_ALL_POSTERS });
-export const setPictureName = (id, pictureName) => ({ payload: { id, pictureName }, type: SET_PICTURE_NAME });
-export const setBackgroundWallName = (id, backgroundWallName) => ({ payload: { id, backgroundWallName }, type: SET_BACKGROUNDWALL_NAME });
-export const setPosterDimensionsName = (id, posterDimensionsName) => ({ payload: { id, posterDimensionsName }, type: SET_POSTER_DIMENSIONS_NAME });
+export const movePosterUp = (id, projectName) => ({
+  payload: { id, projectName },
+  type: MOVE_POSTER_UP,
+});
+export const movePosterDown = (id, projectName) => ({
+  payload: { id, projectName },
+  type: MOVE_POSTER_DOWN,
+});
+export const removeAllPosters = (projectName) => ({
+  projectName,
+  type: REMOVE_ALL_POSTERS,
+});
+export const setPictureName = (id, pictureName) => ({
+  payload: { id, pictureName },
+  type: SET_PICTURE_NAME,
+});
+export const setBackgroundWallName = (id, backgroundWallName) => ({
+  payload: { id, backgroundWallName },
+  type: SET_BACKGROUNDWALL_NAME,
+});
+export const setPosterDimensionsName = (id, posterDimensionsName) => ({
+  payload: { id, posterDimensionsName },
+  type: SET_POSTER_DIMENSIONS_NAME,
+});
 export const setPosters = (value) => ({ value, type: SET_POSTERS });
 
 export const getPictureNameByPosterID = ({ posters }, posterId) => {
@@ -134,34 +163,68 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_POSTER: {
       return statePart.filter((item) => item.id !== action.id);
     }
-    case MOVE_POSTER_UP: {
-      const index = statePart.findIndex((item) => item.id === action.id);
-      if (index >= 0 && statePart.length > 1) {
+    case MOVE_POSTER_UP: {      
+      const elementToMove = statePart.find(
+        (item) => item.id === action.payload.id
+      );
+      const projectName2 = elementToMove.projectName;
+      const statePartWithIndexes = statePart.map((element, index) => {
+        return { projectName: element.projectName, id: element.id, index };
+      });
+      const filteredStatePartWithIndexes = statePartWithIndexes.filter(
+        (item) => item.projectName === projectName2
+      );
+      const indexInFilteredStatePartWithIndexes =
+        filteredStatePartWithIndexes.findIndex(
+          (item) => item.id === action.payload.id
+        );
+      if (indexInFilteredStatePartWithIndexes === 0) {
+        return statePart;
+      } else {
+        let index = filteredStatePartWithIndexes[indexInFilteredStatePartWithIndexes].index;
+        let index2 =
+          filteredStatePartWithIndexes[indexInFilteredStatePartWithIndexes - 1].index;
         const newStatePart = [...statePart];
-        [newStatePart[index], newStatePart[index - 1]] = [
-          newStatePart[index - 1],
+        [newStatePart[index], newStatePart[index2]] = [
+          newStatePart[index2],
           newStatePart[index],
         ];
         return newStatePart;
-      } else {
-        return statePart;
       }
     }
-    case MOVE_POSTER_DOWN: {
-      const index = statePart.findIndex((item) => item.id === action.id);
-      if (index >= 0 && statePart.length > 1) {
+    case MOVE_POSTER_DOWN: {      
+      const elementToMove = statePart.find(
+        (item) => item.id === action.payload.id
+      );
+      const projectName2 = elementToMove.projectName;
+      const statePartWithIndexes = statePart.map((element, index) => {
+        return { projectName: element.projectName, id: element.id, index };
+      });
+      const filteredStatePartWithIndexes = statePartWithIndexes.filter(
+        (item) => item.projectName === projectName2
+      );
+      const indexInFilteredStatePartWithIndexes =
+        filteredStatePartWithIndexes.findIndex(
+          (item) => item.id === action.payload.id
+        );
+      if (indexInFilteredStatePartWithIndexes === filteredStatePartWithIndexes.length - 1) {
+        return statePart;
+      } else {
+        let index = filteredStatePartWithIndexes[indexInFilteredStatePartWithIndexes].index;
+        let index2 =
+          filteredStatePartWithIndexes[indexInFilteredStatePartWithIndexes + 1].index;
         const newStatePart = [...statePart];
-        [newStatePart[index], newStatePart[index + 1]] = [
-          newStatePart[index + 1],
+        [newStatePart[index], newStatePart[index2]] = [
+          newStatePart[index2],
           newStatePart[index],
         ];
         return newStatePart;
-      } else {
-        return statePart;
       }
     }
     case REMOVE_ALL_POSTERS: {
-      return statePart.filter((item) => item.projectName !== action.projectName);
+      return statePart.filter(
+        (item) => item.projectName !== action.projectName
+      );
     }
     case SET_POSTERS: {
       return action.value;
