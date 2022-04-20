@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeAllPosters: () => dispatch(removeAllPosters()),
+  removeAllPosters: (projectName) => dispatch(removeAllPosters(projectName)),
   addPoster: (order) => dispatch(addPoster(order)),  
 });
 

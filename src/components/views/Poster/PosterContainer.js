@@ -1,7 +1,6 @@
 import {connect} from 'react-redux';
 import Poster from './Poster';
-import { getPosterParameters, getAllPostersByProjectName, setPosterAngle, setPosterWidth, setPosterHeight, 
-  getPictureNameByPosterID, getPosterDimensionsNameByPosterID, removePoster } from '../../../redux/postersRedux';
+import { getPosterParameters, getAllPostersByProjectName, getPictureNameByPosterID, getPosterDimensionsNameByPosterID, removePoster, setPictureName } from '../../../redux/postersRedux';
 import { getChosenPosterId, setChosenPosterID, setStartPosterPositionX, setStartPosterPositionY, setStartClickPositionX, setStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
 import { getURLByPictureName } from '../../../redux/picturesRedux';
 import { getPosterWidthByPictureName, getPosterHeightByPictureName } from '../../../redux/posterDimensionsRedux';
@@ -20,17 +19,15 @@ const mapStateToProps = (state, props) => ({
 });
 
 
-const mapDispatchToProps = dispatch => ({  
-  setPosterAngle: (posterId, posterAngle) => dispatch(setPosterAngle(posterId, posterAngle)),
-  setPosterWidth: (posterId, posterWidth) => dispatch(setPosterWidth(posterId, posterWidth)),
-  setPosterHeight: (posterId, posterHeight) => dispatch(setPosterHeight(posterId, posterHeight)),
-  setChosenPosterID: (value, projectName) => dispatch(setChosenPosterID(value, projectName)),  
+const mapDispatchToProps = dispatch => ({      
+  setChosenPosterID: (id) => dispatch(setChosenPosterID(id)),  
   setStartPosterPositionX: (startPosterPositionX) => dispatch(setStartPosterPositionX(startPosterPositionX)),  
   setStartPosterPositionY: (startPosterPositionY) => dispatch(setStartPosterPositionY(startPosterPositionY)),  
   setStartClickPositionX: (startClickPositionX) => dispatch(setStartClickPositionX(startClickPositionX)),  
   setStartClickPositionY: (startClickPositionY) => dispatch(setStartClickPositionY(startClickPositionY)),
   removePoster: (posterId) => dispatch(removePoster(posterId)),
   setGlobalScaleByProjectName: (scale, projectName) => dispatch(setGlobalScaleByProjectName(scale, projectName)),
+  setPictureName: (posterId, pictureName) => dispatch(setPictureName(posterId, pictureName)), 
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Poster);

@@ -104,6 +104,7 @@ Layout.propTypes = {
   startClickPositionY: PropTypes.any,
   setXPosterPosition: PropTypes.func,
   setYPosterPosition: PropTypes.func,
+  selectedProjectName: PropTypes.any,
 };
 
 export default Layout;

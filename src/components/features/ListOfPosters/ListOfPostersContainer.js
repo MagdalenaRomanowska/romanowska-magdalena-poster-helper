@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({  
-  setChosenPosterID: (value, projectName) => dispatch(setChosenPosterID(value, projectName)),  
+  setChosenPosterID: (id) => dispatch(setChosenPosterID(id)),  
   removePoster: (posterId) => dispatch(removePoster(posterId)),
   movePosterDown: (posterIndex) => dispatch(movePosterDown(posterIndex)),
   movePosterUp: (posterIndex) => dispatch(movePosterUp(posterIndex)),

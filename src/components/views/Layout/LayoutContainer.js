@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Layout from './Layout';
 import { getPosterParameters, getAllPostersByProjectName, setXPosterPosition, setYPosterPosition } from '../../../redux/postersRedux';
 import { getChosenPosterId, getStartPosterPositionX, getStartPosterPositionY, getStartClickPositionX, getStartClickPositionY } from '../../../redux/chosenPosterIDRedux';
+import { getSelectedProjectName } from '../../../redux/selectedProjectNameRedux';
 
 const mapStateToProps = (state) => ({
   posters: getAllPostersByProjectName(state, state.selectedProjectName),
@@ -11,6 +12,7 @@ const mapStateToProps = (state) => ({
   startPosterPositionY: getStartPosterPositionY(state),
   startClickPositionX: getStartClickPositionX(state),
   startClickPositionY: getStartClickPositionY(state),
+  selectedProjectName: getSelectedProjectName(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -11,11 +11,11 @@ const SET_START_CLICK_POSITION_Y = createActionName('SET_START_CLICK_POSITION_Y'
 
 /* action creators */
 
-export const setChosenPosterID = (value, projectName) => ({ payload: {value, projectName}, type: SET_CHOSEN_POSTER_ID }); 
-export const setStartPosterPositionX = (value) => ({ payload: {value}, type: SET_START_POSTER_POSITION_X });
-export const setStartPosterPositionY = (value) => ({ payload: {value}, type: SET_START_POSTER_POSITION_Y });
-export const setStartClickPositionX = (value) => ({ payload: {value}, type: SET_START_CLICK_POSITION_X });
-export const setStartClickPositionY = (value) => ({ payload: {value}, type: SET_START_CLICK_POSITION_Y });
+export const setChosenPosterID = (id) => ({ id, type: SET_CHOSEN_POSTER_ID }); 
+export const setStartPosterPositionX = (startPosterPositionX) => ({ payload: {startPosterPositionX}, type: SET_START_POSTER_POSITION_X });
+export const setStartPosterPositionY = (startPosterPositionY) => ({ payload: {startPosterPositionY}, type: SET_START_POSTER_POSITION_Y });
+export const setStartClickPositionX = (startClickPositionX) => ({ payload: {startClickPositionX}, type: SET_START_CLICK_POSITION_X });
+export const setStartClickPositionY = (startClickPositionY) => ({ payload: {startClickPositionY}, type: SET_START_CLICK_POSITION_Y });
 
 export const getChosenPosterId = (store) => {
   return store.chosenPoster.id;
@@ -42,43 +42,33 @@ export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     
     case SET_CHOSEN_POSTER_ID: {
-      // return statePart.map((item) => {
-      //   if (item.projectName !== action.payload.projectName) {
-      //     return item;
-      //   }
-      //   return {
-      //     ...item,
-      //     id: action.payload.value,
-
-      //   };
-      // });
       return {
         ...statePart,
-        id: action.payload.value,
+        id: action.id,
       };
     }
     case SET_START_POSTER_POSITION_X: {
       return {
         ...statePart,
-        startPosterPositionX: action.payload.value,
+        startPosterPositionX: action.payload.startPosterPositionX,
       };
     }
     case SET_START_POSTER_POSITION_Y: {
       return {
         ...statePart,
-        startPosterPositionY: action.payload.value,
+        startPosterPositionY: action.payload.startPosterPositionY,
       };
     }
     case SET_START_CLICK_POSITION_X: {
       return {
         ...statePart,
-        startClickPositionX: action.payload.value,
+        startClickPositionX: action.payload.startClickPositionX,
       };
     }
     case SET_START_CLICK_POSITION_Y: {
       return {
         ...statePart,
-        startClickPositionY: action.payload.value,
+        startClickPositionY: action.payload.startClickPositionY,
       };
     }
     default:

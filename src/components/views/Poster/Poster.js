@@ -20,19 +20,29 @@ export default function Poster(props) {
   } = props;
 
   const _onChangeChosenPosterID = (chosenPosterID, ClickX, ClickY) => {
-    setChosenPosterID(chosenPosterID, selectedProjectName);
+    setChosenPosterID(chosenPosterID);
     setStartPosterPositionX(posterParameters.xPosterPosition);
     setStartPosterPositionY(posterParameters.yPosterPosition);
     setStartClickPositionX(ClickX);
     setStartClickPositionY(ClickY);
   };
 
-  const handleClick = (event) => {
-    _onChangeChosenPosterID(
-      event.target.getAttribute('data-key'),
-      event.clientX,
-      event.clientY
-    );
+  const handleClick = (event, parameterId, pictureName) => {
+    switch (event.detail) {
+      case 1: // 1 click        
+        _onChangeChosenPosterID(
+          event.target.getAttribute('data-key'),
+          event.clientX,
+          event.clientY
+        );
+        break;
+      case 2: // double click
+        console.log('double click');
+        // setPictureName(parameterId, pictureName);
+        break;      
+      default:
+        return;
+    }    
   };
 
   const _onChangeRemovePoster = (chosenPosterID) => {
@@ -63,8 +73,8 @@ export default function Poster(props) {
         transform: 'rotate(' + posterParameters.angle + 'deg)',
       }}
     >
+      
       <img
-        // className={styles.image}
         className={
           chosenPosterId === posterParameters.id
             ? styles.imageChosen
@@ -75,7 +85,7 @@ export default function Poster(props) {
         height={posterHeight * globalScaleByProjectName}
         alt='poster'        
         data-key={posterParameters.id}
-        onClick={handleClick}
+        onClick={(e) => handleClick(e, posterParameters.id, posterParameters.pictureName)}
         onWheel = {(e) => onChangeScale(e)}
       />
       <div
@@ -104,4 +114,5 @@ Poster.propTypes = {
   removePoster: PropTypes.func,
   selectedProjectName: PropTypes.any,
   setGlobalScaleByProjectName: PropTypes.func,
+  setPictureName: PropTypes.func,
 };

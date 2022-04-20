@@ -22,7 +22,7 @@ export default function Buttons(props) {
   }
 
   function deleteAllPosters() {
-    removeAllPosters();
+    removeAllPosters(selectedProjectName);
   }
 
   return (

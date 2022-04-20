@@ -14,8 +14,7 @@ class ListOfPosters extends React.Component {
 
   _onChangeChosenPosterID(chosenPosterID) {
     this.props.setChosenPosterID(
-      chosenPosterID,
-      this.props.selectedProjectName
+      chosenPosterID
     );
   }
 

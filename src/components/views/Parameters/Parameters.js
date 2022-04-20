@@ -35,8 +35,7 @@ class Parameters extends Component {
   } 
 
   render() {
-    const { posters, chosenPosterId, pictures, posterDimensions } =
-      this.props;
+    const { posters, chosenPosterId, pictures, posterDimensions } = this.props;
     const poster = posters.filter((poster) => poster.id === chosenPosterId)[0];
 
     if (!poster) {
@@ -159,19 +158,6 @@ class Parameters extends Component {
                     >
                       <p className={styles.closeGalleryX}>x</p>
                     </div>
-                    {/* <select
-                      className={styles.select}
-                      onChange={(e) =>
-                        this._onChangePicture(e.target.value, poster.id)
-                      }
-                      value={poster.pictureName}
-                    >
-                      {pictures.map((picture) => (
-                        <option key={picture.pictureName} value={picture.pictureName}>
-                          {picture.pictureName}
-                        </option>
-                      ))}
-                    </select> */}
                   </div>
                 </td>
               </tr>
@@ -187,8 +173,6 @@ Parameters.propTypes = {
   setXPosterPosition: PropTypes.func,
   setYPosterPosition: PropTypes.func,
   setPosterAngle: PropTypes.func,
-  setPosterWidth: PropTypes.func,
-  setPosterHeight: PropTypes.func,
   posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
   pictures: PropTypes.any,
