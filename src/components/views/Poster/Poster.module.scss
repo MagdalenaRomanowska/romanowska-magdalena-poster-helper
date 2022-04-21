@@ -6,7 +6,7 @@
 
 .imageChosen {
   position: relative;  
-  box-shadow: 0 0px 10px rgb(255, 255, 255);
+  box-shadow: 0 0px 10px $color-white;
 }
 
 .deleteImage {
@@ -17,7 +17,7 @@
   left: 95%;
   transform: translate(-50%, -50%);
   display: none;
-  text-shadow: 0 0px 6px rgb(0, 0, 0);
+  text-shadow: 0 0px 6px $color-black;
 
   &:hover {
     display: block;

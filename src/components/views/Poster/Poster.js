@@ -60,8 +60,7 @@ export default function Poster(props) {
   };
    
   let scale = globalScaleByProjectName;
-  const el = document.getElementById('poster');
-
+  
   const onChangeScale = (event) => {
     scale += event.deltaY * -0.001;
     scale = Math.min(Math.max(1, scale), 20);

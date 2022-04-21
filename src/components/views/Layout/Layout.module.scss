@@ -2,7 +2,7 @@
 
 .root {
   font-family: $font-family;
-  background-color: rgb(255, 255, 255);
+  background-color: $color-white;
   border: 1px solid black;
   display: inline-flex;
   margin: 0;
@@ -15,7 +15,7 @@
 
 .features {
   width: 12vw;
-  background-color: rgb(255, 255, 255);
+  background-color: $color-white;
   margin: 3.5vw 1vh 2vw 7vh;  
 }
 
@@ -29,7 +29,7 @@
 }
 
 .posters {
-  width: 15vw;
+  width: 15.95vw;
   margin: 2vw 2vh 2vw 0vh;  
   font-size: 12px;
 }

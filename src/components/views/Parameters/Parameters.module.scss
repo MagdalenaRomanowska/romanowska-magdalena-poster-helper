@@ -27,8 +27,8 @@ table {
 .openGallery {
   width: 8px;
   height: 8px;
-  background-color: rgb(228, 236, 245);
-  border: 1.5px solid rgb(175, 208, 245);
+  background-color: $color-light;
+  border: 1.5px solid $color-lightblue;
   border-radius: 50px;
   margin-left: 28px;
 }
@@ -40,15 +40,15 @@ table {
   margin-left: 20px;  
   width: 10px;
   height: 10px;
-  background-color: rgb(63, 148, 245);
-  border: 1.5px solid rgb(175, 208, 245);
+  background-color: $color-blue;
+  border: 1.5px solid $color-lightblue;
   border-radius: 50px;
   cursor: pointer;
 }
 
 .closeGalleryX {
   font-size: 8px;
-  color: rgb(255, 255, 255);
+  color: $color-white;
   position: absolute; 
   top: -80%; 
   left: 30%;
@@ -59,9 +59,9 @@ table {
   top: 50%; 
   left: -220%; 
   transform: translate(-50%, -25%);
-  background-color: rgb(228, 236, 245);
-  border: 1px solid rgb(113, 172, 240);
-  box-shadow: 0 0px 10px rgb(63, 148, 245);
+  background-color: $color-light;
+  border: 1px solid $color-blue;
+  box-shadow: 0 0px 10px $color-blue;
 }
 
 .picture {
@@ -102,18 +102,18 @@ table {
 
 .select {
   width: 36%;
-  background-color: rgb(228, 236, 245);
+  background-color: $color-light;
   float: right;
   text-align: center;
   font-size: 8px;
-  border: solid 1px rgb(173, 172, 172);
+  border: solid 1px $color-gray;
 }
 
 input, form {
   width: 28%;
-  background-color: rgb(228, 236, 245);
+  background-color: $color-light;
   float: right;
   text-align: center;
   font-size: 8px;
-  border: solid 1px rgb(173, 172, 172);
+  border: solid 1px $color-gray;
 }

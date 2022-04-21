@@ -17,11 +17,8 @@ export default function DropZone(props) {
         const binaryStr = reader.result;
         const upload = JSON.parse(binaryStr);
         console.log('upload : ', upload);        
-        // setGlobalScaleByProjectName(upload.globalScales.scale, upload.selectedProjectName);
-        // setSelectedBackgroundWallNameByProjectName(selectedBackgroundWallNameByProjectName, upload.selectedProjectName);
-        // setPosters(upload.posters);
-        setGlobalScale(4);
-        setSelectedBackgroundWallName('project02');
+        setGlobalScale(upload.globalScales);
+        setSelectedBackgroundWallName(upload.selectedBackgroundWallNames);
         setPosters(upload.posters);
       };
       reader.readAsText(file);
