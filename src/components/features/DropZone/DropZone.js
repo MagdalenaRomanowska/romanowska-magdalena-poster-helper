@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import styles from './DropZone.module.scss';
 
 export default function DropZone(props) {
-  const { setGlobalScaleByProjectName, setSelectedBackgroundWallNameByProjectName, setPosters, selectedBackgroundWallNameByProjectName } = props;
+  const { setGlobalScaleByProjectName, setSelectedBackgroundWallNameByProjectName, setPosters, 
+    selectedBackgroundWallNameByProjectName, setGlobalScale, setSelectedBackgroundWallName } = props;
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
@@ -15,10 +16,13 @@ export default function DropZone(props) {
       reader.onload = () => {
         const binaryStr = reader.result;
         const upload = JSON.parse(binaryStr);
-        // console.log('upload : ', upload);
+        console.log('upload : ', upload);        
         // setGlobalScaleByProjectName(upload.globalScales.scale, upload.selectedProjectName);
         // setSelectedBackgroundWallNameByProjectName(selectedBackgroundWallNameByProjectName, upload.selectedProjectName);
         // setPosters(upload.posters);
+        setGlobalScale(4);
+        setSelectedBackgroundWallName('project02');
+        setPosters(upload.posters);
       };
       reader.readAsText(file);
     });
@@ -43,4 +47,6 @@ DropZone.propTypes = {
   setSelectedBackgroundWallNameByProjectName: PropTypes.func,
   setPosters: PropTypes.func,
   selectedBackgroundWallNameByProjectName: PropTypes.any,
+  setGlobalScale: PropTypes.any,
+  setSelectedBackgroundWallName: PropTypes.any,
 };

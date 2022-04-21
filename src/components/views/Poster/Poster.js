@@ -27,6 +27,11 @@ export default function Poster(props) {
     setStartClickPositionY(ClickY);
   };
 
+  const openGallery = () => {
+    document.getElementById('gallery').style.display = 'block';
+    document.getElementById('closeGallery').style.display = 'block';
+  };
+
   const handleClick = (event, parameterId, pictureName) => {
     switch (event.detail) {
       case 1: // 1 click        
@@ -39,6 +44,7 @@ export default function Poster(props) {
       case 2: // double click
         console.log('double click');
         // setPictureName(parameterId, pictureName);
+        openGallery();
         break;      
       default:
         return;
