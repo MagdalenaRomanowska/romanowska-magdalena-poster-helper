@@ -12,9 +12,9 @@
 .deleteImage {
   color: white;
   font-size: 6px;
-  position: absolute;
   top: 8%;
   left: 95%;
+  position: absolute;
   transform: translate(-50%, -50%);
   display: none;
   text-shadow: 0 0px 6px $color-black;
@@ -27,4 +27,8 @@
 
 .image:hover ~ .deleteImage {
     display: block;
+}
+
+.imageChosen:hover ~ .deleteImage {
+  display: block;
 }

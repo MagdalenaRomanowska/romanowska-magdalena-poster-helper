@@ -47,7 +47,7 @@ export default function Buttons(props) {
           addPoster({
             id: idUUID,
             projectName: selectedProjectName,
-            posterName: idUUID.slice(0, 5),
+            posterName: 'Saturn', //idUUID.slice(0, 5),
             xPosterPosition: 220,
             yPosterPosition: 220,
             pictureName: 'Saturn',

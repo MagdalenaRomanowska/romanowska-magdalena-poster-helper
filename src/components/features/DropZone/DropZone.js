@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './DropZone.module.scss';
 
 export default function DropZone(props) {
-  const { setGlobalScaleByProjectName, setSelectedBackgroundWallNameByProjectName, setPosters, 
-    selectedBackgroundWallNameByProjectName, setGlobalScale, setSelectedBackgroundWallName } = props;
+  const { setPosters, setGlobalScale, setSelectedBackgroundWallName } = props;
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
@@ -15,8 +14,7 @@ export default function DropZone(props) {
       reader.onerror = () => console.log('file reading has failed');
       reader.onload = () => {
         const binaryStr = reader.result;
-        const upload = JSON.parse(binaryStr);
-        console.log('upload : ', upload);        
+        const upload = JSON.parse(binaryStr);   
         setGlobalScale(upload.globalScales);
         setSelectedBackgroundWallName(upload.selectedBackgroundWallNames);
         setPosters(upload.posters);
@@ -39,11 +37,8 @@ export default function DropZone(props) {
   );
 }
 
-DropZone.propTypes = {
-  setGlobalScaleByProjectName: PropTypes.func,
-  setSelectedBackgroundWallNameByProjectName: PropTypes.func,
-  setPosters: PropTypes.func,
-  selectedBackgroundWallNameByProjectName: PropTypes.any,
+DropZone.propTypes = {    
+  setPosters: PropTypes.func,  
   setGlobalScale: PropTypes.any,
   setSelectedBackgroundWallName: PropTypes.any,
 };

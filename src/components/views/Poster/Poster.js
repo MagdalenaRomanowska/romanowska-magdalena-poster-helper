@@ -32,23 +32,21 @@ export default function Poster(props) {
     document.getElementById('closeGallery').style.display = 'block';
   };
 
-  const handleClick = (event, parameterId, pictureName) => {
+  const handleClickPoster = (event) => {
     switch (event.detail) {
-      case 1: // 1 click        
+      case 1: // 1 click
         _onChangeChosenPosterID(
           event.target.getAttribute('data-key'),
           event.clientX,
           event.clientY
-        );
-        break;
+        );     
+        break;        
       case 2: // double click
-        console.log('double click');
-        // setPictureName(parameterId, pictureName);
         openGallery();
-        break;      
+        break;
       default:
         return;
-    }    
+    }
   };
 
   const _onChangeRemovePoster = (chosenPosterID) => {
@@ -58,9 +56,9 @@ export default function Poster(props) {
   const handleClickRemovePoster = (event) => {
     _onChangeRemovePoster(event.target.getAttribute('data-key'));
   };
-   
+
   let scale = globalScaleByProjectName;
-  
+
   const onChangeScale = (event) => {
     scale += event.deltaY * -0.001;
     scale = Math.min(Math.max(1, scale), 20);
@@ -78,7 +76,6 @@ export default function Poster(props) {
         transform: 'rotate(' + posterParameters.angle + 'deg)',
       }}
     >
-      
       <img
         className={
           chosenPosterId === posterParameters.id
@@ -88,17 +85,19 @@ export default function Poster(props) {
         src={pictureURL}
         width={posterWidth * globalScaleByProjectName}
         height={posterHeight * globalScaleByProjectName}
-        alt='poster'        
+        alt='poster'
         data-key={posterParameters.id}
-        onClick={(e) => handleClick(e, posterParameters.id, posterParameters.pictureName)}
-        onWheel = {(e) => onChangeScale(e)}
+        onClick={(e) =>
+          handleClickPoster(e, posterParameters.id, posterParameters.pictureName)
+        }
+        onWheel={(e) => onChangeScale(e)}
       />
       <div
         className={styles.deleteImage}
         data-key={posterParameters.id}
         onClick={handleClickRemovePoster}
       >
-        X 
+        X
       </div>
     </div>
   );
