@@ -7,7 +7,7 @@
 .tableLabel {
   text-align: left;
   padding-top: 12px;
-  font-size: 11px;
+  font-size: medium;
 }
 
 table {
@@ -17,7 +17,7 @@ table {
 .parameterLabel, .parameterLabelWithPicture {
   text-align: left;
   word-wrap: break-word;
-  font-size: 10px;
+  font-size: medium;
 }
 
 .parameterLabelWithPicture {
@@ -47,7 +47,7 @@ table {
 }
 
 .closeGalleryX {
-  font-size: 8px;
+  font-size: medium;
   color: $color-white;
   position: absolute; 
   top: -80%; 
@@ -105,7 +105,7 @@ table {
   background-color: $color-light;
   float: right;
   text-align: center;
-  font-size: 8px;
+  font-size: medium;
   border: solid 1px $color-gray;
 }
 
@@ -114,6 +114,6 @@ input, form {
   background-color: $color-light;
   float: right;
   text-align: center;
-  font-size: 8px;
+  font-size: medium;
   border: solid 1px $color-gray;
 }

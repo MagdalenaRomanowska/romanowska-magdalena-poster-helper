@@ -2,7 +2,7 @@
 
 .root {
   display: inline-flex;
-  font-size: 8px;
+  font-size: medium;
   text-transform: uppercase;
 }
 
@@ -12,13 +12,13 @@
 
 .scale input {
   width: fit-content;
-  font-size: 8px;
+  font-size: medium;
   margin-left: 4px;
 }
 
 select {
   background-color: $color-light;
-  font-size: 8px;
+  font-size: medium;
   margin-left: 4px;
   padding: 2px 0;
 }
