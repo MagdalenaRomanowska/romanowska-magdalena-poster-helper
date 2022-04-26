@@ -96,7 +96,7 @@ class Parameters extends Component {
                     />
                   </p>
                   <p className={styles.parameterLabel}>
-                    Dimensions in &apos; &apos;:{' '}
+                    Dimensions:{' '}
                     <select
                       className={styles.select}
                       onChange={(event) =>
