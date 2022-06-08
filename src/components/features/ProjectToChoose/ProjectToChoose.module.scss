@@ -1,15 +1,18 @@
 @import "../../../styles/settings.scss";
+@import "../../../styles/variables.scss";
 
 .root {
     margin: 2vh 0;
 }
 
 .label {
-    font-size: small;
+    font-size: medium;
     word-wrap: break-word;
 }
 
 .select {
-    border-radius: 5px;
-    width: 6.5vw;
+    border-radius: $border-radius;
+    width: 7.85vw;
+    font-size: medium;
+    padding: 0.5vh 0;
 }

@@ -6,16 +6,15 @@ class ListOfPosters extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isActive: false };
-    this.handleClickPosterNameOnList = this.handleClickPosterNameOnList.bind(this);
+    this.handleClickPosterNameOnList =
+      this.handleClickPosterNameOnList.bind(this);
     this.handleClickRemovePoster = this.handleClickRemovePoster.bind(this);
     this.handleClickMovePosterUp = this.handleClickMovePosterUp.bind(this);
     this.handleClickMovePosterDown = this.handleClickMovePosterDown.bind(this);
   }
 
   _onChangeChosenPosterID(chosenPosterID) {
-    this.props.setChosenPosterID(
-      chosenPosterID
-    );
+    this.props.setChosenPosterID(chosenPosterID);
   }
 
   handleClickPosterNameOnList(event) {
@@ -83,7 +82,7 @@ class ListOfPosters extends React.Component {
                   data-key={poster.id}
                   onClick={this.handleClickRemovePoster}
                 ></i>
-              </button>              
+              </button>
             </div>
           ))}
         </div>

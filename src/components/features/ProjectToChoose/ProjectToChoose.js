@@ -13,7 +13,7 @@ class ProjectToChoose extends React.Component {
     return (
       <div className={styles.root}>
         <label className={styles.label}>
-          Choose project:
+          Choose:
           <select
             className={styles.select}
             onChange={(e) => this._onChangeProjectName(e.target.value)}

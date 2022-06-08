@@ -23,7 +23,7 @@ class GlobalFeatures extends React.Component {
             type='number'
             min='0'
             max='20'
-            step='1'
+            step='0.01'
             value={globalScaleByProjectName}
             onChange={(e) => this._onChangeScale(e.target.value, selectedProjectName)}
           />

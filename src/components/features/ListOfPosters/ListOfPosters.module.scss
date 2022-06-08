@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-track {
@@ -56,7 +56,8 @@
 }
 
 .buttons i {
-  padding: 0 4px;
+  padding: 0.5vh 0.5vw;
+  font-size: large;
   &:hover {
     color: $color-blue; 
   }

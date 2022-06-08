@@ -160,23 +160,23 @@
   ],
   "globalScales": [
     {
-      "scale": 1,
+      "scale": 11,
       "projectName": "project01"
     },
     {
-      "scale": 2,
+      "scale": 12,
       "projectName": "project02"
     },
     {
-      "scale": 3,
+      "scale": 13,
       "projectName": "project03"
     },
     {
-      "scale": 4,
+      "scale": 14,
       "projectName": "project04"
     },
     {
-      "scale": 5,
+      "scale": 15,
       "projectName": "project05"
     }
   ],

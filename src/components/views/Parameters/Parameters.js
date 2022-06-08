@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './Parameters.module.scss';
+
+const idUUID = uuidv4();
 
 class Parameters extends Component {
   _onChangeXPosition(xPosterPosition, parameterId) {
@@ -32,10 +35,16 @@ class Parameters extends Component {
 
   _onChangePosterDimensions(posterDimensionsName, parameterId) {
     this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
-  } 
+  }
+
+  handleClickRemovePicture(pictureId) {
+    // console.log('remove picture');
+    this.props.removePicture(pictureId);
+  }
 
   render() {
-    const { posters, chosenPosterId, pictures, posterDimensions } = this.props;
+    const { posters, chosenPosterId, pictures, posterDimensions, addPicture } =
+      this.props;
     const poster = posters.filter((poster) => poster.id === chosenPosterId)[0];
 
     if (!poster) {
@@ -144,11 +153,29 @@ class Parameters extends Component {
                               )
                             }
                           />
+
                           <section className={styles.pictureName}>
-                            {picture.pictureName}
+                            {picture.pictureName} &nbsp; &nbsp; &nbsp; 
+                            <i
+                              className={'fa fa-trash-o'}
+                              data-key={poster.id}
+                              onClick={this.handleClickRemovePicture}
+                            ></i>
                           </section>
                         </div>
                       ))}
+                      <button
+                        className={styles.addPicture}
+                        onClick={(event) =>
+                          addPicture({
+                            id: idUUID,
+                            pictureName: 'Saturn',
+                            url: '/images/Saturn.jpg',
+                          })
+                        }
+                      >
+                        add picture to gallery
+                      </button>
                     </div>
                     <div
                       id={'closeGallery'}
@@ -156,7 +183,9 @@ class Parameters extends Component {
                       onClick={() => this.closeGallery()}
                       className={styles.closeGallery}
                     >
-                      <p className={styles.closeGalleryX}>x</p>
+                      {' '}
+                      &nbsp; x
+                      {/* <p className={styles.closeGalleryX}>x</p> */}
                     </div>
                   </div>
                 </td>
@@ -179,6 +208,8 @@ Parameters.propTypes = {
   setPictureName: PropTypes.func,
   posterDimensions: PropTypes.any,
   setPosterDimensionsName: PropTypes.func,
+  addPicture: PropTypes.any,
+  removePicture: PropTypes.any,
 };
 
 export default Parameters;
