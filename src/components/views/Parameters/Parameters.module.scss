@@ -79,19 +79,35 @@ table {
   }
 }
 
-.pictureName {
-  color:$color-white;
-  text-align: center;
+.pictureName {  
   display:inline-block;
-  width: fit-content;
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 6px;
+  width: 60%;
+  background-color: rgba(255, 255, 255, 0.5);  
   vertical-align:middle;
   position: absolute;
   top: 75%; 
   left: 50%; 
   transform: translate(-50%, -150%);
-  font-weight: bold;
+    input {    
+      color:$color-white;
+      text-align: center;
+      font-weight: bold; 
+      padding: 6px;
+      width: 70%;
+      background-color: rgba(255, 255, 255, 0);
+      float: left;
+      text-align: center;
+      font-size: small;
+      border: solid 1px $color-gray;
+    }
+    ::placeholder {
+      color:$color-white;
+      text-align: center;
+      font-weight: bold;
+    }
+    i {
+      padding: 6px 0 0 0;
+    }
 }
 
 .addPicture {
@@ -112,11 +128,4 @@ table {
   padding: 0;
 }
 
-input, form {
-  width: 28%;
-  background-color: $color-light;
-  float: right;
-  text-align: center;
-  font-size: small;
-  border: solid 1px $color-gray;
-}
+

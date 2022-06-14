@@ -3,6 +3,7 @@ import storeJSON from '../data/store.json';
 import globalReducer from './globalRedux';
 import posterReducer from './postersRedux';
 import chosenPosterIDReducer from './chosenPosterIDRedux';
+import chosenPictureIDReducer from './chosenPictureIDRedux';
 import pictureReducer from './picturesRedux';
 import backgroundWallsReducer from './backgroundWallsRedux';
 import selectedBackgroundWallNameReducer from './selectedBackgroundWallNameRedux';
@@ -19,6 +20,7 @@ const initialState = storeJSON;
 const reducers = {
   posters: posterReducer,
   chosenPoster: chosenPosterIDReducer,
+  chosenPicture: chosenPictureIDReducer,
   pictures: pictureReducer,
   backgroundWalls: backgroundWallsReducer,
   selectedBackgroundWallNames: selectedBackgroundWallNameReducer,

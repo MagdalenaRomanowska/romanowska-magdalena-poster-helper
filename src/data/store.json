@@ -86,54 +86,71 @@
     "startClickPositionX": 0,
     "startClickPositionY": 0
   },
+  "chosenPicture": {    
+    "id": 0,
+    "pictureName": "Saturn",
+    "url": "/images/Saturn.jpg"
+  },
   "pictures": [
     {
+      "id": "01",
       "pictureName": "Saturn",
-      "url": "/images/Saturn.jpg"
+      "pictureUrl": "/images/Saturn.jpg"
     },
     {
+      "id": "02",
       "pictureName": "Jupiter",
-      "url": "/images/Jupiter.jpg"
+      "pictureUrl": "/images/Jupiter.jpg"
     },
     {
+      "id": "03",
       "pictureName": "Mars",
-      "url": "/images/Mars.jpg"
+      "pictureUrl": "/images/Mars.jpg"
     },
     {
+      "id": "04",
       "pictureName": "Space01",
-      "url": "/images/Space01.jpg"
+      "pictureUrl": "/images/Space01.jpg"
     },
     {
+      "id": "05",
       "pictureName": "Space02",
-      "url": "/images/Space02.jpg"
+      "pictureUrl": "/images/Space02.jpg"
     },
     {
+      "id": "06",
       "pictureName": "Space03",
-      "url": "/images/Space03.jpg"
+      "pictureUrl": "/images/Space03.jpg"
     },
     {
+      "id": "070",
       "pictureName": "Venus",
-      "url": "/images/Venus.jpg"
+      "pictureUrl": "/images/Venus.jpg"
     },
     {
+      "id": "08",
       "pictureName": "kosmos01",
-      "url": "/images/kosmos01.jpg"
+      "pictureUrl": "/images/kosmos01.jpg"
     },
     {
+      "id": "09",
       "pictureName": "kosmos02",
-      "url": "/images/kosmos02.jpg"
+      "pictureUrl": "/images/kosmos02.jpg"
     },
     {
+      "id": "10",
       "pictureName": "kosmos03",
-      "url": "/images/kosmos03.jpg"
+      "pictureUrl": "/images/kosmos03.jpg"
     },
     {
+      "id": "11",
       "pictureName": "blackhole",
-      "url": "/images/blackhole.jpg"
+      "pictureUrl": "/images/blackhole.jpg"
     },
     {
+      "id": "12",
       "pictureName": "blackholeNASA",
-      "url": "/images/blackholeNASA.jpg"
+      "pictureUrl": "/images/blackholeNASA.jpg"
     }
   ],
   "backgroundWalls": [

@@ -37,19 +37,40 @@ class Parameters extends Component {
     this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
   }
 
-  handleClickRemovePicture(pictureId) {
-    // console.log('remove picture');
-    this.props.removePicture(pictureId);
+  handleClickRemovePicture(dupa) {
+    console.log('remove picture');
+    // this.props.removePicture(dupa);
+  }
+
+  _onChangePictureName(pictureName, pictureId) {
+    this.props.setNewPictureName(pictureId, pictureName);
+  }
+
+  _onChangePictureUrl(pictureUrl, pictureId) {
+    this.props.setNewPictureUrl(pictureId, pictureUrl);
   }
 
   render() {
-    const { posters, chosenPosterId, pictures, posterDimensions, addPicture } =
-      this.props;
+    const {
+      posters,
+      chosenPosterId,
+      chosenPictureId,
+      pictures,
+      posterDimensions,
+      addPicture,
+    } = this.props;
     const poster = posters.filter((poster) => poster.id === chosenPosterId)[0];
+    const picture = pictures.filter(
+      (picture) => picture.id === chosenPictureId
+    )[0];
 
     if (!poster) {
       return ' ';
     }
+
+    // if (!picture) {
+    //   return ' ';
+    // }
 
     return (
       <div className={styles.root}>
@@ -144,24 +165,45 @@ class Parameters extends Component {
                         >
                           <img
                             className={styles.imageInGallery}
-                            src={picture.url}
+                            src={picture.pictureUrl}
                             alt={'gallery posters'}
                             onClick={(e) =>
                               this._onChangePicture(
                                 picture.pictureName,
-                                poster.id
+                                picture.id
                               )
                             }
                           />
 
-                          <section className={styles.pictureName}>
-                            {picture.pictureName} &nbsp; &nbsp; &nbsp; 
+                          <div className={styles.pictureName}>
+                            <input
+                              type='text'
+                              value={picture.pictureName}
+                              onChange={(e) =>
+                                this._onChangePictureName(
+                                  e.target.value,
+                                  picture.id
+                                )
+                              }                              
+                            />
+                            <input
+                              type='text'
+                              value={picture.pictureUrl}
+                              onChange={(e) =>
+                                this._onChangePictureUrl(
+                                  e.target.value,
+                                  picture.id
+                                )
+                              }
+                            />
+                            {/* <div id='result'>ooo</div> */}
+                            &nbsp; &nbsp; &nbsp;
                             <i
                               className={'fa fa-trash-o'}
                               data-key={poster.id}
                               onClick={this.handleClickRemovePicture}
                             ></i>
-                          </section>
+                          </div>
                         </div>
                       ))}
                       <button
@@ -170,7 +212,7 @@ class Parameters extends Component {
                           addPicture({
                             id: idUUID,
                             pictureName: 'Saturn',
-                            url: '/images/Saturn.jpg',
+                            pictureUrl: '/images/Saturn.jpg',
                           })
                         }
                       >
@@ -184,8 +226,7 @@ class Parameters extends Component {
                       className={styles.closeGallery}
                     >
                       {' '}
-                      &nbsp; x
-                      {/* <p className={styles.closeGalleryX}>x</p> */}
+                      &nbsp; x{/* <p className={styles.closeGalleryX}>x</p> */}
                     </div>
                   </div>
                 </td>
@@ -204,8 +245,11 @@ Parameters.propTypes = {
   setPosterAngle: PropTypes.func,
   posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
+  chosenPictureId: PropTypes.any,
   pictures: PropTypes.any,
   setPictureName: PropTypes.func,
+  setNewPictureName: PropTypes.func,
+  setNewPictureUrl: PropTypes.func,
   posterDimensions: PropTypes.any,
   setPosterDimensionsName: PropTypes.func,
   addPicture: PropTypes.any,

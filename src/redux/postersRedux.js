@@ -100,6 +100,17 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
+    case SET_PICTURE_NAME: {
+      return statePart.map((item) => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return {
+          ...item,
+          pictureName: action.payload.pictureName,
+        };
+      });
+    }
     case SET_Y_POSTER_POSITION: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
@@ -122,17 +133,7 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
-    case SET_PICTURE_NAME: {
-      return statePart.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return {
-          ...item,
-          pictureName: action.payload.pictureName,
-        };
-      });
-    }
+    
     case SET_BACKGROUNDWALL_NAME: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
