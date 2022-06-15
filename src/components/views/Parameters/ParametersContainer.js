@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({
   setNewPictureUrl: (posterId, pictureUrl) => dispatch(setNewPictureUrl(posterId, pictureUrl)),
   setPosterDimensionsName: (posterId, posterDimensionsName) => dispatch(setPosterDimensionsName(posterId, posterDimensionsName)),
   addPicture: (order) => dispatch(addPicture(order)),  
-  removePicture: (id) => dispatch(removePicture(id)),
+  removePicture: (pictureId) => dispatch(removePicture(pictureId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Parameters);

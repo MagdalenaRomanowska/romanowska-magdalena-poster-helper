@@ -32,7 +32,7 @@ export default function reducer(statePart = [], action = {}) {
       return newArray;
     }  
     case REMOVE_PICTURE: {
-      return statePart.filter((item) => item.id !== action.payload);
+      return statePart.filter((item) => item.id !== action.id);
     }
     case SET_NEW_PICTURE_NAME: {
       return statePart.map((item) => {

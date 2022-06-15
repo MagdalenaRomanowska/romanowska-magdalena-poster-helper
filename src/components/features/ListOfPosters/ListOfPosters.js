@@ -31,7 +31,6 @@ class ListOfPosters extends React.Component {
 
   _onChangeMovePosterUp(chosenPosterIndex) {
     this.props.movePosterUp(chosenPosterIndex);
-    console.log('move poster up');
   }
 
   handleClickMovePosterUp(event) {
@@ -40,7 +39,6 @@ class ListOfPosters extends React.Component {
 
   _onChangeMovePosterDown(chosenPosterIndex) {
     this.props.movePosterDown(chosenPosterIndex);
-    console.log('move poster down');
   }
 
   handleClickMovePosterDown(event) {

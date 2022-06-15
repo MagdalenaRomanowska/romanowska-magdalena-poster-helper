@@ -6,6 +6,11 @@ import styles from './Parameters.module.scss';
 const idUUID = uuidv4();
 
 class Parameters extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClickRemovePicture = this.handleClickRemovePicture.bind(this);
+  }
+  
   _onChangeXPosition(xPosterPosition, parameterId) {
     this.props.setXPosterPosition(parameterId, xPosterPosition);
   }
@@ -37,9 +42,14 @@ class Parameters extends Component {
     this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
   }
 
-  handleClickRemovePicture(dupa) {
-    console.log('remove picture');
-    // this.props.removePicture(dupa);
+  _onChangeRemovePicture(chosenPictureID) {
+    console.log('chosenPictureID: ', chosenPictureID);
+    this.props.removePicture(chosenPictureID);
+  }
+
+  handleClickRemovePicture(event) {
+    console.log('event: ', event.target.getAttribute('data-key'));
+    this._onChangeRemovePicture(event.target.getAttribute('data-key'));
   }
 
   _onChangePictureName(pictureName, pictureId) {
@@ -54,11 +64,12 @@ class Parameters extends Component {
     const {
       posters,
       chosenPosterId,
-      // chosenPictureId,
+      chosenPictureId,
       pictures,
       posterDimensions,
       addPicture,
     } = this.props;
+
     const poster = posters.filter((poster) => poster.id === chosenPosterId)[0];
     // const picture = pictures.filter(
     //   (picture) => picture.id === chosenPictureId
@@ -196,7 +207,7 @@ class Parameters extends Component {
                             &nbsp; &nbsp; &nbsp;
                             <i
                               className={'fa fa-trash-o'}
-                              data-key={poster.id}
+                              data-key={picture.id}
                               onClick={this.handleClickRemovePicture}
                             ></i>
                           </div>
@@ -241,7 +252,7 @@ Parameters.propTypes = {
   setPosterAngle: PropTypes.func,
   posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
-  // chosenPictureId: PropTypes.any,
+  chosenPictureId: PropTypes.any,
   pictures: PropTypes.any,
   setPictureName: PropTypes.func,
   setNewPictureName: PropTypes.func,
