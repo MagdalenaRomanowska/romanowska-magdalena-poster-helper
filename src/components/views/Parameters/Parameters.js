@@ -54,23 +54,19 @@ class Parameters extends Component {
     const {
       posters,
       chosenPosterId,
-      chosenPictureId,
+      // chosenPictureId,
       pictures,
       posterDimensions,
       addPicture,
     } = this.props;
     const poster = posters.filter((poster) => poster.id === chosenPosterId)[0];
-    const picture = pictures.filter(
-      (picture) => picture.id === chosenPictureId
-    )[0];
+    // const picture = pictures.filter(
+    //   (picture) => picture.id === chosenPictureId
+    // )[0];
 
     if (!poster) {
       return ' ';
     }
-
-    // if (!picture) {
-    //   return ' ';
-    // }
 
     return (
       <div className={styles.root}>
@@ -160,7 +156,7 @@ class Parameters extends Component {
                     >
                       {pictures.map((picture) => (
                         <div
-                          key={picture.pictureName}
+                          key={picture.id}
                           className={styles.picture}
                         >
                           <img
@@ -245,7 +241,7 @@ Parameters.propTypes = {
   setPosterAngle: PropTypes.func,
   posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
-  chosenPictureId: PropTypes.any,
+  // chosenPictureId: PropTypes.any,
   pictures: PropTypes.any,
   setPictureName: PropTypes.func,
   setNewPictureName: PropTypes.func,
