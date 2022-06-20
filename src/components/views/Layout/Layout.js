@@ -21,6 +21,7 @@ class Layout extends React.Component {
     this.handleClickPoster = this.handleClickPoster.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
+    this.removeEverything = this.removeEverything.bind(this);
   }
 
   handleClickPoster() {
@@ -50,13 +51,25 @@ class Layout extends React.Component {
     }
   }
 
+  removeEverything() {
+    this.props.removeAllPosters();
+    this.props.removeAllPictures();
+    this.props.removeAllBackgroundWalls();
+    this.props.removeChosenPoster();
+    this.props.removeSelectedBackgroundWallNames();
+    this.props.removeAllProjectNames();
+    this.props.removeSelectedProjectName();
+    this.props.removeAllPosterDimensions();
+    this.props.removeGlobalScale();
+  }
+
   render() {
     const { posters } = this.props;
 
     return (
       <div className={styles.root}>
-        <div className={styles.features}>          
-          <DropZone />
+        <div className={styles.features}>  
+          <div onClick={this.removeEverything}><DropZone /></div>       
           <ProjectToChoose />
           <Buttons />
           <ListOfPosters />
@@ -105,6 +118,15 @@ Layout.propTypes = {
   setXPosterPosition: PropTypes.func,
   setYPosterPosition: PropTypes.func,
   selectedProjectName: PropTypes.any,
+  removeAllPosters: PropTypes.any,
+  removeAllPictures: PropTypes.any,
+  removeAllBackgroundWalls: PropTypes.any,
+  removeChosenPoster: PropTypes.any,
+  removeSelectedBackgroundWallNames: PropTypes.any,
+  removeAllProjectNames: PropTypes.any,
+  removeSelectedProjectName: PropTypes.any,
+  removeAllPosterDimensions: PropTypes.any,
+  removeGlobalScale: PropTypes.any,
 };
 
 export default Layout;

@@ -33,7 +33,7 @@ class Parameters extends Component {
     document.getElementById('closeGallery').style.display = 'none';
   }
 
-  _onChangePicture(pictureName, parameterId) {
+  _onChangePicture(pictureName, parameterId) {   
     this.props.setPictureName(parameterId, pictureName);
     this.closeGallery();
   }
@@ -42,17 +42,15 @@ class Parameters extends Component {
     this.props.setPosterDimensionsName(parameterId, posterDimensionsName);
   }
 
-  _onChangeRemovePicture(chosenPictureID) {
-    console.log('chosenPictureID: ', chosenPictureID);
+  _onChangeRemovePicture(chosenPictureID) {    
     this.props.removePicture(chosenPictureID);
   }
 
   handleClickRemovePicture(event) {
-    console.log('event: ', event.target.getAttribute('data-key'));
     this._onChangeRemovePicture(event.target.getAttribute('data-key'));
   }
 
-  _onChangePictureName(pictureName, pictureId) {
+  _onChangePictureName(pictureName, pictureId) {    
     this.props.setNewPictureName(pictureId, pictureName);
   }
 
@@ -64,16 +62,12 @@ class Parameters extends Component {
     const {
       posters,
       chosenPosterId,
-      chosenPictureId,
       pictures,
       posterDimensions,
       addPicture,
     } = this.props;
 
     const poster = posters.filter((poster) => poster.id === chosenPosterId)[0];
-    // const picture = pictures.filter(
-    //   (picture) => picture.id === chosenPictureId
-    // )[0];
 
     if (!poster) {
       return ' ';
@@ -177,7 +171,7 @@ class Parameters extends Component {
                             onClick={(e) =>
                               this._onChangePicture(
                                 picture.pictureName,
-                                picture.id
+                                poster.id
                               )
                             }
                           />
@@ -252,7 +246,6 @@ Parameters.propTypes = {
   setPosterAngle: PropTypes.func,
   posters: PropTypes.any,
   chosenPosterId: PropTypes.any,
-  chosenPictureId: PropTypes.any,
   pictures: PropTypes.any,
   setPictureName: PropTypes.func,
   setNewPictureName: PropTypes.func,

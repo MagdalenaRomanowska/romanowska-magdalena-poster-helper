@@ -85,12 +85,7 @@
     "startPosterPositionY": 0,
     "startClickPositionX": 0,
     "startClickPositionY": 0
-  },
-  "chosenPicture": {    
-    "id": 0,
-    "pictureName": "Saturn",
-    "url": "/images/Saturn.jpg"
-  },
+  },  
   "pictures": [
     {
       "id": "01",
@@ -123,7 +118,7 @@
       "pictureUrl": "/images/Space03.jpg"
     },
     {
-      "id": "070",
+      "id": "07",
       "pictureName": "Venus",
       "pictureUrl": "/images/Venus.jpg"
     },

@@ -48,8 +48,7 @@ export const movePosterDown = (id, projectName) => ({
   payload: { id, projectName },
   type: MOVE_POSTER_DOWN,
 });
-export const removeAllPosters = (projectName) => ({
-  projectName,
+export const removeAllPosters = () => ({ 
   type: REMOVE_ALL_POSTERS,
 });
 export const setPictureName = (id, pictureName) => ({
@@ -99,18 +98,7 @@ export default function reducer(statePart = [], action = {}) {
           xPosterPosition: parseInt(action.payload.xPosterPosition),
         };
       });
-    }
-    case SET_PICTURE_NAME: {
-      return statePart.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return {
-          ...item,
-          pictureName: action.payload.pictureName,
-        };
-      });
-    }
+    }    
     case SET_Y_POSTER_POSITION: {
       return statePart.map((item) => {
         if (item.id !== action.payload.id) {
@@ -153,6 +141,17 @@ export default function reducer(statePart = [], action = {}) {
         return {
           ...item,
           posterDimensionsName: action.payload.posterDimensionsName,
+        };
+      });
+    }
+    case SET_PICTURE_NAME: {
+      return statePart.map((item) => {
+        if (item.id !== action.payload.id) {
+          return item;
+        }
+        return {
+          ...item,
+          pictureName: action.payload.pictureName,
         };
       });
     }
@@ -223,9 +222,7 @@ export default function reducer(statePart = [], action = {}) {
       }
     }
     case REMOVE_ALL_POSTERS: {
-      return statePart.filter(
-        (item) => item.projectName !== action.projectName
-      );
+      return [];
     }
     case SET_POSTERS: {
       return action.value;

@@ -118,5 +118,4 @@ Poster.propTypes = {
   removePoster: PropTypes.func,
   selectedProjectName: PropTypes.any,
   setGlobalScaleByProjectName: PropTypes.func,
-  setPictureName: PropTypes.func,
 };

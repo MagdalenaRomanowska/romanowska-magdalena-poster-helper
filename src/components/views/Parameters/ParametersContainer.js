@@ -4,7 +4,6 @@ import {getAllPostersByProjectName, setXPosterPosition, setYPosterPosition, setP
   setPictureName, setPosterDimensionsName, getPosterDimensionsNameByPosterID } from '../../../redux/postersRedux';
 import { getAllPictures, addPicture, removePicture, setNewPictureName, setNewPictureUrl } from '../../../redux/picturesRedux';
 import { getChosenPosterId } from '../../../redux/chosenPosterIDRedux';
-import { getChosenPictureId } from '../../../redux/chosenPictureIDRedux';
 import { getAllPosterDimensions } from '../../../redux/posterDimensionsRedux';
 import { getPosterWidthByPictureName, getPosterHeightByPictureName } from '../../../redux/posterDimensionsRedux';
 import { getSelectedProjectName } from '../../../redux/selectedProjectNameRedux';
@@ -12,8 +11,7 @@ import { getSelectedProjectName } from '../../../redux/selectedProjectNameRedux'
 const mapStateToProps = (state, props) => ({
   posters: getAllPostersByProjectName(state, state.selectedProjectName),
   pictures: getAllPictures(state),  
-  chosenPosterId: getChosenPosterId(state),   
-  chosenPictureId: getChosenPictureId(state),     
+  chosenPosterId: getChosenPosterId(state),       
   posterDimensions: getAllPosterDimensions(state),
   posterWidth: getPosterWidthByPictureName(state, getPosterDimensionsNameByPosterID(state, props.chosenPosterID)),
   posterHeight: getPosterHeightByPictureName(state, getPosterDimensionsNameByPosterID(state, props.chosenPosterID)),
