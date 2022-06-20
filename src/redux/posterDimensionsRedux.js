@@ -15,11 +15,14 @@ export const getPosterHeightByPictureName = ({ posterDimensions }, pictureName) 
 };
 
 const REMOVE_ALL_POSTER_DIMENSIONS = createActionName('REMOVE_ALL_POSTER_DIMENSIONS');
+const SET_POSTER_DIMENSIONS = createActionName('SET_POSTER_DIMENSIONS');
 
 // action creators
 export const removeAllPosterDimensions = () => ({
   type: REMOVE_ALL_POSTER_DIMENSIONS,
 });
+
+export const setPosterDimensions = (value) => ({ payload: {value}, type: SET_POSTER_DIMENSIONS });
 
 // reducer
 export default function reducer(statePart = [], action = {}) {
@@ -27,6 +30,9 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_ALL_POSTER_DIMENSIONS: {
       return [];      
     }       
+    case SET_POSTER_DIMENSIONS: {
+      return  action.payload.value;
+    } 
     default:
       return statePart;
   }

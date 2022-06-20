@@ -6,9 +6,13 @@ import styles from './DropZone.module.scss';
 export default function DropZone(props) {
   const {
     setPosters,
-    setGlobalScaleByProjectName,
-    setSelectedBackgroundWallName,
-    selectedProjectName,
+    setPictures,
+    setBackgroundWalls,
+    setGlobalScales,
+    setProjectNames,
+    setPosterDimensions,
+    setSelectedBackgroundWallNames,
+    setDefaultSelectedProjectName,
   } = props;
   
   const onDrop = useCallback((acceptedFiles) => {
@@ -19,10 +23,14 @@ export default function DropZone(props) {
       reader.onload = () => {
         const binaryStr = reader.result;
         const upload = JSON.parse(binaryStr);
-        console.log('upload.selectedBackgroundWallNames : ', upload.selectedBackgroundWallNames);
-        // setGlobalScaleByProjectName(upload.globalScales, upload.selectedProjectName);
-        setSelectedBackgroundWallName(upload.selectedBackgroundWallNames);
-        // setPosters(upload.posters);
+        setPosters(upload.posters);
+        setPictures(upload.pictures);
+        setBackgroundWalls(upload.backgroundWalls);
+        setGlobalScales(upload.globalScales);
+        setProjectNames(upload.projectNames);
+        setPosterDimensions(upload.posterDimensions);
+        setSelectedBackgroundWallNames(upload.selectedBackgroundWallNames);
+        setDefaultSelectedProjectName(upload.selectedProjectName);
       };
       reader.readAsText(file);
     });
@@ -43,8 +51,12 @@ export default function DropZone(props) {
 }
 
 DropZone.propTypes = {
-  selectedProjectName: PropTypes.any,
   setPosters: PropTypes.func,
-  setGlobalScaleByProjectName: PropTypes.any,
-  setSelectedBackgroundWallName: PropTypes.any,
+  setPictures: PropTypes.func,
+  setBackgroundWalls: PropTypes.func,
+  setGlobalScales: PropTypes.func,
+  setProjectNames: PropTypes.func,
+  setPosterDimensions: PropTypes.func,
+  setSelectedBackgroundWallNames: PropTypes.func,
+  setDefaultSelectedProjectName: PropTypes.any,
 };

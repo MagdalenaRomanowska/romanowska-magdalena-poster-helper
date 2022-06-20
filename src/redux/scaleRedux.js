@@ -4,12 +4,12 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 
 /* action types */
 const SET_GLOBAL_SCALE_BY_PROJECT_NAME = createActionName('SET_GLOBAL_SCALE_BY_PROJECT_NAME');
-const SET_GLOBAL_SCALE = createActionName('SET_GLOBAL_SCALE');
+const SET_GLOBAL_SCALES = createActionName('SET_GLOBAL_SCALES');
 const REMOVE_GLOBAL_SCALE = createActionName('REMOVE_GLOBAL_SCALE');
 
 /* action creators */
 export const setGlobalScaleByProjectName = (scale, projectName) => ({ payload: {scale, projectName}, type: SET_GLOBAL_SCALE_BY_PROJECT_NAME });
-export const setGlobalScale = (value) => ({ payload: {value}, type: SET_GLOBAL_SCALE });
+export const setGlobalScales = (value) => ({ payload: {value}, type: SET_GLOBAL_SCALES });
 export const removeGlobalScale = () => ({ type: REMOVE_GLOBAL_SCALE });
 
 /* SELECTORS */
@@ -36,7 +36,7 @@ export default function reducer(statePart = [], action = {}) {
         };
       });
     }
-    case SET_GLOBAL_SCALE: {
+    case SET_GLOBAL_SCALES: {
       return  action.payload.value;
     }  
     case REMOVE_GLOBAL_SCALE: {

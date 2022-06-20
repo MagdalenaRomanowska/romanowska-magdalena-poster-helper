@@ -6,6 +6,7 @@ const createActionName = (name) => `app/${reducerName}/${name}`;
 const SET_SELECTED_BACKGROUNDWALLNAME_BY_PROJECT_NAME = createActionName('SET_SELECTED_BACKGROUNDWALLNAME_BY_PROJECT_NAME');
 const SET_SELECTED_BACKGROUNDWALLNAME = createActionName('SET_SELECTED_BACKGROUNDWALLNAME');
 const REMOVE_SELECTED_BACKGROUNDWALLNAMES = createActionName('REMOVE_SELECTED_BACKGROUNDWALLNAMES');
+const SET_SELECTED_BACKGROUNDWALLNAMES = createActionName('SET_SELECTED_BACKGROUNDWALLNAMES');
 
 export const setSelectedBackgroundWallNameByProjectName = (backgroundWallName, projectName) => ({ payload: {backgroundWallName, projectName}, type: SET_SELECTED_BACKGROUNDWALLNAME_BY_PROJECT_NAME });
 export const setSelectedBackgroundWallName = (value) => ({ payload: {value}, type: SET_SELECTED_BACKGROUNDWALLNAME });
@@ -15,6 +16,7 @@ export const getSelectedBackgroundWallName = (store) => {
 export const removeSelectedBackgroundWallNames = () => ({
   type: REMOVE_SELECTED_BACKGROUNDWALLNAMES,
 });
+export const setSelectedBackgroundWallNames = (value) => ({ payload: {value}, type: SET_SELECTED_BACKGROUNDWALLNAMES });
 
 
 // action creators
@@ -47,6 +49,9 @@ export default function reducer(statePart = [], action = {}) {
     } 
     case REMOVE_SELECTED_BACKGROUNDWALLNAMES: {
       return  [];
+    } 
+    case SET_SELECTED_BACKGROUNDWALLNAMES: {
+      return  action.payload.value;
     } 
     default:
       return statePart;

@@ -1,22 +1,27 @@
 import { connect } from 'react-redux';
 import DropZone from './DropZone';
 import { setPosters } from '../../../redux/postersRedux';
-import { getSelectedBackgroundWallNameByProjectName, setSelectedBackgroundWallName } from '../../../redux/selectedBackgroundWallNameRedux';
-import { setGlobalScaleByProjectName, setGlobalScale } from '../../../redux/scaleRedux';
-import { getSelectedProjectName } from '../../../redux/selectedProjectNameRedux';
-import { getEverything } from '../../../redux/everythingRedux';
+import { setPictures } from '../../../redux/picturesRedux';
+import { setBackgroundWalls } from '../../../redux/backgroundWallsRedux';
+import { setGlobalScales } from '../../../redux/scaleRedux';
+import { setProjectNames } from '../../../redux/projectNamesRedux';
+import { setPosterDimensions } from '../../../redux/posterDimensionsRedux';
+import { setSelectedBackgroundWallNames } from '../../../redux/selectedBackgroundWallNameRedux';
+import { setDefaultSelectedProjectName } from '../../../redux/selectedProjectNameRedux';
 
 const mapStateToProps = (state) => ({
-  everything: getEverything(state),
-  selectedProjectName: getSelectedProjectName(state),
-  selectedBackgroundWallNameByProjectName: getSelectedBackgroundWallNameByProjectName(state, state.selectedProjectName),
+  
 });
 
 const mapDispatchToProps = dispatch => ({
-  setGlobalScaleByProjectName: (scale, projectName) => dispatch(setGlobalScaleByProjectName(scale, projectName)),
   setPosters: (value) => dispatch(setPosters(value)),
-  setGlobalScale: (value) => dispatch(setGlobalScale(value)),
-  setSelectedBackgroundWallName: (backgroundWallName) => dispatch(setSelectedBackgroundWallName(backgroundWallName)),
+  setPictures: (value) => dispatch(setPictures(value)),
+  setBackgroundWalls: (value) => dispatch(setBackgroundWalls(value)),
+  setGlobalScales: (value) => dispatch(setGlobalScales(value)),
+  setProjectNames: (value) => dispatch(setProjectNames(value)),
+  setPosterDimensions: (value) => dispatch(setPosterDimensions(value)),
+  setSelectedBackgroundWallNames: (value) => dispatch(setSelectedBackgroundWallNames(value)),
+  setDefaultSelectedProjectName: (value) => dispatch(setDefaultSelectedProjectName(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DropZone);

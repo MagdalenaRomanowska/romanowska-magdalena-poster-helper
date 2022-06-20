@@ -7,6 +7,7 @@ const REMOVE_PICTURE = createActionName('REMOVE_PICTURE');
 const REMOVE_ALL_PICTURES = createActionName('REMOVE_ALL_PICTURES');
 const SET_NEW_PICTURE_NAME = createActionName('SET_NEW_PICTURE_NAME');
 const SET_NEW_PICTURE_URL = createActionName('SET_NEW_PICTURE_URL');
+const SET_PICTURES = createActionName('SET_PICTURES');
 
 export const addPicture = (id) => ({ id, type: ADD_PICTURE });
 export const removePicture = (id) => ({ id, type: REMOVE_PICTURE });
@@ -18,6 +19,9 @@ export const setNewPictureUrl = (id, pictureUrl) => ({
   payload: { id, pictureUrl },
   type: SET_NEW_PICTURE_URL,
 });
+
+export const setPictures = (value) => ({ value, type: SET_PICTURES });
+
 export const getURLByPictureName = ({ pictures }, pictureName) => {
   const filtered = pictures.filter((p) => p.pictureName === pictureName);
   return filtered.length ? filtered[0].pictureUrl : { error: true };
@@ -61,6 +65,9 @@ export default function reducer(statePart = [], action = {}) {
     }
     case REMOVE_ALL_PICTURES: {
       return [];      
+    }
+    case SET_PICTURES: {
+      return action.value;
     }
     default:
       return statePart;
