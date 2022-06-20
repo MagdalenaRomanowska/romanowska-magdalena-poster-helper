@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './Parameters.module.scss';
 
-const idUUID = uuidv4();
-
 class Parameters extends Component {
   constructor(props) {
     super(props);
@@ -211,7 +209,7 @@ class Parameters extends Component {
                         className={styles.addPicture}
                         onClick={(event) =>
                           addPicture({
-                            id: idUUID,
+                            id: uuidv4(),
                             pictureName: 'Saturn',
                             pictureUrl: '/images/Saturn.jpg',
                           })

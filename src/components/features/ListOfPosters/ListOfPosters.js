@@ -62,7 +62,7 @@ class ListOfPosters extends React.Component {
                 }
                 data-key={poster.id}
                 onClick={this.handleClickPosterNameOnList}
-                defaultValue={poster.posterName}
+                value={poster.pictureName}
               ></textarea>
               <button className={styles.buttons}>
                 <i

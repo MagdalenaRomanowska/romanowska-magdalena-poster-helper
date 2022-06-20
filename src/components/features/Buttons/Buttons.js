@@ -5,7 +5,6 @@ import styles from './Buttons.module.scss';
 
 export default function Buttons(props) {
   const { everything, removeAllPosters, addPoster, selectedProjectName } = props;
-  const idUUID = uuidv4();
 
   function saveThisProject(filename, data) {
     const blob = new Blob([data], { type: 'text/csv' });
@@ -45,9 +44,8 @@ export default function Buttons(props) {
         className={styles.buttonAddPoster}
         onClick={(event) =>
           addPoster({
-            id: idUUID,
+            id: uuidv4(),
             projectName: selectedProjectName,
-            posterName: 'Saturn', //idUUID.slice(0, 5),
             xPosterPosition: 220,
             yPosterPosition: 220,
             pictureName: 'Saturn',
